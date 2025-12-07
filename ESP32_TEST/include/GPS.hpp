@@ -95,9 +95,10 @@ void GPS::ParseRMC(String trame)
 
     if (fields[2] != "A")
     {
-        Serial.println("GPS invalide !");
+        //Serial.println("GPS invalide !");
         return;
     }
+    
 
     // Heure UTC (hhmmss)
     if (fields[1].length() >= 6)
