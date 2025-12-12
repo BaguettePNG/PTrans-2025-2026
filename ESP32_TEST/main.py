@@ -1,38 +1,28 @@
-import numpy as np
-import matplotlib.pyplot as plt
+import struct
+from PIL import Image
 
-# Équations approximatives issues de la datasheet (en kΩ)
-def Rmax(L):
-    return 100 * L**(-0.76)
+width = 160
+height = 120
+filename = "E:\\img.raw"
 
-def Rmin(L):
-    return 30 * L**(-0.74)
+# Lire le RAW
+with open(filename, "rb") as f:
+    raw = f.read()
 
-# Domaine : 1 → 100 lux
-L = np.logspace(0, 2, 500)
+img = Image.new("RGB", (width, height))
+pixels = img.load()
 
-R_max = Rmax(L)
-R_min = Rmin(L)
+for y in range(height):
+    for x in range(width):
+        i = (y * width + x) * 2
+        # Lire deux octets
+        val = struct.unpack_from("<H", raw, i)[0]  # little endian
+        # Extraire RGB565
+        r = ((val >> 11) & 0x1F) << 3
+        g = ((val >> 5) & 0x3F) << 2
+        b = (val & 0x1F) << 3
+        pixels[x, y] = (r, g, b)
 
-plt.figure(figsize=(7,5))
-
-# Tracé des courbes
-plt.loglog(L, R_max, label="Rmax")
-plt.loglog(L, R_min, label="Rmin")
-
-# Zone grisée
-plt.fill_between(L, R_min, R_max, alpha=0.3)
-
-# 📌 Équations affichées directement sur le graphique
-plt.text(2, Rmax(2), r"$R_{\max}(L) = 100\,L^{-0.76}$", 
-         fontsize=11, va="bottom")
-
-plt.text(2, Rmin(2), r"$R_{\min}(L) = 30\,L^{-0.74}$", 
-         fontsize=11, va="top")
-
-plt.xlabel("Luminosité (lux)")
-plt.ylabel("Résistance (kΩ)")
-plt.title("Courbes LDR – équations affichées")
-plt.grid(True, which="both")
-
-plt.show()
+# Sauvegarder en BMP ou PNG
+img.save("img.bmp")
+print("Conversion terminée !")
