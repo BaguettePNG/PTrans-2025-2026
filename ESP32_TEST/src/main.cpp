@@ -18,7 +18,7 @@ void setup()
         while(1);
     }
 
-    camera.CaptureFrame("/capture.txt");
+    camera.CaptureFrameBMP("/capture.bmp");
 }
 
 void loop() 

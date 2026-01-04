@@ -25,6 +25,9 @@
 #define HREF_GPIO   33  // HREF
 #define PCLK_GPIO   25  // PCLK
 
+#define PIXEL_PER_LINE_UXGA 1600
+#define NB_LINES_UXGA 1200
+
 class CAM
 {
     private:
@@ -32,6 +35,7 @@ class CAM
     public:
         CAM();
         void CaptureFrame(const char* filename);
+        void CaptureFrameBMP(const char* filename) 
 
     private : 
         void writeReg(uint8_t reg, uint8_t val); // Ecriture registre I2C
@@ -78,30 +82,47 @@ void CAM::writeReg(uint8_t reg, uint8_t val)
     delayMicroseconds(100);
 }
 
-void CAM::RegisterInit() {
-    // Reset complet
-    writeReg(0xFF, 0x01);
-    writeReg(0x12, 0x80);
+void CAM::RegisterInit() 
+{
+    // 1. Reset complet du capteur
+    writeReg(0xFF, 0x01); // Sélection Bank 1 (Sensor)
+    writeReg(0x12, 0x80); // Reset matériel via SCCB [cite: 83]
     delay(100);
 
-    // Configuration simplifiée pour JPEG 480p (DVGA 720x480)
-    // Note : Pour un code de production, une table complète est normalement nécessaire
-    writeReg(0xFF, 0x00);
-    writeReg(0x2C, 0xFF); // Prescaler
-    writeReg(0x2E, 0xDF); 
+    // 2. Configuration Résolution UXGA (1600x1200)
+    // On s'assure d'être sur la Bank 1 pour les timings capteur
+    writeReg(0xFF, 0x01); 
+    writeReg(0x11, 0x01); // CLKRC : Horloge interne (Prescaler), 15 fps en UXGA [cite: 55, 101]
+                          // Augmenter la valeur si image décaler pour ralentir la caméra
+    writeReg(0x12, 0x00); // COM7 : Mode UXGA, Format Raw (par défaut avant DSP) [cite: 67]
     
-    writeReg(0xFF, 0x01);
-    writeReg(0x11, 0x01); // Clock divider
-    writeReg(0x12, 0x00); // Mode normal (UXGA si 0x40, SVGA si 0x00)
+    // Fenêtrage par défaut pour 1600x1200 [cite: 32]
+    // (Les registres HREFST, HREFEND, VSTRT, VEND sont généralement aux valeurs par défaut pour UXGA)
+
+    // 3. Configuration Format de sortie RGB565 et Qualité (Bank 0)
+    writeReg(0xFF, 0x00); // Sélection Bank 0 (DSP) [cite: 114]
     
-    // Switch vers DSP pour le scaling
-    writeReg(0xFF, 0x00);
-    writeReg(0x05, 0x01); // Activer JPEG
-    writeReg(0xE0, 0x04);
-    writeReg(0xC0, 0xC8); // Taille Horizontale (720 -> 0x2D0)
-    writeReg(0xC1, 0x1E); // Taille Verticale (480 -> 0x1E0)
+    // Activer le DSP et configurer le format de sortie
+    writeReg(0x05, 0x00); // R_BYPASS : Utiliser le DSP (0: DSP, 1: Bypass) 
     
-    // ... D'autres registres DSP seraient nécessaires pour un réglage fin du JPEG
+    // Configuration du format RGB565 sur le port 8-bit [cite: 231]
+    // Note : COM7 en Bank 0 (0x12) est souvent utilisé pour définir le format final
+    writeReg(0x12, 0x09); // Exemple type : Output RGB565
+    
+    // 4. Optimisation de la Qualité Image (DSP)
+    // Activation des fonctions de traitement interne [cite: 64, 211]
+    writeReg(0x44, 0x0C); // Qs : Facteur de mise à l'échelle de la quantification par défaut 
+    
+    /* Pour une qualité maximale, le DSP gère automatiquement :
+       - Matrice RGB (élimination du cross-talk) [cite: 64]
+       - Netteté / Edge enhancement [cite: 211]
+       - Correction de Gamma programmable [cite: 231]
+       - Débruitage et annulation de pixels blancs [cite: 212]
+    */
+
+    // 5. Configuration finale du port vidéo (Synchronisation)
+    writeReg(0xFF, 0x01); // Retour Bank 1
+    writeReg(0x15, 0x00); // COM10 : PCLK actif sur front descendant (standard) [cite: 87]
 }
 
 CAM::CAM()
@@ -129,40 +150,123 @@ CAM::CAM()
     RegisterInit();
 }
 
-void CAM::CaptureFrame(const char* filename) {
+void CAM::CaptureFrame(const char* filename) 
+{
     File file = SD.open(filename, FILE_WRITE);
     if (!file) {
         Serial.println("Erreur : Impossible d'ouvrir le fichier SD");
         return;
     }
 
-    // 1. Attendre la fin du VSYNC actuel (s'il y en a un)
-    while (readGPIO(VSYNC_GPIO) == 1);
-    // 2. Attendre le début d'une nouvelle image (VSYNC monte)
+    Serial.println("Attente du signal VSYNC...");
+
+    // 1. Attendre la fin du VSYNC actuel (s'il est déjà en cours)
     while (readGPIO(VSYNC_GPIO) == 0);
-    // 3. Attendre que VSYNC redescende (début effectif des données)
+    // 2. Attendre le début d'une nouvelle trame (VSYNC passe à 0)
     while (readGPIO(VSYNC_GPIO) == 1);
 
-    Serial.println("Capture en cours...");
+    // UXGA : 1600 pixels par ligne, 1200 lignes. 
+    // RGB565 : 2 octets par pixel.
+    for (int y = 0; y < NB_LINES_UXGA; y++) 
+    {
+        // Attendre que HREF devienne haut (début de ligne)
+        while (readGPIO(HREF_GPIO) == 0);
 
-    // Boucle de capture tant que VSYNC est bas (pendant l'image)
-    // Note : Pour du JPEG, on cherche les marqueurs SOI (0xFFD8) et EOI (0xFFD9)
-    while (readGPIO(VSYNC_GPIO) == 0) {
-        // Attendre que HREF soit haut (ligne active)
-        if (readGPIO(HREF_GPIO) == 1) {
-            // Attendre le front montant de PCLK pour lire l'octet
+        for (int x = 0; x < PIXEL_PER_LINE_UXGA; x++) 
+        {
+            // --- Premier Octet (High Byte : RRRRRGGG) ---
+            while (readGPIO(PCLK_GPIO) == 0); // Attendre front montant PCLK
+            uint8_t byte1 = readByteFast();
+            while (readGPIO(PCLK_GPIO) == 1); // Attendre front descendant PCLK
+
+            // --- Deuxième Octet (Low Byte : GGGBBBBB) ---
             while (readGPIO(PCLK_GPIO) == 0); 
-            
-            uint8_t data = readByteFast();
-            file.write(data);
-
-            // Attendre que PCLK redescende
+            uint8_t byte2 = readByteFast();
             while (readGPIO(PCLK_GPIO) == 1);
+
+            // Écriture sur la carte SD
+            file.write(byte1);
+            file.write(byte2);
         }
+
+        // Attendre que HREF devienne bas (fin de ligne)
+        while (readGPIO(HREF_GPIO) == 1);
     }
 
     file.close();
-    Serial.println("Capture terminée.");
+    Serial.println("Capture UXGA RGB565 terminée.");
+}
+
+void CAM::CaptureFrameBMP(const char* filename) 
+{
+    // 1. Préparation du Header BMP (UXGA 1600x1200, 24-bit)
+    uint32_t width = 1600;
+    uint32_t height = 1200;
+    uint32_t fileSize = 54 + (width * height * 3);
+    
+    uint8_t bmpHeader[54] = {
+        0x42, 0x4D,             // Signature "BM"
+        (uint8_t)(fileSize), (uint8_t)(fileSize >> 8), (uint8_t)(fileSize >> 16), (uint8_t)(fileSize >> 24),
+        0x00, 0x00, 0x00, 0x00, // Réservé
+        0x36, 0x00, 0x00, 0x00, // Offset data (54)
+        0x28, 0x00, 0x00, 0x00, // Taille header info (40)
+        (uint8_t)(width), (uint8_t)(width >> 8), (uint8_t)(width >> 16), (uint8_t)(width >> 24),
+        (uint8_t)(height), (uint8_t)(height >> 8), (uint8_t)(height >> 16), (uint8_t)(height >> 24),
+        0x01, 0x00,             // Plans (1)
+        0x18, 0x00,             // Bits par pixel (24 bits pour RGB888)
+        0x00, 0x00, 0x00, 0x00, // Compression (0 = aucune)
+        0x00, 0x00, 0x00, 0x00, // Taille image (0 si pas de compression)
+        0x00, 0x00, 0x00, 0x00, // Résolution H
+        0x00, 0x00, 0x00, 0x00, // Résolution V
+        0x00, 0x00, 0x00, 0x00, // Couleurs palette
+        0x00, 0x00, 0x00, 0x00  // Couleurs importantes
+    };
+
+    File file = SD.open(filename, FILE_WRITE);
+    if (!file) return;
+    file.write(bmpHeader, 54);
+
+    // 2. Buffer de ligne pour s'affranchir de la latence SD
+    // On stocke les pixels convertis en RGB888 (3 octets par pixel)
+    uint8_t* lineBuffer = (uint8_t*)malloc(width * 3);
+    if (!lineBuffer) return;
+
+    // 3. Synchronisation VSYNC
+    while (readGPIO(VSYNC_GPIO) == 0);
+    while (readGPIO(VSYNC_GPIO) == 1);
+
+    // Note : Le format BMP stocke les images de BAS en HAUT. 
+    // Pour un code simple ici, nous lisons de haut en bas (image sera inversée verticalement)
+    for (int y = 0; y < height; y++) {
+        while (readGPIO(HREF_GPIO) == 0); // Début de ligne
+
+        for (int x = 0; x < width; x++) {
+            // Lecture Octet 1 (RGB565 : RRRRRGGG)
+            while (readGPIO(PCLK_GPIO) == 0);
+            uint8_t b1 = readByteFast();
+            while (readGPIO(PCLK_GPIO) == 1);
+
+            // Lecture Octet 2 (RGB565 : GGGBBBBB)
+            while (readGPIO(PCLK_GPIO) == 0);
+            uint8_t b2 = readByteFast();
+            while (readGPIO(PCLK_GPIO) == 1);
+
+            // Conversion RGB565 vers RGB888 (pour le BMP 24-bit)
+            // BMP utilise l'ordre BGR
+            lineBuffer[x * 3 + 2] = (b1 & 0xF8);                    // Rouge
+            lineBuffer[x * 3 + 1] = ((b1 << 5) | (b2 >> 3)) & 0xFC; // Vert
+            lineBuffer[x * 3 + 0] = (b2 << 3);                      // Bleu
+        }
+
+        // Écriture de la ligne complète sur la SD d'un seul coup
+        file.write(lineBuffer, width * 3);
+        
+        while (readGPIO(HREF_GPIO) == 1); // Fin de ligne
+    }
+
+    free(lineBuffer);
+    file.close();
+    Serial.println("Capture BMP 24-bit terminée.");
 }
 
 #endif
