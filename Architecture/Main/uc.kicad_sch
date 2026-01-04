@@ -44484,7 +44484,7 @@
 			"LpLaOkn3w6gP/k8c/Q+H1H+xzkcrv+lxro///2157XLmVsSkAAAAAElFTkSuQmCC"
 		)
 	)
-	(hierarchical_label "D24"
+	(hierarchical_label "D27"
 		(shape input)
 		(at 160.02 91.44 180)
 		(effects
@@ -44495,29 +44495,7 @@
 		)
 		(uuid "0852fdc4-840b-4057-8ef7-edec18a46bd8")
 	)
-	(hierarchical_label "TX0"
-		(shape input)
-		(at 204.47 73.66 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "0d5e457a-f270-4aa2-ae8d-dfb80316611d")
-	)
-	(hierarchical_label "D17"
-		(shape input)
-		(at 194.31 88.9 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "121fd325-4b92-43c8-b12d-9da9d4ed0a98")
-	)
-	(hierarchical_label "SCK"
+	(hierarchical_label "D18"
 		(shape input)
 		(at 194.31 83.82 0)
 		(effects
@@ -44528,7 +44506,7 @@
 		)
 		(uuid "15a48328-1fe9-496f-88bc-2f33b94b7335")
 	)
-	(hierarchical_label "CS_SD"
+	(hierarchical_label "D5"
 		(shape input)
 		(at 194.31 86.36 0)
 		(effects
@@ -44538,6 +44516,17 @@
 			(justify left)
 		)
 		(uuid "25ee776a-01c0-4b61-bc68-c4503bd4ac8a")
+	)
+	(hierarchical_label "D12_MISO"
+		(shape input)
+		(at 160.02 96.52 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "2ecab93d-0743-48cb-959a-93284b78d014")
 	)
 	(hierarchical_label "D34"
 		(shape input)
@@ -44561,7 +44550,7 @@
 		)
 		(uuid "3922c4ad-b9e4-4f01-8b0d-8ec7491ce919")
 	)
-	(hierarchical_label "MOSI"
+	(hierarchical_label "D23"
 		(shape input)
 		(at 193.04 68.58 0)
 		(effects
@@ -44594,16 +44583,16 @@
 		)
 		(uuid "4c343a4f-6a4d-4f3a-b40e-b6bc73a9a2c4")
 	)
-	(hierarchical_label "D12"
+	(hierarchical_label "D3"
 		(shape input)
-		(at 160.02 96.52 180)
+		(at 204.47 76.2 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify left)
 		)
-		(uuid "595f138e-4c34-4dfb-a990-6abda2db7d37")
+		(uuid "5c3f2345-0d40-4f9a-8976-e0cc81bda796")
 	)
 	(hierarchical_label "D36"
 		(shape input)
@@ -44616,7 +44605,7 @@
 		)
 		(uuid "6349cf6a-40f2-4e3c-8372-eb14a7b1556f")
 	)
-	(hierarchical_label "D15"
+	(hierarchical_label "D15_CS"
 		(shape input)
 		(at 194.31 99.06 0)
 		(effects
@@ -44626,6 +44615,17 @@
 			(justify left)
 		)
 		(uuid "6fbf5638-5550-4728-a6b6-e21cbed3c480")
+	)
+	(hierarchical_label "D13_MOSI"
+		(shape input)
+		(at 160.02 99.06 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "8f40934c-d343-41f4-8d46-acf9fc41c445")
 	)
 	(hierarchical_label "D25"
 		(shape input)
@@ -44649,16 +44649,16 @@
 		)
 		(uuid "956f1187-31b7-4e85-9d3f-a32ee99dd304")
 	)
-	(hierarchical_label "D16"
+	(hierarchical_label "D1"
 		(shape input)
-		(at 194.31 91.44 0)
+		(at 204.47 73.66 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "a2177126-6811-4b31-b8ec-8c2d5258f3cd")
+		(uuid "95ba4e91-6e40-4ca4-87f1-12ec4a73fc66")
 	)
 	(hierarchical_label "D26"
 		(shape input)
@@ -44682,17 +44682,6 @@
 		)
 		(uuid "a594c3e0-2b40-4b01-981c-0c095276b3c6")
 	)
-	(hierarchical_label "D13"
-		(shape input)
-		(at 160.02 99.06 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "b99d2498-4299-4980-ab92-bad67912e670")
-	)
 	(hierarchical_label "D2"
 		(shape input)
 		(at 194.31 96.52 0)
@@ -44704,7 +44693,7 @@
 		)
 		(uuid "d05ab8ee-579b-4fe8-ad80-f437bebdd6bf")
 	)
-	(hierarchical_label "D14"
+	(hierarchical_label "D14_CLK"
 		(shape input)
 		(at 160.02 93.98 180)
 		(effects
@@ -44714,17 +44703,6 @@
 			(justify right)
 		)
 		(uuid "d12e51c1-341b-4a3a-948d-6fcc09b24836")
-	)
-	(hierarchical_label "RX0"
-		(shape input)
-		(at 204.47 76.2 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "d18c010c-d4d2-43d5-bdf9-fc95e5cdacd5")
 	)
 	(hierarchical_label "+3.3V"
 		(shape input)
@@ -44781,7 +44759,18 @@
 		)
 		(uuid "e8808888-b900-43b5-83c9-248be5846072")
 	)
-	(hierarchical_label "MISO"
+	(hierarchical_label "RX2"
+		(shape input)
+		(at 194.31 91.44 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "eba3194a-45ff-472d-9c31-e270e190b5e5")
+	)
+	(hierarchical_label "D19"
 		(shape input)
 		(at 194.31 81.28 0)
 		(effects
@@ -44791,6 +44780,17 @@
 			(justify left)
 		)
 		(uuid "ecd33dbc-8040-4318-8a6f-a1b786fbe38a")
+	)
+	(hierarchical_label "TX2"
+		(shape input)
+		(at 194.31 88.9 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "ef5286df-f572-44a0-8adb-2839697c61ff")
 	)
 	(symbol
 		(lib_id "MCU:ESP32_DEV_MODULE")

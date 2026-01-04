@@ -803,7 +803,7 @@
 		(uuid d37d6df0-1272-4a66-ba61-387b682a3822)
 	)
 	(rectangle
-		(start 203.2 25.4)
+		(start 189.23 25.4)
 		(end 266.7 63.5)
 		(stroke
 			(width 0)
@@ -1123,6 +1123,17 @@
 		)
 		(uuid "0a780135-cc89-4ba0-b2aa-73d946d7bc27")
 	)
+	(hierarchical_label "I2C_SCL"
+		(shape input)
+		(at 74.93 50.8 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "1235a5d4-cc5f-465b-84d6-ebd80407ca8d")
+	)
 	(hierarchical_label "MOUV"
 		(shape input)
 		(at 143.51 148.59 180)
@@ -1200,7 +1211,7 @@
 		)
 		(uuid "6e2a39c9-35ef-4086-94c9-aaff17ba61dd")
 	)
-	(hierarchical_label "D36"
+	(hierarchical_label "BRIGHTNESS_SENSOR"
 		(shape input)
 		(at 213.36 43.18 180)
 		(effects
@@ -1210,6 +1221,17 @@
 			(justify right)
 		)
 		(uuid "77ee7442-9f64-467d-83f9-9623c5faa2cc")
+	)
+	(hierarchical_label "I2C_SDA"
+		(shape input)
+		(at 74.93 46.99 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "8f56bda9-a5be-451e-9325-23cf9d689589")
 	)
 	(hierarchical_label "GND"
 		(shape input)

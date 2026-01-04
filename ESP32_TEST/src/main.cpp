@@ -1,27 +1,31 @@
 #include <Arduino.h>
 #include <Wire.h>
-#include <SD.h>
 #include "CAM.hpp"
 #include "SDM.h"
 
+CAM cam; // L'objet est créé mais il est "endormi" (pas de crash au boot)
 
-void setup() 
-{
+void setup() {
     Serial.begin(115200);
-    delay(1000); // Attendre que le port série soit prêt
+    delay(1000); // Laisse l'électronique se stabiliser
 
+    // 1. Initialisation I2C CENTRALISÉE
+    Wire.begin(21, 22); 
+    Wire.setClock(100000);
+    delay(200);
+
+    // 2. Initialisation SD
     initSD();
 
-    CAM camera;
-    if(!camera.begin()) {
-        Serial.println("Erreur d'initialisation de la caméra.");
+    // 3. Initialisation Caméra via la nouvelle méthode begin()
+    if (!cam.begin()) {
+        Serial.println("Echec Caméra !");
         while(1);
     }
 
-    camera.CaptureFrameBMP("/capture.bmp");
+    Serial.println("Capture...");
+    cam.CaptureFrameBMP("/photo.bmp");
+    Serial.println("Fini.");
 }
 
-void loop() 
-{
-
-}
+void loop() {}
