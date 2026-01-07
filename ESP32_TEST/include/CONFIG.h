@@ -1,14 +1,14 @@
 #ifndef __CONFIG_H__
 #define __CONFIG_H__
 
-#define WEAKUP_PIR_PIN    33
-#define DRIVE_PWR_PIN     25
+#define WAKE_UP           4
+#define PWR_U_D           36
 
 // DHT22 sensor
 #define DHT_PIN           5
 
 // Brightness sensor
-#define LDR_PIN           36 // Not Use
+#define LDR_PIN           -1 // Not Use
 
 // UART2 - GPS
 #define GPS_RX_PIN        16
@@ -34,7 +34,7 @@
 #define VSYNC_GPIO        34
 #define HREF_GPIO         25
 #define PCLK_GPIO         35
-#define XCLK_GPIO         -1   
+#define XCLK_GPIO         -1 // Not Use  
 
 
 #endif // __CONFIG_H__

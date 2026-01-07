@@ -10,7 +10,8 @@ GPS gps(GPS_RX_PIN, GPS_TX_PIN);
 CAM cam;
 DHT dht(DHT_PIN, DHT22);
 
-void setup() {
+void setup() 
+{
     Serial.begin(115200);
     while(!Serial); // Attend l'ouverture du moniteur
     delay(2000); 

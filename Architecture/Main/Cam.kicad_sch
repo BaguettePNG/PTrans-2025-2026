@@ -5,7 +5,7 @@
 	(uuid "7fd1e59d-d896-4263-8d21-df7365fed559")
 	(paper "A4")
 	(lib_symbols
-		(symbol "Connector:Screw_Terminal_01x02"
+		(symbol "Connector_Generic:Conn_01x02"
 			(pin_names
 				(offset 1.016)
 				(hide yes)
@@ -21,7 +21,7 @@
 					)
 				)
 			)
-			(property "Value" "Screw_Terminal_01x02"
+			(property "Value" "Conn_01x02"
 				(at 0 -5.08 0)
 				(effects
 					(font
@@ -47,7 +47,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
 				(at 0 0 0)
 				(effects
 					(font
@@ -56,7 +56,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_keywords" "screw terminal"
+			(property "ki_keywords" "connector"
 				(at 0 0 0)
 				(effects
 					(font
@@ -65,7 +65,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_fp_filters" "TerminalBlock*:*"
+			(property "ki_fp_filters" "Connector*:*_1x??_*"
 				(at 0 0 0)
 				(effects
 					(font
@@ -74,7 +74,7 @@
 					(hide yes)
 				)
 			)
-			(symbol "Screw_Terminal_01x02_1_1"
+			(symbol "Conn_01x02_1_1"
 				(rectangle
 					(start -1.27 1.27)
 					(end 1.27 -3.81)
@@ -86,10 +86,9 @@
 						(type background)
 					)
 				)
-				(polyline
-					(pts
-						(xy -0.5334 0.3302) (xy 0.3302 -0.508)
-					)
+				(rectangle
+					(start -1.27 0.127)
+					(end 0 -0.127)
 					(stroke
 						(width 0.1524)
 						(type default)
@@ -98,56 +97,9 @@
 						(type none)
 					)
 				)
-				(polyline
-					(pts
-						(xy -0.5334 -2.2098) (xy 0.3302 -3.048)
-					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.3556 0.508) (xy 0.508 -0.3302)
-					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.3556 -2.032) (xy 0.508 -2.8702)
-					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 0 0)
-					(radius 0.635)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 0 -2.54)
-					(radius 0.635)
+				(rectangle
+					(start -1.27 -2.413)
+					(end 0 -2.667)
 					(stroke
 						(width 0.1524)
 						(type default)
@@ -801,34 +753,36 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Device:R_US"
+		(symbol "Device:C"
 			(pin_numbers
 				(hide yes)
 			)
 			(pin_names
-				(offset 0)
+				(offset 0.254)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "R"
-				(at 2.54 0 90)
+			(property "Reference" "C"
+				(at 0.635 2.54 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left)
 				)
 			)
-			(property "Value" "R_US"
-				(at -2.54 0 90)
+			(property "Value" "C"
+				(at 0.635 -2.54 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left)
 				)
 			)
 			(property "Footprint" ""
-				(at 1.016 -0.254 90)
+				(at 0.9652 -3.81 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -845,7 +799,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Resistor, US symbol"
+			(property "Description" "Unpolarized capacitor"
 				(at 0 0 0)
 				(effects
 					(font
@@ -854,7 +808,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_keywords" "R res resistor"
+			(property "ki_keywords" "cap capacitor"
 				(at 0 0 0)
 				(effects
 					(font
@@ -863,7 +817,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_fp_filters" "R_*"
+			(property "ki_fp_filters" "C_*"
 				(at 0 0 0)
 				(effects
 					(font
@@ -872,13 +826,13 @@
 					(hide yes)
 				)
 			)
-			(symbol "R_US_0_1"
+			(symbol "C_0_1"
 				(polyline
 					(pts
-						(xy 0 2.286) (xy 0 2.54)
+						(xy -2.032 0.762) (xy 2.032 0.762)
 					)
 					(stroke
-						(width 0)
+						(width 0.508)
 						(type default)
 					)
 					(fill
@@ -887,46 +841,10 @@
 				)
 				(polyline
 					(pts
-						(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
+						(xy -2.032 -0.762) (xy 2.032 -0.762)
 					)
 					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 0.762) (xy 1.016 0.381) (xy 0 0) (xy -1.016 -0.381) (xy 0 -0.762)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -2.286) (xy 0 -2.54)
-					)
-					(stroke
-						(width 0)
+						(width 0.508)
 						(type default)
 					)
 					(fill
@@ -934,10 +852,10 @@
 					)
 				)
 			)
-			(symbol "R_US_1_1"
+			(symbol "C_1_1"
 				(pin passive line
 					(at 0 3.81 270)
-					(length 1.27)
+					(length 2.794)
 					(name "~"
 						(effects
 							(font
@@ -955,7 +873,7 @@
 				)
 				(pin passive line
 					(at 0 -3.81 90)
-					(length 1.27)
+					(length 2.794)
 					(name "~"
 						(effects
 							(font
@@ -974,7 +892,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Simulation_SPICE:NPN"
+		(symbol "Simulation_SPICE:NMOS"
 			(pin_numbers
 				(hide yes)
 			)
@@ -985,23 +903,25 @@
 			(in_bom yes)
 			(on_board yes)
 			(property "Reference" "Q"
-				(at -2.54 7.62 0)
+				(at 5.08 1.27 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left)
 				)
 			)
-			(property "Value" "NPN"
-				(at -2.54 5.08 0)
+			(property "Value" "NMOS"
+				(at 5.08 -1.27 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left)
 				)
 			)
 			(property "Footprint" ""
-				(at 63.5 0 0)
+				(at 5.08 2.54 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -1009,8 +929,8 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#cha_BJTs"
-				(at 63.5 0 0)
+			(property "Datasheet" "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#cha_MOSFETs"
+				(at 0 -12.7 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -1018,7 +938,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Bipolar transistor symbol for simulation only, substrate tied to the emitter"
+			(property "Description" "N-MOSFET transistor, drain/source/gate"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1027,7 +947,34 @@
 					(hide yes)
 				)
 			)
-			(property "Sim.Device" "NPN"
+			(property "Sim.Device" "NMOS"
+				(at 0 -17.145 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Sim.Type" "VDMOS"
+				(at 0 -19.05 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Sim.Pins" "1=D 2=G 3=S"
+				(at 0 -15.24 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "transistor NMOS N-MOS N-MOSFET simulation"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1036,85 +983,11 @@
 					(hide yes)
 				)
 			)
-			(property "Sim.Type" "GUMMELPOON"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Sim.Pins" "1=C 2=B 3=E"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "simulation"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "NPN_0_1"
+			(symbol "NMOS_0_1"
 				(polyline
 					(pts
-						(xy -2.54 0) (xy 0.635 0)
+						(xy 0.254 1.905) (xy 0.254 -1.905)
 					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.635 1.905) (xy 0.635 -1.905) (xy 0.635 -1.905)
-					)
-					(stroke
-						(width 0.508)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.635 0.635) (xy 2.54 2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.635 -0.635) (xy 2.54 -2.54) (xy 2.54 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 1.27 0)
-					(radius 2.8194)
 					(stroke
 						(width 0.254)
 						(type default)
@@ -1125,8 +998,113 @@
 				)
 				(polyline
 					(pts
-						(xy 1.27 -1.778) (xy 1.778 -1.27) (xy 2.286 -2.286) (xy 1.27 -1.778) (xy 1.27 -1.778)
+						(xy 0.254 0) (xy -2.54 0)
 					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.762 2.286) (xy 0.762 1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.762 0.508) (xy 0.762 -0.508)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.762 -1.27) (xy 0.762 -2.286)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.762 -1.778) (xy 3.302 -1.778) (xy 3.302 1.778) (xy 0.762 1.778)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.016 0) (xy 2.032 0.381) (xy 2.032 -0.381) (xy 1.016 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(circle
+					(center 1.651 0)
+					(radius 2.794)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 2.54) (xy 2.54 1.778)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 2.54 1.778)
+					(radius 0.254)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(circle
+					(center 2.54 -1.778)
+					(radius 0.254)
 					(stroke
 						(width 0)
 						(type default)
@@ -1137,10 +1115,10 @@
 				)
 				(polyline
 					(pts
-						(xy 2.794 -1.27) (xy 2.794 -1.27)
+						(xy 2.54 -2.54) (xy 2.54 0) (xy 0.762 0)
 					)
 					(stroke
-						(width 0.1524)
+						(width 0)
 						(type default)
 					)
 					(fill
@@ -1149,10 +1127,22 @@
 				)
 				(polyline
 					(pts
-						(xy 2.794 -1.27) (xy 2.794 -1.27)
+						(xy 2.794 0.508) (xy 2.921 0.381) (xy 3.683 0.381) (xy 3.81 0.254)
 					)
 					(stroke
-						(width 0.1524)
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 3.302 0.381) (xy 2.921 -0.254) (xy 3.683 -0.254) (xy 3.302 0.381)
+					)
+					(stroke
+						(width 0)
 						(type default)
 					)
 					(fill
@@ -1160,11 +1150,11 @@
 					)
 				)
 			)
-			(symbol "NPN_1_1"
+			(symbol "NMOS_1_1"
 				(pin input line
 					(at -5.08 0 0)
 					(length 2.54)
-					(name "B"
+					(name "G"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1179,10 +1169,10 @@
 						)
 					)
 				)
-				(pin open_collector line
+				(pin passive line
 					(at 2.54 5.08 270)
 					(length 2.54)
-					(name "C"
+					(name "D"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1197,10 +1187,10 @@
 						)
 					)
 				)
-				(pin open_emitter line
+				(pin passive line
 					(at 2.54 -5.08 90)
 					(length 2.54)
-					(name "E"
+					(name "S"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1321,7 +1311,7 @@
 		)
 	)
 	(rectangle
-		(start 149.86 92.71)
+		(start 139.7 92.71)
 		(end 229.87 134.62)
 		(stroke
 			(width 0)
@@ -1333,7 +1323,7 @@
 		(uuid ab9f5e3f-039a-4f2a-92d5-2b06ff0461c3)
 	)
 	(rectangle
-		(start 149.86 53.34)
+		(start 139.7 53.34)
 		(end 229.87 90.17)
 		(stroke
 			(width 0)
@@ -1364,13 +1354,19 @@
 		)
 		(uuid "a88e75a1-03fa-423b-9fe7-9270ddc45c59")
 	)
+	(junction
+		(at 154.94 64.77)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "dad2baa0-a04f-4a3d-91e3-d85ec93b5a76")
+	)
 	(no_connect
 		(at 172.72 85.09)
 		(uuid "4eb30bed-9974-45b3-88e9-7193b27d1bc4")
 	)
 	(wire
 		(pts
-			(xy 162.56 115.57) (xy 167.64 115.57)
+			(xy 171.45 115.57) (xy 176.53 115.57)
 		)
 		(stroke
 			(width 0)
@@ -1450,16 +1446,6 @@
 	)
 	(wire
 		(pts
-			(xy 175.26 115.57) (xy 176.53 115.57)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4012fb53-b751-4a72-a4d5-16f140d561b4")
-	)
-	(wire
-		(pts
 			(xy 189.23 82.55) (xy 193.04 82.55)
 		)
 		(stroke
@@ -1467,6 +1453,16 @@
 			(type default)
 		)
 		(uuid "6b7a9137-6414-4cb4-b239-7e3fb4ae8ed1")
+	)
+	(wire
+		(pts
+			(xy 154.94 64.77) (xy 176.53 64.77)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "90112eac-ca1a-4f4e-958f-8e7288579957")
 	)
 	(wire
 		(pts
@@ -1570,7 +1566,7 @@
 	)
 	(wire
 		(pts
-			(xy 172.72 64.77) (xy 176.53 64.77)
+			(xy 152.4 64.77) (xy 154.94 64.77)
 		)
 		(stroke
 			(width 0)
@@ -1587,6 +1583,16 @@
 			(type default)
 		)
 		(uuid "fc7e3209-37c9-4925-9ec9-edaa54339db1")
+	)
+	(wire
+		(pts
+			(xy 152.4 72.39) (xy 154.94 72.39)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fd2b3d77-a63b-4900-9999-cd908c25bd9b")
 	)
 	(wire
 		(pts
@@ -13525,9 +13531,20 @@
 		)
 		(uuid "0d3ae83a-8ef1-470c-b384-27c4b13d771a")
 	)
+	(hierarchical_label "GND"
+		(shape input)
+		(at 152.4 72.39 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "131bc662-7a36-4b0a-9300-56246d974abe")
+	)
 	(hierarchical_label "IR"
 		(shape input)
-		(at 162.56 115.57 180)
+		(at 171.45 115.57 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -13670,7 +13687,7 @@
 	)
 	(hierarchical_label "+3.3V"
 		(shape input)
-		(at 172.72 64.77 180)
+		(at 152.4 64.77 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -13678,17 +13695,6 @@
 			(justify right)
 		)
 		(uuid "c7dc1f42-165b-451e-b978-39b737b85ef6")
-	)
-	(hierarchical_label "LED_IR_PWR"
-		(shape input)
-		(at 171.45 105.41 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "cd9b4ad0-144c-40b1-acfa-bdf24af7885d")
 	)
 	(hierarchical_label "D7"
 		(shape input)
@@ -13701,8 +13707,19 @@
 		)
 		(uuid "f43e0252-0481-4ab2-b3df-de0cd6ab9915")
 	)
+	(hierarchical_label "12V"
+		(shape input)
+		(at 171.45 105.41 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "fd9cad04-30c5-4e2c-bf6e-1c63602661ae")
+	)
 	(symbol
-		(lib_id "Connector:Screw_Terminal_01x02")
+		(lib_id "Connector_Generic:Conn_01x02")
 		(at 190.5 105.41 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -13710,8 +13727,8 @@
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "1455f124-3649-474f-9457-c026c708b2f9")
-		(property "Reference" "J7"
+		(uuid "4a958467-5066-477c-bf36-7ffd84858e60")
+		(property "Reference" "J2"
 			(at 193.04 105.4099 0)
 			(effects
 				(font
@@ -13720,7 +13737,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "Screw_Terminal_01x02"
+		(property "Value" "Conn_01x02"
 			(at 193.04 107.9499 0)
 			(effects
 				(font
@@ -13747,7 +13764,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
+		(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
 			(at 190.5 105.41 0)
 			(effects
 				(font
@@ -13756,103 +13773,23 @@
 				(hide yes)
 			)
 		)
-		(pin "2"
-			(uuid "e3f5a983-a369-47c1-a3ca-c64fb3061a5f")
-		)
 		(pin "1"
-			(uuid "d74ea0e3-4e5e-402c-8b8c-a7ea083217a5")
+			(uuid "5722aa91-9794-4bee-b076-b658f0205bdf")
+		)
+		(pin "2"
+			(uuid "fbaa340e-7938-4370-8c11-ace3e4ab48d4")
 		)
 		(instances
 			(project ""
 				(path "/77f264da-4c84-4b0c-9d20-4392731765e6/90e676b5-e192-40ef-8f2d-7a9315f03418"
-					(reference "J7")
-					(unit 1)
-				)
-			)
-			(project "Cam"
-				(path "/7fd1e59d-d896-4263-8d21-df7365fed559"
-					(reference "J?")
+					(reference "J2")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "Device:R_US")
-		(at 171.45 115.57 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "361a3246-4d74-482c-a180-b32a2e7987bb")
-		(property "Reference" "R3"
-			(at 171.45 109.22 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "R_US"
-			(at 171.45 111.76 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 171.704 114.554 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 171.45 115.57 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor, US symbol"
-			(at 171.45 115.57 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "d8d206ba-8b8b-4bc6-ae5f-b83ef53ed50b")
-		)
-		(pin "2"
-			(uuid "b99b9107-7cf7-4289-b5cb-a0a9c506c5f3")
-		)
-		(instances
-			(project ""
-				(path "/77f264da-4c84-4b0c-9d20-4392731765e6/90e676b5-e192-40ef-8f2d-7a9315f03418"
-					(reference "R3")
-					(unit 1)
-				)
-			)
-			(project "Cam"
-				(path "/7fd1e59d-d896-4263-8d21-df7365fed559"
-					(reference "R?")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Simulation_SPICE:NPN")
+		(lib_id "Simulation_SPICE:NMOS")
 		(at 181.61 115.57 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -13860,9 +13797,9 @@
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "6f8ecc79-d618-4b41-98dc-e850e846a972")
+		(uuid "a6cf7324-9f5f-4cd1-8194-09e3c08b4412")
 		(property "Reference" "Q3"
-			(at 186.69 114.2999 0)
+			(at 187.96 114.2999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13870,8 +13807,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "NPN"
-			(at 186.69 116.8399 0)
+		(property "Value" "NMOS"
+			(at 187.96 116.8399 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13880,7 +13817,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 245.11 115.57 0)
+			(at 186.69 113.03 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13888,8 +13825,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#cha_BJTs"
-			(at 245.11 115.57 0)
+		(property "Datasheet" "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#cha_MOSFETs"
+			(at 181.61 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13897,7 +13834,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Bipolar transistor symbol for simulation only, substrate tied to the emitter"
+		(property "Description" "N-MOSFET transistor, drain/source/gate"
 			(at 181.61 115.57 0)
 			(effects
 				(font
@@ -13906,8 +13843,8 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Device" "NPN"
-			(at 181.61 115.57 0)
+		(property "Sim.Device" "NMOS"
+			(at 181.61 132.715 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13915,8 +13852,8 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Type" "GUMMELPOON"
-			(at 181.61 115.57 0)
+		(property "Sim.Type" "VDMOS"
+			(at 181.61 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13924,8 +13861,8 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Pins" "1=C 2=B 3=E"
-			(at 181.61 115.57 0)
+		(property "Sim.Pins" "1=D 2=G 3=S"
+			(at 181.61 130.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13934,13 +13871,13 @@
 			)
 		)
 		(pin "3"
-			(uuid "63447250-cb12-4ebe-8400-be1179244fb7")
+			(uuid "3be21100-3548-4f1f-bbae-58b89792db49")
 		)
 		(pin "2"
-			(uuid "c39d2646-7c70-4128-9c28-cb74223b887e")
+			(uuid "cb91c22e-0cfe-4496-b95b-7fe15fce9f14")
 		)
 		(pin "1"
-			(uuid "4553c767-5ad2-403b-884b-6771dfc073f3")
+			(uuid "f0aacddb-c3d3-4696-bcab-804276619871")
 		)
 		(instances
 			(project ""
@@ -13949,9 +13886,73 @@
 					(unit 1)
 				)
 			)
-			(project "Cam"
-				(path "/7fd1e59d-d896-4263-8d21-df7365fed559"
-					(reference "Q?")
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 154.94 68.58 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ae39e698-0fed-43d1-aad5-ccb383b6ee0c")
+		(property "Reference" "C1"
+			(at 158.75 67.3099 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100nF"
+			(at 158.75 69.8499 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 155.9052 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 154.94 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 154.94 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a41a3f71-b471-47f2-8c7a-483b20c118d5")
+		)
+		(pin "2"
+			(uuid "77f924d1-1f2f-4570-b3b7-ef222afbfda8")
+		)
+		(instances
+			(project ""
+				(path "/77f264da-4c84-4b0c-9d20-4392731765e6/90e676b5-e192-40ef-8f2d-7a9315f03418"
+					(reference "C1")
 					(unit 1)
 				)
 			)
