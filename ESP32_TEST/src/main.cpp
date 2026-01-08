@@ -4,11 +4,20 @@
 #include <DHT.h>
 #include "RTC.hpp"
 #include "GPS.hpp"
+#include "BAT.hpp"
+#include "SENDWIFI.hpp"
 
+#define RefreshGPS 86400000 // 24h en ms
+
+BAT bat(BAT_PIN);
 RTC rtc;
 GPS gps(GPS_RX_PIN, GPS_TX_PIN);
 CAM cam;
 DHT dht(DHT_PIN, DHT22);
+SendData send;
+
+volatile int pictureCount = 0;
+unsigned int countTime = 0;
 
 void setup() 
 {
@@ -23,35 +32,92 @@ void setup()
     cam.begin();
 
     Serial.println("Initialisation du capteur DHT22...");
-    dht.begin();
+    dht.begin(); // Attend 2 secondes avant de lire les données
+
+    Serial.println("Initialisation du capteur DHT22...");
+    dht.begin(); // Attend 2 secondes avant de lire les données
+
+    Serial.println("Initialisation du GPS...");
+    while (!gps.gpsready())
+    {
+        Serial.println("En attente de données GPS...");
+        delay(1000);
+    }
+    gps.update();
+    rtc.updateFromGPS(gps.getHours(), gps.getMinutes(), gps.getSeconds(), gps.getDay(), gps.getMonth(), gps.getYear());
+
+    countTime = millis();
 
     Serial.println("SETUP TERMINÉ");
 }
 
 void loop() 
 {
-    if (Serial.available() && Serial.read() == 'c') {
+    if (Serial.available() && Serial.read() == 'c') 
+    {
         
+        // Camera capture
+        String fileName = "/pic" + String(pictureCount) + ".jpg";
+        cam.takeAndSavePhoto(fileName.c_str());
+
+        Serial.println("-----------------------------------");
+        Serial.println("Fichier Image : " + fileName);
+
         // Lecture des capteurs
         float temperature = dht.readTemperature();
         float humidity = dht.readHumidity();
 
-        // Vérification si la lecture a réussi
-        if (isnan(temperature) || isnan(humidity)) {
-            Serial.println("Erreur de lecture DHT22 !");
-            return; 
+        Serial.println("Température : " + String(temperature) + " °C");
+        Serial.println("Humidité : " + String(humidity) + " %");
+
+        // Lecture batterie
+        float batteryVoltage = bat.ReadVoltage();
+        Serial.println("Tension Batterie : " + String(batteryVoltage) + " V");
+
+        // Récupération date/heure GPS
+        if((millis() - countTime) >= RefreshGPS)
+        {
+            // Mise à Jours GPS et RTC
+            Serial.println("Mise à jour GPS");
+            countTime = millis();
+            while (!gps.gpsready())
+            {
+                Serial.println("En attente de données GPS...");
+                delay(1000);
+            }
+            gps.update();
+            rtc.updateFromGPS(gps.getHours(), gps.getMinutes(), gps.getSeconds(), gps.getDay(), gps.getMonth(), gps.getYear());
+
+        }
+        else
+        {
+            // Mise à jour RTC 
+            Serial.println("Mise à jour RTC interne");
+            rtc.getDateTime(); 
         }
 
-        Serial.printf("Temp: %.2fC | Hum: %.2f%%\n", temperature, humidity);
+        // Variable Interne GPS
+        String Latitude = gps.getLatitude();
+        String Longitude = gps.getLongitude();
 
-        // Nettoyage du nom de fichier (on remplace les points par des tirets pour éviter les bugs SD)
-        // Format : /pic_28_25_50.jpg (plus sûr)
-        String fileName = "/pic_" + String((int)(temperature)) + 
-                          "_" + String((int)humidity) + ".jpg";
+        Serial.println("Latitude : " + Latitude);
+        Serial.println("Longitude : " + Longitude);
 
-        Serial.print("Sauvegarde sous : ");
-        Serial.println(fileName);
+        // Variable Interne RTC
+        String year = rtc.getYear();
+        String month = rtc.getMonth();
+        String day = rtc.getDay();
+        String hours = rtc.getHours();
+        String minutes = rtc.getMinutes();
+        String seconds = rtc.getSeconds();
 
-        cam.takeAndSavePhoto(fileName.c_str());
+        Serial.println("Date (AAAA-MM-JJ) : " + year + "-" + month + "-" + day);
+        Serial.println("Heure (HH:MM:SS) : " + hours + ":" + minutes + ":" + seconds);
+        Serial.println("-----------------------------------");
+        Serial.println("");
+
+        //send.SendAllData(fileName, temperature, humidity, Latitude, Longitude, year, month, day, hours, minutes, seconds, batteryVoltage);
+
+        pictureCount++;
     }
 }

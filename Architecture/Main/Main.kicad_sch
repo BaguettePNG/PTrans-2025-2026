@@ -432,6 +432,16 @@
 	)
 	(wire
 		(pts
+			(xy 69.85 58.42) (xy 130.81 58.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1908aefb-fd8b-48a8-bc55-705d9265d4ab")
+	)
+	(wire
+		(pts
 			(xy 69.85 41.91) (xy 130.81 41.91)
 		)
 		(stroke
@@ -1893,6 +1903,16 @@
 				(justify right)
 			)
 		)
+		(pin "Voltage_Batt" input
+			(at 69.85 58.42 0)
+			(uuid "5eb89dd0-9f67-4c20-afd7-53d08006409f")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
 		(instances
 			(project "Main"
 				(path "/77f264da-4c84-4b0c-9d20-4392731765e6"
@@ -2126,13 +2146,13 @@
 			)
 		)
 		(pin "D2" input
-			(at 177.8 52.07 0)
+			(at 130.81 58.42 180)
 			(uuid "88656939-250a-43fa-a95f-e9725ab528ce")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(pin "D26" input

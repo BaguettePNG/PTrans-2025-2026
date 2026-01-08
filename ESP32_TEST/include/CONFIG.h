@@ -2,7 +2,10 @@
 #define __CONFIG_H__
 
 #define WAKE_UP           4
-#define PWR_U_D           36
+#define PWR_U_D           2
+
+// Niveau de batterie
+#define BAT_PIN           36
 
 // DHT22 sensor
 #define DHT_PIN           5

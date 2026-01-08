@@ -7,8 +7,23 @@
 
 class RTC
 {
+private :
+    String _hours;
+    String _minutes;
+    String _seconds;
+    String _day;
+    String _month;
+    String _year;
+
 public:
     RTC() {}  // Rien à configurer pour GPS
+
+    String getHours()  { return _hours; }
+    String getMinutes(){ return _minutes; }
+    String getSeconds(){ return _seconds; }
+    String getDay()    { return _day; }
+    String getMonth()  { return _month; }
+    String getYear()   { return _year; }
 
     String getDateTime()
     {
@@ -17,6 +32,14 @@ public:
 
         char buffer[25];
         strftime(buffer, sizeof(buffer), "%Y-%m-%d %H:%M:%S", &timeinfo);
+
+        _hours = String(timeinfo.tm_hour);
+        _minutes = String(timeinfo.tm_min);
+        _seconds = String(timeinfo.tm_sec);
+        _day = String(timeinfo.tm_mday);
+        _month = String(timeinfo.tm_mon + 1);
+        _year = String(timeinfo.tm_year + 1900);
+
         return String(buffer);
     }
 
