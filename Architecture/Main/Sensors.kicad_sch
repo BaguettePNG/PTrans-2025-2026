@@ -1437,17 +1437,6 @@
 		)
 		(uuid "1235a5d4-cc5f-465b-84d6-ebd80407ca8d")
 	)
-	(hierarchical_label "+3.3V_BATTERY"
-		(shape input)
-		(at 44.45 78.74 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "1c626f12-a944-4fce-8092-85d2fa02b538")
-	)
 	(hierarchical_label "DATA_DHT22"
 		(shape input)
 		(at 144.78 139.7 180)
@@ -1558,7 +1547,7 @@
 		)
 		(uuid "8f56bda9-a5be-451e-9325-23cf9d689589")
 	)
-	(hierarchical_label "Voltage_Batt"
+	(hierarchical_label "Voltage_Batt_value"
 		(shape input)
 		(at 44.45 91.44 180)
 		(effects
@@ -1601,6 +1590,17 @@
 			(justify right)
 		)
 		(uuid "ee55d930-c76a-4999-8205-f0f9753eae78")
+	)
+	(hierarchical_label "Voltage_Batt"
+		(shape input)
+		(at 44.45 78.74 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "f6a11902-a754-474e-ac0d-6e34e91b37d7")
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x04")
