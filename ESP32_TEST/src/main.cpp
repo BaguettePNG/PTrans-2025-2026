@@ -19,25 +19,24 @@ SendData send;
 volatile int pictureCount = 0;
 unsigned int countTime = 0;
 
-void setup() 
+void WakeUpLoop() 
 {
-    Serial.begin(115200);
-    while(!Serial); // Attend l'ouverture du moniteur
-    delay(2000); 
-
-    Serial.println("Initialisation de la carte SD...");
+    digitalWrite(PWR_U_D, HIGH); // Alimentation ON 
+    //delay(2000); // Attente stabilisation
     initSD();
-
-    Serial.println("Initialisation de la caméra...");
     cam.begin();
 
-    Serial.println("Initialisation du capteur DHT22...");
-    dht.begin(); // Attend 2 secondes avant de lire les données
+    String fileName = "/pic" + String(pictureCount) + ".jpg";
+    cam.takeAndSavePhoto(fileName.c_str()); 
 
-    Serial.println("Initialisation du capteur DHT22...");
     dht.begin(); // Attend 2 secondes avant de lire les données
+    delay(2000);
 
-    Serial.println("Initialisation du GPS...");
+    float temperature = dht.readTemperature();
+    float humidity = dht.readHumidity();
+    float batteryVoltage = bat.ReadVoltage();
+
+    /*
     while (!gps.gpsready())
     {
         Serial.println("En attente de données GPS...");
@@ -47,77 +46,100 @@ void setup()
     rtc.updateFromGPS(gps.getHours(), gps.getMinutes(), gps.getSeconds(), gps.getDay(), gps.getMonth(), gps.getYear());
 
     countTime = millis();
+    
 
-    Serial.println("SETUP TERMINÉ");
+    if((millis() - countTime) >= RefreshGPS)
+    {
+        // Mise à Jours GPS et RTC
+        Serial.println("Mise à jour GPS");
+        countTime = millis();
+        while (!gps.gpsready())
+        {
+            Serial.println("En attente de données GPS...");
+            delay(1000);
+        }
+        gps.update();
+        rtc.updateFromGPS(gps.getHours(), gps.getMinutes(), gps.getSeconds(), gps.getDay(), gps.getMonth(), gps.getYear());
+
+    }
+    else
+    {
+        // Mise à jour RTC 
+        Serial.println("Mise à jour RTC interne");
+        rtc.getDateTime(); 
+    }
+
+    // Variable Interne GPS
+    String Latitude = gps.getLatitude();
+    String Longitude = gps.getLongitude();
+
+    Serial.println("Latitude : " + Latitude);
+    Serial.println("Longitude : " + Longitude);
+
+    // Variable Interne RTC
+    String year = rtc.getYear();
+    String month = rtc.getMonth();
+    String day = rtc.getDay();
+    String hours = rtc.getHours();
+    String minutes = rtc.getMinutes();
+    String seconds = rtc.getSeconds();
+
+    //send.SendAllData(fileName, temperature, humidity, Latitude, Longitude, year, month, day, hours, minutes, seconds, batteryVoltage);
+    */
+
+    pictureCount++;
+
+    digitalWrite(PWR_U_D, LOW); // Alimentation OFF 
+    delay(1000); // Attente stabilisation
+
+    Serial.println("Réveil terminé.");
+    Serial.println(temperature);
+    Serial.println(humidity);
+    Serial.println(batteryVoltage);
+    Serial.println("Réveil terminé.");
+    Serial.println();
+}
+
+void mainTask(void *parameter) 
+{
+    Serial.begin(115200);
+
+    //setCpuFrequencyMhz(40);
+
+    pinMode(PWR_U_D, OUTPUT);
+    pinMode(WAKE_UP, INPUT_PULLDOWN);
+
+    // Cause de réveil ?
+    esp_sleep_wakeup_cause_t cause = esp_sleep_get_wakeup_cause();
+
+    if (cause == ESP_SLEEP_WAKEUP_EXT0) 
+    {
+        // Exécute l'action UNE seule fois
+        WakeUpLoop();
+        
+        while (digitalRead(WAKE_UP) == HIGH) {}
+    }
+
+    // Réarmer le front montant UNIQUEMENT quand la pin est basse
+    esp_sleep_enable_ext0_wakeup((gpio_num_t)WAKE_UP, 1);
+    esp_deep_sleep_start();
+}
+
+
+void setup() 
+{
+    xTaskCreatePinnedToCore(
+      mainTask,
+      "mainTask",
+      4096,
+      NULL,
+      1,
+      NULL,
+      0    // CORE 0
+    );
 }
 
 void loop() 
 {
-    if (Serial.available() && Serial.read() == 'c') 
-    {
-        
-        // Camera capture
-        String fileName = "/pic" + String(pictureCount) + ".jpg";
-        cam.takeAndSavePhoto(fileName.c_str());
-
-        Serial.println("-----------------------------------");
-        Serial.println("Fichier Image : " + fileName);
-
-        // Lecture des capteurs
-        float temperature = dht.readTemperature();
-        float humidity = dht.readHumidity();
-
-        Serial.println("Température : " + String(temperature) + " °C");
-        Serial.println("Humidité : " + String(humidity) + " %");
-
-        // Lecture batterie
-        float batteryVoltage = bat.ReadVoltage();
-        Serial.println("Tension Batterie : " + String(batteryVoltage) + " V");
-
-        // Récupération date/heure GPS
-        if((millis() - countTime) >= RefreshGPS)
-        {
-            // Mise à Jours GPS et RTC
-            Serial.println("Mise à jour GPS");
-            countTime = millis();
-            while (!gps.gpsready())
-            {
-                Serial.println("En attente de données GPS...");
-                delay(1000);
-            }
-            gps.update();
-            rtc.updateFromGPS(gps.getHours(), gps.getMinutes(), gps.getSeconds(), gps.getDay(), gps.getMonth(), gps.getYear());
-
-        }
-        else
-        {
-            // Mise à jour RTC 
-            Serial.println("Mise à jour RTC interne");
-            rtc.getDateTime(); 
-        }
-
-        // Variable Interne GPS
-        String Latitude = gps.getLatitude();
-        String Longitude = gps.getLongitude();
-
-        Serial.println("Latitude : " + Latitude);
-        Serial.println("Longitude : " + Longitude);
-
-        // Variable Interne RTC
-        String year = rtc.getYear();
-        String month = rtc.getMonth();
-        String day = rtc.getDay();
-        String hours = rtc.getHours();
-        String minutes = rtc.getMinutes();
-        String seconds = rtc.getSeconds();
-
-        Serial.println("Date (AAAA-MM-JJ) : " + year + "-" + month + "-" + day);
-        Serial.println("Heure (HH:MM:SS) : " + hours + ":" + minutes + ":" + seconds);
-        Serial.println("-----------------------------------");
-        Serial.println("");
-
-        //send.SendAllData(fileName, temperature, humidity, Latitude, Longitude, year, month, day, hours, minutes, seconds, batteryVoltage);
-
-        pictureCount++;
-    }
+    // Rien ici
 }
