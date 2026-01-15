@@ -19,8 +19,8 @@ class SendData
     private:
         const char *ssid = "Joris's A56";
         const char *password = "Jojo1306";
-        String serverURLimage = "http://10.187.206.165:5050/api/image";
-        String serverURLdata = "http://10.187.206.165:5050/api/data";
+        String serverURLimage = "http://10.147.33.173:5050/api/image";
+        String serverURLdata = "http://10.147.33.173:5050/api/data";
         const int SCK = SD_SCK;
         const int MISO = SD_MISO;
         const int MOSI = SD_MOSI;

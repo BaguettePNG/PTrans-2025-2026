@@ -22,7 +22,7 @@ unsigned int countTime = 0;
 void WakeUpLoop() 
 {
     digitalWrite(PWR_U_D, HIGH); // Alimentation ON 
-    delay(1000); // Attente stabilisation
+    delay(2000); // Attente stabilisation
     initSD();
     cam.begin();
 
@@ -90,6 +90,8 @@ void mainTask(void *parameter)
 
     if (cause == ESP_SLEEP_WAKEUP_EXT0) 
     {
+        countTime = millis();
+
         // Exécute l'action UNE seule fois
         WakeUpLoop();
         

@@ -41,31 +41,26 @@ int SendData::SendAllData(String File_name, float temperature, float pression, S
 {
     // =============== Initialisation WiFi ================
 
-    Serial.begin(115200);
     WiFi.begin(ssid, password);
+    Serial.println("Connexion au WiFi...");
 
     int retry = 0;
-    while (WiFi.status() != WL_CONNECTED && retry < 5)
+    while (WiFi.status() != WL_CONNECTED && retry < 50)
     {
-        WiFi.begin(ssid, password);
+        delay(200);
+        Serial.print(".");
         retry++;
-        delay(10);
     }
-
-    // ================ Envoi de l'image =================
-
-    File file;
-    /*
-    SPIClass sdSPI(SPI);
-    sdSPI.begin(SCK, MISO, MOSI, CS);
-    */
-
-    initSD(); // LIB PERSO - NOLAN
 
     if (WiFi.status() != WL_CONNECTED)
     {
+        Serial.println("\nWiFi échec");
         return -1;
     }
+
+    Serial.println("\nWiFi connecté");
+
+    File file;
 
     HTTPClient http;
 
@@ -73,10 +68,15 @@ int SendData::SendAllData(String File_name, float temperature, float pression, S
     int httpCode = 0;
     int error = 0;
     retry = 0;
+    Serial.println("lo");
 
     if (SD.begin(CS, hspi))
     {
-        file = SD.open("/" + File_name, FILE_READ);
+        Serial.println("la");
+
+        file = SD.open(File_name, FILE_READ);
+
+        Serial.println("Envoi de l'image " + File_name);
 
         if (!file)
         {
@@ -106,6 +106,7 @@ int SendData::SendAllData(String File_name, float temperature, float pression, S
     }
     else
     {
+        Serial.println("Erreur de montage de la SD");
         return -1;
     }
 
@@ -114,8 +115,13 @@ int SendData::SendAllData(String File_name, float temperature, float pression, S
 
     StaticJsonDocument<256> doc;
 
+    // 320x240
+
+    doc["IMG.TYPE"] = "JPEG";
+    doc["IMG.WIDTH"] = 320;
+    doc["IMG.HEIGHT"] = 240;
     doc["WHEATER.TEMP"] = temperature;
-    doc["WHEATER.PRESS"] = pression;
+    doc["WHEATER.HUM"] = pression;
     doc["GPS.LAT"] = latitude;
     doc["GPS.LONG"] = longitude;
     doc["DATE.YEAR"] = annee;
@@ -125,10 +131,14 @@ int SendData::SendAllData(String File_name, float temperature, float pression, S
     doc["DATE.MINUTE"] = minutes;
     doc["DATE.SECOND"] = secondes;
     doc["CAM.BATTERY"] = niv_batterie;
+    doc["CAM.ID"] = 1;
 
     // Sérialiser en String
     String jsonString;
     serializeJson(doc, jsonString);
+
+    http.end();
+    httpCode = 0;
 
     while (httpCode != 200 && retry < RetryNum)
     {
@@ -139,14 +149,24 @@ int SendData::SendAllData(String File_name, float temperature, float pression, S
         retry++;
     }
 
+    
+
     if (httpCode != 200)
     {
         error++;
     }
+    else if(httpCode == 200)
+    {
+        Serial.println("Données méta envoyées avec succès");
+    }
+    else
+    {
+        Serial.println("Erreur inconnue lors de l'envoi des méta-données");
+    }
 
     if (error > 0)
     {
-        Serial.println("Erreur d'nevoi %d chunks mal envoyés (Chunk image ou Meta-data : JSON)" + error);
+        Serial.println("Erreur d'envoi %d chunks mal envoyés (Chunk image ou Meta-data : JSON)" + error);
         return -1;
     }
     else

@@ -9,6 +9,8 @@
 #define RESOLUTION 12        // 12-bit
 #define ADC_MAX 4095.0
 #define VOLTAGE_DIVIDER 2.0  // 1.0 = pas de diviseur, 2.0 = diviseur 1:1, etc.
+#define VOLTAGE_MAX_BATT 4.2
+#define VOLTAGE_MIN_BATT 3.0
 
 class BAT
 {
@@ -20,6 +22,7 @@ class BAT
         BAT(unsigned int pin);
         ~BAT();
         float ReadVoltage();
+        float ReadPercent();
 };
 
 BAT::BAT(unsigned int pin)
@@ -58,6 +61,24 @@ float BAT::ReadVoltage()
     float voltage = (voltage_mv / 1000.0) * VOLTAGE_DIVIDER;
     
     return voltage;
+}
+
+float BAT::ReadPercent()
+{
+    float voltage = ReadVoltage();
+
+    if(voltage > VOLTAGE_MAX_BATT) 
+    {
+        return 100;
+    }
+    else if(voltage < VOLTAGE_MIN_BATT) 
+    {
+        return 0;
+    }
+    else
+    {
+        return ((voltage - VOLTAGE_MIN_BATT) / (VOLTAGE_MAX_BATT - VOLTAGE_MIN_BATT)) * 100.0;
+    }
 }
 
 #endif

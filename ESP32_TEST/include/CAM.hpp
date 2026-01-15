@@ -47,7 +47,7 @@ public:
             config.fb_count = 2;
             config.fb_location = CAMERA_FB_IN_PSRAM;
         } else {
-            config.frame_size = FRAMESIZE_SVGA; // 800x600
+            config.frame_size = FRAMESIZE_QVGA; // 800x600
             config.jpeg_quality = 8;           // Ton réglage limite
             config.fb_count = 1;
             config.fb_location = CAMERA_FB_IN_DRAM;
