@@ -16,63 +16,107 @@ CAM cam;
 DHT dht(DHT_PIN, DHT22);
 SendData send;
 
-volatile int pictureCount = 0;
-unsigned int countTime = 0;
+#define RefreshGPS_US 86400000000ULL // 24h en microsecondes
+
+RTC_DATA_ATTR uint64_t lastGPSResetTime = 0;
+RTC_DATA_ATTR bool activate = false;
+
+
+bool isGPSTimeout()
+{
+    uint64_t now = esp_timer_get_time(); // µs depuis boot 
+
+    if (lastGPSResetTime == 0)
+        return true; // Premier boot
+
+    if ((now - lastGPSResetTime) < 0)
+    {
+        // Cas où le timer a overflow (après ~584942 ans)
+        lastGPSResetTime = now;
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
 
 void WakeUpLoop() 
 {
     digitalWrite(PWR_U_D, HIGH); // Alimentation ON 
-    delay(1000); // Attente stabilisation
+
+    delay(1000); // Attente stabilisation alim
+
     initSD();
     cam.begin();
 
-    String fileName = "/pic" + String(pictureCount) + ".jpg";
+    delay(1000); // Attente stabilisation
+
+    String fileName = "/pic.jpg";
     cam.takeAndSavePhoto(fileName.c_str()); 
 
     dht.begin(); // Attend 2 secondes avant de lire les données
-    delay(2000);
+    delay(1000);
 
     float temperature = dht.readTemperature();
     float humidity = dht.readHumidity();
     float batteryPercent = bat.ReadPercent();
-    
-    if((millis() - countTime) >= RefreshGPS)
+
+    if (!activate || isGPSTimeout())
     {
-        // Mise à Jours GPS et RTC
-        Serial.println("Mise à jour GPS");
-        countTime = millis();
+        activate = true;
+        Serial.println("Recherche GPS");
+
         while (!gps.gpsready())
         {
-            Serial.println("En attente de données GPS...");
+            Serial.println("En attente GPS...");
             delay(1000);
         }
-        gps.update();
-        rtc.updateFromGPS(gps.getHours(), gps.getMinutes(), gps.getSeconds(), gps.getDay(), gps.getMonth(), gps.getYear());
 
+        gps.update();
+
+        rtc.updateFromGPS(
+            gps.getLatitude(),
+            gps.getLongitude(),
+            gps.getHours(),
+            gps.getMinutes(),
+            gps.getSeconds(),
+            gps.getDay(),
+            gps.getMonth(),
+            gps.getYear()
+        );
+
+
+        rtc.getDateTime();
+
+        lastGPSResetTime = esp_timer_get_time(); // Mise à jour du timestamp
     }
     else
     {
-        // Mise à jour RTC 
-        Serial.println("Mise à jour RTC interne");
-        rtc.getDateTime(); 
+        Serial.println("RTC interne uniquement");
+        rtc.getDateTime();
     }
 
-    // Variable Interne GPS
-    String Latitude = gps.getLatitude();
-    String Longitude = gps.getLongitude();
+    Serial.println("Lat: " + String(rtc.getLat()));
+    Serial.println("Long: " + String(rtc.getLon()));
 
     // Variable Interne RTC
+    String savedLat = rtc.getLat();
+    String savedLon = rtc.getLon();
     String year = rtc.getYear();
     String month = rtc.getMonth();
     String day = rtc.getDay();
     String hours = rtc.getHours();
     String minutes = rtc.getMinutes();
     String seconds = rtc.getSeconds();
-   
-    send.SendAllData(fileName, temperature, humidity, Latitude, Longitude, year, month, day, hours, minutes, seconds, batteryPercent);
 
-    pictureCount++;
+    setCpuFrequencyMhz(240);
 
+    send.SendAllData(fileName, temperature, humidity, savedLat, savedLon, year, month, day, hours, minutes, seconds, batteryPercent);
+
+    setCpuFrequencyMhz(80);
+    
     digitalWrite(PWR_U_D, LOW); // Alimentation OFF 
 }
 
@@ -80,24 +124,28 @@ void mainTask(void *parameter)
 {
     Serial.begin(115200);
 
-    //setCpuFrequencyMhz(40);
+    setCpuFrequencyMhz(80);
 
     pinMode(PWR_U_D, OUTPUT);
     pinMode(WAKE_UP, INPUT_PULLDOWN);
 
-    // Cause de réveil ?
     esp_sleep_wakeup_cause_t cause = esp_sleep_get_wakeup_cause();
 
-    if (cause == ESP_SLEEP_WAKEUP_EXT0) 
+    if (cause == ESP_SLEEP_WAKEUP_EXT1)
     {
-        // Exécute l'action UNE seule fois
         WakeUpLoop();
-        
-        while (digitalRead(WAKE_UP) == HIGH) {}
+
+        while (digitalRead(WAKE_UP) == HIGH)
+        {
+            delay(1000);
+        }
     }
 
-    // Réarmer le front montant UNIQUEMENT quand la pin est basse
-    esp_sleep_enable_ext0_wakeup((gpio_num_t)WAKE_UP, 1);
+    esp_sleep_enable_ext1_wakeup(
+        1ULL << WAKE_UP,
+        ESP_EXT1_WAKEUP_ANY_HIGH
+    );
+    
     esp_deep_sleep_start();
 }
 

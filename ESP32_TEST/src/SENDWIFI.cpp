@@ -37,7 +37,7 @@ String SendData::getserverURLdata()
 /**
  * @brief Envoi de toutes les données (image + méta-données)
  */
-int SendData::SendAllData(String File_name, float temperature, float pression, String latitude, String longitude, String annee, String mois, String jours, String heures, String minutes, String secondes, float niv_batterie)
+int SendData::SendAllData(String File_name, float temperature, float humudity, String latitude, String longitude, String annee, String mois, String jours, String heures, String minutes, String secondes, float niv_batterie)
 {
     // =============== Initialisation WiFi ================
 
@@ -121,7 +121,7 @@ int SendData::SendAllData(String File_name, float temperature, float pression, S
     doc["IMG.WIDTH"] = 320;
     doc["IMG.HEIGHT"] = 240;
     doc["WHEATER.TEMP"] = temperature;
-    doc["WHEATER.HUM"] = pression;
+    doc["WHEATER.HUM"] = humudity;
     doc["GPS.LAT"] = latitude;
     doc["GPS.LONG"] = longitude;
     doc["DATE.YEAR"] = annee;

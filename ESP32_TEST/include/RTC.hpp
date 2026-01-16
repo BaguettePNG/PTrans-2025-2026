@@ -5,6 +5,9 @@
 #include <time.h>
 #include <sys/time.h>
 
+RTC_DATA_ATTR char rtcLatitude[16] = "";
+RTC_DATA_ATTR char rtcLongitude[16] = "";
+
 class RTC
 {
 private :
@@ -16,7 +19,10 @@ private :
     String _year;
 
 public:
-    RTC() {}  // Rien à configurer pour GPS
+    RTC() 
+    {
+        //configTime(0, 0, "pool.ntp.org");
+    }  
 
     String getHours()  { return _hours; }
     String getMinutes(){ return _minutes; }
@@ -24,6 +30,9 @@ public:
     String getDay()    { return _day; }
     String getMonth()  { return _month; }
     String getYear()   { return _year; }
+    String getLat() { return String(rtcLatitude); }
+    String getLon() { return String(rtcLongitude); }
+
 
     String getDateTime()
     {
@@ -43,12 +52,15 @@ public:
         return String(buffer);
     }
 
-    void updateFromGPS(String hours, String minutes, String seconds, String day, String month, String year)
+    void updateFromGPS(String Lat, String lon, String hours, String minutes, String seconds, String day, String month, String year)
     {
         if (hours == "" || day == "" || month == "" || year == "") return;
 
         struct tm timeinfo;
         memset(&timeinfo, 0, sizeof(struct tm));
+        
+        Lat.toCharArray(rtcLatitude, sizeof(rtcLatitude));
+        lon.toCharArray(rtcLongitude, sizeof(rtcLongitude));
 
         timeinfo.tm_hour = hours.toInt();
         timeinfo.tm_min  = minutes.toInt();
@@ -62,7 +74,10 @@ public:
 
         struct timeval now = { .tv_sec = t, .tv_usec = 0 };
         settimeofday(&now, nullptr);
+
     }
+
+
 };
 
 #endif
