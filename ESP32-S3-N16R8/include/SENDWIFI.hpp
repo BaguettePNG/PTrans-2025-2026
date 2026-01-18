@@ -13,13 +13,13 @@
 #define RAW_CHUNK_SIZE 32768
 #define RetryNum 2
 
-#define IP "10.26.202.173"
+#define IP "90.59.66.6"
 
 class SendData
 {
     private:
-        const char *ssid = "Joris's A56";
-        const char *password = "Jojo1306";
+        const char *ssid = "TP-Link_50E0";
+        const char *password = "31082003";
         String serverURLimage = "http://" + String(IP) + ":5050/api/image";
         String serverURLdata = "http://" + String(IP) + ":5050/api/data";
         const int SCK = SD_SCK;
@@ -33,7 +33,13 @@ class SendData
         ~SendData();
         String getserverURLimage();
         String getserverURLdata();
-        int SendAllData(String File_name, float temperature, float humudity, String latitude, String longitude, String annee, String mois, String jours, String heures, String minutes, String secondes, float niv_batterie);
+
+        // SD
+        int SendAllData(String File_name, int width, int height, float temperature, float humudity, String latitude, String longitude, String annee, String mois, String jours, String heures, String minutes, String secondes, float niv_batterie);
+
+        // Directement PSRAM
+        int SendAllDataPSRAM(uint8_t* imgData, size_t imgSize, int width, int height, float temperature, float humudity, String latitude, String longitude, String annee, String mois, String jours, String heures, String minutes, String secondes, float niv_batterie);
+
 };
 
 #endif 

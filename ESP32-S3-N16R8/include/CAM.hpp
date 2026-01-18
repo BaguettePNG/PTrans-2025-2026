@@ -10,9 +10,10 @@
 class CAM {
 private:
     int _pictureCount;
+    camera_fb_t * _fb;  // Stocke le framebuffer
 
 public:
-    CAM() : _pictureCount(0) {}
+    CAM() : _pictureCount(0), _fb(nullptr) {}
 
     /**
      * Initialise le capteur avec les réglages optimisés trouvés
@@ -37,11 +38,12 @@ public:
         config.pin_sccb_scl = SIOC_GPIO_NUM;
         config.pin_pwdn = -1;
         config.pin_reset = -1;
-        config.xclk_freq_hz = 12000000; 
+        config.xclk_freq_hz = 20000000;  // 20 MHz pour ESP32-S3
         config.pixel_format = PIXFORMAT_JPEG;
 
         // On garde ta configuration limite optimisée
-        if (psramFound()) {
+        if (psramFound()) 
+        {
             config.frame_size = FRAMESIZE_UXGA;
             config.jpeg_quality = 10;
             config.fb_count = 2;
@@ -49,7 +51,7 @@ public:
         } else {
             config.frame_size = FRAMESIZE_QVGA; // 800x600
             config.jpeg_quality = 8;           // Ton réglage limite
-            config.fb_count = 1;
+            config.fb_count = 2;               // Augmenter à 2 buffers pour éviter les problèmes DMA
             config.fb_location = CAMERA_FB_IN_DRAM;
         }
 
@@ -58,11 +60,26 @@ public:
             Serial.printf("Erreur Init Caméra: 0x%x\n", err);
             return false;
         }
+        
+        delay(500);  // Attendre l'initialisation complète de la caméra
 
-        // Réglages capteur par défaut pour améliorer l'image
         sensor_t * s = esp_camera_sensor_get();
-        s->set_brightness(s, 0); 
-        s->set_contrast(s, 0);
+
+        // Force le gain au maximum absolu
+        s->set_gain_ctrl(s, 1);
+        s->set_agc_gain(s, 30);          // Gain manuel au max (0-30)
+        s->set_gainceiling(s, (gainceiling_t)6); 
+
+        // Force l'exposition au maximum
+        s->set_exposure_ctrl(s, 0);      // On coupe l'auto pour forcer le manuel
+        s->set_aec_value(s, 1200);       // Temps d'exposition max (0-1200)
+
+        // Amélioration visuelle
+        s->set_brightness(s, 2);         // Luminosité max
+        s->set_ae_level(s, 2);           
+        s->set_special_effect(s, 2);     // PASSAGE EN GRAYSCALE (Noir et Blanc)
+                                        // Le capteur est plus sensible en N&B car il n'a pas 
+                                        // à filtrer les couleurs.
         return true;
     }
 
@@ -103,6 +120,70 @@ public:
 
         esp_camera_fb_return(fb);
         return (written == fb->len);
+    }
+
+    bool takePhoto() 
+    {
+        Serial.println("Capture en cours...");
+
+        // 1. Libérer l'ancien buffer s'il existe
+        if (_fb) {
+            esp_camera_fb_return(_fb);
+            _fb = nullptr;
+        }
+
+        // 2. Vidage du buffer pour garantir une image fraîche
+        camera_fb_t * fb = esp_camera_fb_get();
+        if (fb) {
+            esp_camera_fb_return(fb);
+            delay(100);
+        }
+
+        // 3. Capture réelle et stockage en PSRAM
+        _fb = esp_camera_fb_get();
+        if (!_fb) {
+            Serial.println("ERREUR : Impossible de récupérer le framebuffer (DMA)");
+            return false;
+        }
+        
+        Serial.printf("Photo capturée : %u bytes en PSRAM\n", _fb->len);
+        return true;
+    }
+
+    /**
+     * Récupère le pointer de l'image en PSRAM
+     */
+    uint8_t* getImage() 
+    {
+        if (!_fb) {
+            Serial.println("ERREUR : Aucune image capturée");
+            return nullptr;
+        }
+        return _fb->buf;
+    }
+
+    /**
+     * Récupère la taille de l'image capturée
+     */
+    size_t getImageSize() 
+    {
+        if (!_fb) {
+            Serial.println("ERREUR : Aucune image capturée");
+            return 0;
+        }
+        return _fb->len;
+    }
+
+    /**
+     * Libère la mémoire du framebuffer
+     */
+    void releaseImage()
+    {
+        if (_fb) {
+            esp_camera_fb_return(_fb);
+            _fb = nullptr;
+            Serial.println("Image libérée");
+        }
     }
 };
 

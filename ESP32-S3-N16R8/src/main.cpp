@@ -21,6 +21,9 @@ SendData send;
 RTC_DATA_ATTR uint64_t lastGPSResetTime = 0;
 RTC_DATA_ATTR bool activate = false;
 
+#define WIDTH 1600
+#define HEIGHT 1200
+
 
 bool isGPSTimeout()
 {
@@ -46,16 +49,16 @@ void WakeUpLoop()
 {
     digitalWrite(PWR_U_D, HIGH); // Alimentation ON 
 
-    delay(1000); // Attente stabilisation alim
+    //delay(2000); // Attente stabilisation alim
 
-    initSD();
+    //initSD();
     cam.begin();
     dht.begin(); // Attend 2 secondes avant de lire les données
     
     delay(1000); // Attente stabilisation
 
     String fileName = "/pic.jpg";
-    cam.takeAndSavePhoto(fileName.c_str()); 
+    cam.takePhoto(); 
     
     delay(1000);
 
@@ -122,13 +125,11 @@ void WakeUpLoop()
     String minutes = rtc.getMinutes();
     String seconds = rtc.getSeconds();
 
-    /*
-    setCpuFrequencyMhz(240);
+    
+    //send.SendAllData(fileName, WIDTH, HEIGHT, temperature, humidity, savedLat, savedLon, year, month, day, hours, minutes, seconds, batteryPercent);
+    
+    send.SendAllDataPSRAM(cam.getImage(), cam.getImageSize(), WIDTH, HEIGHT, temperature, humidity, savedLat, savedLon, year, month, day, hours, minutes, seconds, batteryPercent);
 
-    send.SendAllData(fileName, temperature, humidity, savedLat, savedLon, year, month, day, hours, minutes, seconds, batteryPercent);
-
-    setCpuFrequencyMhz(80);
-    */
     digitalWrite(PWR_U_D, LOW); // Alimentation OFF 
 }
 
