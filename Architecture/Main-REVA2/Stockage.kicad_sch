@@ -4,6 +4,14 @@
 	(generator_version "9.0")
 	(uuid "2954ca15-2d4e-45fa-9272-f4b0745e951a")
 	(paper "A4")
+	(title_block
+		(title "Collecteur de données Animalières")
+		(date "2025-11-28")
+		(rev "A2")
+		(company "Polytech Nantes - ETN4")
+		(comment 1 "Architecture Collectuer de données")
+		(comment 2 "Stockage Page")
+	)
 	(lib_symbols
 		(symbol "CollecteurDonneLIB:SDCARD"
 			(exclude_from_sim no)
@@ -591,7 +599,7 @@
 	)
 	(wire
 		(pts
-			(xy 111.76 102.87) (xy 116.84 102.87)
+			(xy 110.49 99.06) (xy 115.57 99.06)
 		)
 		(stroke
 			(width 0)
@@ -611,7 +619,7 @@
 	)
 	(wire
 		(pts
-			(xy 111.76 110.49) (xy 116.84 110.49)
+			(xy 110.49 106.68) (xy 115.57 106.68)
 		)
 		(stroke
 			(width 0)
@@ -652,7 +660,7 @@
 	)
 	(hierarchical_label "VCC"
 		(shape input)
-		(at 111.76 102.87 180)
+		(at 110.49 99.06 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -674,7 +682,7 @@
 	)
 	(hierarchical_label "GND"
 		(shape input)
-		(at 111.76 110.49 180)
+		(at 110.49 106.68 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -874,7 +882,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 116.84 106.68 0)
+		(at 115.57 102.87 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -882,7 +890,7 @@
 		(dnp no)
 		(uuid "a183913d-5922-4d87-9eca-343731d1a651")
 		(property "Reference" "C4"
-			(at 110.744 105.664 0)
+			(at 109.474 101.854 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -891,7 +899,7 @@
 			)
 		)
 		(property "Value" "100nF"
-			(at 108.204 107.696 0)
+			(at 106.934 103.886 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -900,7 +908,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 117.8052 110.49 0)
+			(at 116.5352 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -909,7 +917,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 116.84 106.68 0)
+			(at 115.57 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -918,7 +926,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 116.84 106.68 0)
+			(at 115.57 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)

@@ -18,8 +18,8 @@
 class SendData
 {
     private:
-        const char *ssid = "TP-Link_50E0";
-        const char *password = "31082003";
+        const char *ssid = "test";
+        const char *password = "testesp@";
         String serverURLimage = "http://" + String(IP) + ":5050/api/image";
         String serverURLdata = "http://" + String(IP) + ":5050/api/data";
         const int SCK = SD_SCK;

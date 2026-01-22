@@ -45,8 +45,8 @@ public:
         if (psramFound()) 
         {
             config.frame_size = FRAMESIZE_UXGA;
-            config.jpeg_quality = 10;
-            config.fb_count = 2;
+            config.jpeg_quality = 10;         // Qualité maximale
+            config.fb_count = 1;
             config.fb_location = CAMERA_FB_IN_PSRAM;
         } else {
             config.frame_size = FRAMESIZE_QVGA; // 800x600
@@ -65,21 +65,9 @@ public:
 
         sensor_t * s = esp_camera_sensor_get();
 
-        // Force le gain au maximum absolu
-        s->set_gain_ctrl(s, 1);
-        s->set_agc_gain(s, 30);          // Gain manuel au max (0-30)
-        s->set_gainceiling(s, (gainceiling_t)6); 
-
-        // Force l'exposition au maximum
-        s->set_exposure_ctrl(s, 0);      // On coupe l'auto pour forcer le manuel
-        s->set_aec_value(s, 1200);       // Temps d'exposition max (0-1200)
-
-        // Amélioration visuelle
-        s->set_brightness(s, 2);         // Luminosité max
-        s->set_ae_level(s, 2);           
-        s->set_special_effect(s, 2);     // PASSAGE EN GRAYSCALE (Noir et Blanc)
-                                        // Le capteur est plus sensible en N&B car il n'a pas 
-                                        // à filtrer les couleurs.
+        s->set_brightness(s, 0);      // Augmenter légèrement (+1 ou +2)
+        s->set_contrast(s, 0);        // Augmenter pour la netteté (+1)
+        s->set_saturation(s, 0);     // Baisser un peu pour réduire le bruit de couleur rouge
         return true;
     }
 

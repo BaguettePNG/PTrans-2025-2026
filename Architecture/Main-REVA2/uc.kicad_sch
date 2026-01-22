@@ -4,6 +4,14 @@
 	(generator_version "9.0")
 	(uuid "7fd1e59d-d896-4263-8d21-df7365fed559")
 	(paper "A4")
+	(title_block
+		(title "Collecteur de données Animalières")
+		(date "2025-11-28")
+		(rev "A2")
+		(company "Polytech Nantes - ETN4")
+		(comment 1 "Architecture Collectuer de données")
+		(comment 2 "Brain Page")
+	)
 	(lib_symbols
 		(symbol "Device:R_US"
 			(pin_numbers
@@ -1096,135 +1104,10 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "power:+3V3"
-			(power)
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "#PWR"
-				(at 0 -3.81 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Value" "+3V3"
-				(at 0 3.556 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Power symbol creates a global label with name \"+3V3\""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "global power"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "+3V3_0_1"
-				(polyline
-					(pts
-						(xy -0.762 1.27) (xy 0 2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 2.54) (xy 0.762 1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 0) (xy 0 2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "+3V3_1_1"
-				(pin power_in line
-					(at 0 0 90)
-					(length 0)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 	)
 	(text "#ifndef __CONFIG_H__\n#define __CONFIG_H__\n\n// --- SYSTÈME (LIAISON PC) ---\n// Note : Pour libérer 43/44, utilisez l'USB natif sur GPIO 19/20\n// Dans PlatformIO : build_flags = -DARDUINO_USB_CDC_ON_BOOT=1\n\n// --- MODULE 4G LTE (UART1 ou UART0 réassigné) ---\n#define MODEM_RX          43  \n#define MODEM_TX          44  \n\n// --- GPS EXTERNE (UART2) ---\n#define GPS_RX_PIN        16 \n#define GPS_TX_PIN        17 \n\n// --- CARTE SD (SPI) ---\n#define SD_SCK            14 \n#define SD_MISO           12 \n#define SD_MOSI           13 \n#define SD_CS             15 \n\n// --- CAMERA PINS (SÉCURISÉ POUR N16R8) ---\n#define SIOD_GPIO_NUM     21 \n#define SIOC_GPIO_NUM     22 \n#define XCLK_GPIO         -1  \n#define PCLK_GPIO         46  \n#define VSYNC_GPIO        3   \n#define HREF_GPIO         25 \n#define D0_GPIO           26 \n#define D1_GPIO           47  \n#define D2_GPIO           39 \n#define D3_GPIO           32 \n#define D4_GPIO           27 \n#define D5_GPIO           23 \n#define D6_GPIO           45   // Déplacé depuis 20 pour laisser le port USB Natif libre\n#define D7_GPIO           18 \n\n// --- PINS LIBRES ---\n#define FREE_GPIO_0       0\n#define FREE_GPIO_6       6\n#define FREE_GPIO_7       7\n#define FREE_GPIO_8       8\n#define FREE_GPIO_9       9\n#define FREE_GPIO_10      10\n#define FREE_GPIO_11      11\n#define FREE_GPIO_20      20   // Réservé USB Natif (D+)\n#define FREE_GPIO_48      48\n\n// --- PINS INTERDITES (PSRAM/FLASH) ---\n// GPIO 19, 28-31, 33-37\n#endif"
 		(exclude_from_sim no)
-		(at 215.646 72.39 0)
+		(at 209.55 98.298 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1431,16 +1314,6 @@
 			(type default)
 		)
 		(uuid "58dac47a-ad07-49fd-87b8-d9fe01e0a790")
-	)
-	(wire
-		(pts
-			(xy 92.71 29.21) (xy 92.71 27.94)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "59cc8c0a-2dcc-41b6-9efe-1c033fe4e268")
 	)
 	(wire
 		(pts
@@ -30788,6 +30661,17 @@
 		)
 		(uuid "06e5921b-e9f8-474b-b14e-07a55bfc6ed3")
 	)
+	(hierarchical_label "VIN"
+		(shape input)
+		(at 83.82 45.72 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "1399ea90-5094-4850-afc1-569b6487057a")
+	)
 	(hierarchical_label "D4"
 		(shape input)
 		(at 93.98 36.83 180)
@@ -30908,6 +30792,17 @@
 			(justify right)
 		)
 		(uuid "4d3dc43b-b37a-4ec8-a400-aad9f760238c")
+	)
+	(hierarchical_label "VIN"
+		(shape input)
+		(at 74.93 45.72 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "53dcbf63-b066-4cbb-9142-5d7d17e26dd8")
 	)
 	(hierarchical_label "D1"
 		(shape input)
@@ -31394,138 +31289,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+3V3")
-		(at 74.93 45.72 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "4faa5ab1-a252-47b2-8a81-4a7de9edbeb4")
-		(property "Reference" "#PWR08"
-			(at 74.93 49.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3V3"
-			(at 74.93 40.64 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 74.93 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 74.93 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 74.93 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "d9800942-e1c9-492e-8ab5-39d81ffa03b2")
-		)
-		(instances
-			(project "Main"
-				(path "/77f264da-4c84-4b0c-9d20-4392731765e6/663cc000-5ebd-47ff-83ef-c87f1fdc0c98"
-					(reference "#PWR08")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3V3")
-		(at 92.71 27.94 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "70c7d38a-24ab-48ce-8510-b9c9e5562a5e")
-		(property "Reference" "#PWR012"
-			(at 92.71 31.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3V3"
-			(at 92.71 22.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 92.71 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 92.71 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 92.71 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "8f967b2d-fc7d-454f-88ce-85d444111aeb")
-		)
-		(instances
-			(project "Main"
-				(path "/77f264da-4c84-4b0c-9d20-4392731765e6/663cc000-5ebd-47ff-83ef-c87f1fdc0c98"
-					(reference "#PWR012")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R_US")
 		(at 74.93 50.8 180)
 		(unit 1)
@@ -31590,72 +31353,6 @@
 			(project "Main"
 				(path "/77f264da-4c84-4b0c-9d20-4392731765e6/663cc000-5ebd-47ff-83ef-c87f1fdc0c98"
 					(reference "R18")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3V3")
-		(at 83.82 45.72 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "e3f1ce1b-a763-40c9-a883-13051d4aaf14")
-		(property "Reference" "#PWR09"
-			(at 83.82 49.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3V3"
-			(at 83.82 40.64 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 83.82 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 83.82 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 83.82 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "7a9d7d8c-04dc-4365-8f1a-5eb6bcd929c5")
-		)
-		(instances
-			(project "Main"
-				(path "/77f264da-4c84-4b0c-9d20-4392731765e6/663cc000-5ebd-47ff-83ef-c87f1fdc0c98"
-					(reference "#PWR09")
 					(unit 1)
 				)
 			)

@@ -4,6 +4,14 @@
 	(generator_version "9.0")
 	(uuid "7fd1e59d-d896-4263-8d21-df7365fed559")
 	(paper "A4")
+	(title_block
+		(title "Collecteur de données Animalières")
+		(date "2025-11-28")
+		(rev "A2")
+		(company "Polytech Nantes - ETN4")
+		(comment 1 "Architecture Collectuer de données")
+		(comment 2 "Camera Page")
+	)
 	(lib_symbols
 		(symbol "Connector_Generic:Conn_01x02"
 			(pin_names
@@ -1039,6 +1047,18 @@
 		(uuid "a88e75a1-03fa-423b-9fe7-9270ddc45c59")
 	)
 	(junction
+		(at 175.26 105.41)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4345a65c-2b97-48c9-8e52-62146e6a0bf3")
+	)
+	(junction
+		(at 184.15 114.3)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c7c80ea1-44fb-4054-acc9-ba3c599cf1b4")
+	)
+	(junction
 		(at 154.94 64.77)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1070,7 +1090,7 @@
 	)
 	(wire
 		(pts
-			(xy 171.45 105.41) (xy 185.42 105.41)
+			(xy 171.45 105.41) (xy 175.26 105.41)
 		)
 		(stroke
 			(width 0)
@@ -1110,6 +1130,26 @@
 	)
 	(wire
 		(pts
+			(xy 175.26 105.41) (xy 185.42 105.41)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6475f44e-1c30-44e0-bbd8-41ee993d44a1")
+	)
+	(wire
+		(pts
+			(xy 175.26 114.3) (xy 184.15 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "64876800-ef0b-4c01-a5bc-740afba9c93f")
+	)
+	(wire
+		(pts
 			(xy 189.23 82.55) (xy 193.04 82.55)
 		)
 		(stroke
@@ -1117,6 +1157,16 @@
 			(type default)
 		)
 		(uuid "6b7a9137-6414-4cb4-b239-7e3fb4ae8ed1")
+	)
+	(wire
+		(pts
+			(xy 175.26 113.03) (xy 175.26 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8afec42b-d685-4fa2-bee5-901097f97b32")
 	)
 	(wire
 		(pts
@@ -1240,7 +1290,7 @@
 	)
 	(wire
 		(pts
-			(xy 184.15 107.95) (xy 184.15 111.76)
+			(xy 184.15 107.95) (xy 184.15 114.3)
 		)
 		(stroke
 			(width 0)
@@ -1267,6 +1317,16 @@
 			(type default)
 		)
 		(uuid "fe1f1210-51b2-4770-9100-a2bc0eeb96b0")
+	)
+	(wire
+		(pts
+			(xy 184.15 116.84) (xy 184.15 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fe645a6c-a75d-4284-80dc-65cf5728d31e")
 	)
 	(wire
 		(pts
@@ -13272,17 +13332,6 @@
 		)
 		(uuid "6b872885-ec5a-4a63-9d46-db6d5c274518")
 	)
-	(hierarchical_label "PWDN"
-		(shape input)
-		(at 193.04 85.09 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "7103245b-227d-4c84-a69f-7700753134c2")
-	)
 	(hierarchical_label "D0"
 		(shape input)
 		(at 193.04 72.39 0)
@@ -13338,7 +13387,18 @@
 		)
 		(uuid "bf275900-4f3f-479d-b2dc-c8e64ef6d70c")
 	)
-	(hierarchical_label "+3.3V"
+	(hierarchical_label "PWDN"
+		(shape input)
+		(at 193.04 85.09 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "c0e3db0b-8786-4322-a5b5-c757e05fa953")
+	)
+	(hierarchical_label "+VCC"
 		(shape input)
 		(at 152.4 64.77 180)
 		(effects
@@ -13347,7 +13407,7 @@
 			)
 			(justify right)
 		)
-		(uuid "c7dc1f42-165b-451e-b978-39b737b85ef6")
+		(uuid "ede5de3a-de7f-4d7d-8081-4b823c9de60b")
 	)
 	(hierarchical_label "D7"
 		(shape input)
@@ -13370,6 +13430,75 @@
 			(justify right)
 		)
 		(uuid "fd9cad04-30c5-4e2c-bf6e-1c63602661ae")
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 175.26 109.22 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "460c2dbd-82bd-4b0f-aa8f-7cf6e31a2b1e")
+		(property "Reference" "C7"
+			(at 166.624 110.998 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100nF"
+			(at 166.624 113.538 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 176.2252 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 175.26 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 175.26 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c3b05ffd-2362-4fcd-b4ad-67af401a5d6c")
+		)
+		(pin "2"
+			(uuid "7804d03e-c82c-4678-9a81-ae851351a630")
+		)
+		(instances
+			(project "Main"
+				(path "/77f264da-4c84-4b0c-9d20-4392731765e6/90e676b5-e192-40ef-8f2d-7a9315f03418"
+					(reference "C7")
+					(unit 1)
+				)
+			)
+		)
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x02")
@@ -13513,7 +13642,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 184.15 111.76 0)
+		(at 184.15 116.84 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -13522,7 +13651,7 @@
 		(fields_autoplaced yes)
 		(uuid "b63219ea-5b60-4740-86d8-278f7052b1bf")
 		(property "Reference" "#PWR024"
-			(at 184.15 118.11 0)
+			(at 184.15 123.19 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13531,7 +13660,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 184.15 116.84 0)
+			(at 184.15 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13539,7 +13668,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 184.15 111.76 0)
+			(at 184.15 116.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13548,7 +13677,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 184.15 111.76 0)
+			(at 184.15 116.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13557,7 +13686,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 184.15 111.76 0)
+			(at 184.15 116.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13593,7 +13722,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "bb2d4b0e-54a3-46d8-abb4-8461007561e0")
-		(property "Reference" "J?"
+		(property "Reference" "J11"
 			(at 182.88 58.42 0)
 			(effects
 				(font
@@ -13693,7 +13822,7 @@
 		(instances
 			(project "Main"
 				(path "/77f264da-4c84-4b0c-9d20-4392731765e6/90e676b5-e192-40ef-8f2d-7a9315f03418"
-					(reference "J?")
+					(reference "J11")
 					(unit 1)
 				)
 			)
