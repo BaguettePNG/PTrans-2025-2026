@@ -13530,7 +13530,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_ISO14580"
+		(property "Footprint" "CollecteurDonne:MountingHole_2.2mm_M2_ISO7380"
 			(at 248.92 35.56 0)
 			(effects
 				(font
@@ -13638,7 +13638,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_PinSocket_1.27mm:PinSocket_2x09_P1.27mm_Vertical_SMD"
 			(at 189.23 74.93 0)
 			(effects
 				(font
@@ -13755,7 +13755,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm"
+		(property "Footprint" "CollecteurDonne:Capa disc radial 5.08mm"
 			(at 178.7652 109.22 0)
 			(effects
 				(font
@@ -13870,7 +13870,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "CollecteurDonne:ESP32-S3-DEVKITC-1-N8R8"
 			(at 193.04 101.6 0)
 			(effects
 				(font
@@ -13985,7 +13985,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_ISO14580"
+		(property "Footprint" "CollecteurDonne:MountingHole_2.2mm_M2_ISO7380"
 			(at 248.92 29.21 0)
 			(effects
 				(font
@@ -14094,7 +14094,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm"
+		(property "Footprint" "CollecteurDonne:Capa disc radial 5.08mm"
 			(at 163.5252 72.39 0)
 			(effects
 				(font

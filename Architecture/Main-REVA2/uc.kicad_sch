@@ -31201,7 +31201,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "CollecteurDonne:Résistance L10mm"
 			(at 72.644 54.356 90)
 			(effects
 				(font
@@ -31316,7 +31316,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "CollecteurDonne:Résistance L10mm"
 			(at 63.754 54.356 90)
 			(effects
 				(font

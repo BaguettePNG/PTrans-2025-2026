@@ -3297,7 +3297,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "OptoDevice:R_LDR_10x8.5mm_P7.6mm_Vertical"
+		(property "Footprint" "CollecteurDonne:Résistance L10mm"
 			(at 113.665 49.53 90)
 			(effects
 				(font
@@ -3531,7 +3531,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm"
+		(property "Footprint" "CollecteurDonne:Capa disc radial 5.08mm"
 			(at 210.5152 100.33 0)
 			(effects
 				(font
@@ -3645,7 +3645,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm"
+		(property "Footprint" "CollecteurDonne:Capa disc radial 5.08mm"
 			(at 136.8552 143.51 0)
 			(effects
 				(font
@@ -4005,7 +4005,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm"
+		(property "Footprint" "CollecteurDonne:Capa disc radial 5.08mm"
 			(at 131.7752 101.6 0)
 			(effects
 				(font
@@ -4366,7 +4366,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm"
+		(property "Footprint" "CollecteurDonne:Capa disc radial 5.08mm"
 			(at 65.7352 99.06 0)
 			(effects
 				(font
@@ -4480,7 +4480,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm"
+		(property "Footprint" "CollecteurDonne:Capa disc radial 5.08mm"
 			(at 55.5752 143.51 0)
 			(effects
 				(font
@@ -4712,7 +4712,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "CollecteurDonne:Résistance L10mm"
 			(at 169.164 63.754 90)
 			(effects
 				(font
@@ -4827,7 +4827,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "CollecteurDonne:Résistance L10mm"
 			(at 110.236 59.944 90)
 			(effects
 				(font
@@ -5058,7 +5058,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm"
+		(property "Footprint" "CollecteurDonne:Capa disc radial 5.08mm"
 			(at 218.1352 143.51 0)
 			(effects
 				(font
@@ -5172,7 +5172,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm"
+		(property "Footprint" "CollecteurDonne:Capa disc radial 5.08mm"
 			(at 174.9552 55.88 0)
 			(effects
 				(font

@@ -1859,7 +1859,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_ISO14580"
+		(property "Footprint" "CollecteurDonne:MountingHole_2.2mm_M2_ISO7380"
 			(at 90.17 185.42 0)
 			(effects
 				(font
@@ -2101,7 +2101,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_ISO14580"
+		(property "Footprint" "CollecteurDonne:MountingHole_2.2mm_M2_ISO7380"
 			(at 90.17 179.07 0)
 			(effects
 				(font
@@ -2342,7 +2342,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_ISO14580"
+		(property "Footprint" "CollecteurDonne:MountingHole_2.2mm_M2_ISO7380"
 			(at 111.76 179.07 0)
 			(effects
 				(font
@@ -2517,7 +2517,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_ISO14580"
+		(property "Footprint" "CollecteurDonne:MountingHole_2.2mm_M2_ISO7380"
 			(at 111.76 185.42 0)
 			(effects
 				(font

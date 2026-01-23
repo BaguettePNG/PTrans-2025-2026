@@ -725,6 +725,174 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Device:D"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "D"
+				(at 0 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "D"
+				(at 0 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Diode"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Sim.Device" "D"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Sim.Pins" "1=K 2=A"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "diode"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "TO-???* *_Diode_* *SingleDiode* D_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "D_0_1"
+				(polyline
+					(pts
+						(xy -1.27 1.27) (xy -1.27 -1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 1.27) (xy 1.27 -1.27) (xy -1.27 0) (xy 1.27 1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 0) (xy -1.27 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "D_1_1"
+				(pin passive line
+					(at -3.81 0 0)
+					(length 2.54)
+					(name "K"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 3.81 0 180)
+					(length 2.54)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Device:L"
 			(pin_numbers
 				(hide yes)
@@ -2236,7 +2404,7 @@
 	)
 	(wire
 		(pts
-			(xy 60.96 54.61) (xy 62.23 54.61)
+			(xy 53.34 54.61) (xy 62.23 54.61)
 		)
 		(stroke
 			(width 0)
@@ -2406,7 +2574,7 @@
 	)
 	(wire
 		(pts
-			(xy 64.77 67.31) (xy 60.96 67.31)
+			(xy 64.77 67.31) (xy 57.15 67.31)
 		)
 		(stroke
 			(width 0)
@@ -2493,6 +2661,16 @@
 			(type default)
 		)
 		(uuid "50133c8c-3921-4f74-9428-d9e48bf51c00")
+	)
+	(wire
+		(pts
+			(xy 64.77 60.96) (xy 64.77 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "507fca9f-65f9-43ca-ad90-e94037e2e5f3")
 	)
 	(wire
 		(pts
@@ -2686,7 +2864,7 @@
 	)
 	(wire
 		(pts
-			(xy 60.96 69.85) (xy 62.23 69.85)
+			(xy 57.15 69.85) (xy 62.23 69.85)
 		)
 		(stroke
 			(width 0)
@@ -2786,7 +2964,7 @@
 	)
 	(wire
 		(pts
-			(xy 64.77 49.53) (xy 64.77 67.31)
+			(xy 64.77 49.53) (xy 64.77 53.34)
 		)
 		(stroke
 			(width 0)
@@ -2816,7 +2994,7 @@
 	)
 	(wire
 		(pts
-			(xy 60.96 52.07) (xy 62.23 52.07)
+			(xy 53.34 52.07) (xy 62.23 52.07)
 		)
 		(stroke
 			(width 0)
@@ -2893,6 +3071,16 @@
 			(type default)
 		)
 		(uuid "a9f0b8c4-5189-4abb-8802-a19a071e2968")
+	)
+	(wire
+		(pts
+			(xy 63.5 49.53) (xy 64.77 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "aac3486c-c961-46e1-b62e-627d06e50776")
 	)
 	(wire
 		(pts
@@ -3186,7 +3374,7 @@
 	)
 	(wire
 		(pts
-			(xy 60.96 49.53) (xy 64.77 49.53)
+			(xy 53.34 49.53) (xy 55.88 49.53)
 		)
 		(stroke
 			(width 0)
@@ -3711,7 +3899,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "CollecteurDonne:Résistance L10mm"
 			(at 72.136 119.634 90)
 			(effects
 				(font
@@ -3826,7 +4014,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm"
+		(property "Footprint" "CollecteurDonne:C_polar_D5mm"
 			(at 153.3652 63.5 0)
 			(effects
 				(font
@@ -3947,7 +4135,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:CP_Radial_D8.0mm_P5.00mm"
+		(property "Footprint" "CollecteurDonne:C_polar_D5mm"
 			(at 70.8152 67.31 0)
 			(effects
 				(font
@@ -4067,7 +4255,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:CP_Radial_D8.0mm_P5.00mm"
+		(property "Footprint" "CollecteurDonne:C_polar_D5mm"
 			(at 96.2152 67.31 0)
 			(effects
 				(font
@@ -4155,6 +4343,94 @@
 			(project "Power"
 				(path "/7fd1e59d-d896-4263-8d21-df7365fed559"
 					(reference "C3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:D")
+		(at 64.77 57.15 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "219c0930-c796-4ea2-a0cc-e0332b48f6e4")
+		(property "Reference" "D2"
+			(at 67.31 55.8799 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "D"
+			(at 67.31 58.4199 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 64.77 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 64.77 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Diode"
+			(at 64.77 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Device" "D"
+			(at 64.77 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Pins" "1=K 2=A"
+			(at 64.77 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "ee5631de-7b39-4760-8b54-20980ac3d42e")
+		)
+		(pin "1"
+			(uuid "4cf2ce1b-2d82-4e7c-9917-602c98afab8b")
+		)
+		(instances
+			(project "Main"
+				(path "/77f264da-4c84-4b0c-9d20-4392731765e6/8078826c-4446-4e50-a209-45fcf7cbe7e4"
+					(reference "D2")
 					(unit 1)
 				)
 			)
@@ -4251,7 +4527,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "IN"
+		(property "Value" "OUT_5V_PWR"
 			(at 255.27 27.9399 0)
 			(effects
 				(font
@@ -4375,7 +4651,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "CollecteurDonne:Résistance L10mm"
 			(at 180.086 54.864 90)
 			(effects
 				(font
@@ -4750,7 +5026,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "IN"
+		(property "Value" "OUT_5V_ALI"
 			(at 203.2 26.6699 0)
 			(effects
 				(font
@@ -5012,7 +5288,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "CollecteurDonne:Résistance L10mm"
 			(at 140.716 65.024 90)
 			(effects
 				(font
@@ -5132,7 +5408,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm"
+		(property "Footprint" "CollecteurDonne:Capa disc radial 5.08mm"
 			(at 83.5152 67.31 0)
 			(effects
 				(font
@@ -5253,7 +5529,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:CP_Radial_D8.0mm_P5.00mm"
+		(property "Footprint" "CollecteurDonne:C_polar_D5mm"
 			(at 205.4352 63.5 0)
 			(effects
 				(font
@@ -5348,7 +5624,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Screw_Terminal_01x02")
-		(at 55.88 69.85 180)
+		(at 52.07 69.85 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5357,7 +5633,7 @@
 		(fields_autoplaced yes)
 		(uuid "4c066261-24e9-4306-837d-fd8a70582bcd")
 		(property "Reference" "J10"
-			(at 55.88 60.96 0)
+			(at 52.07 60.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5365,7 +5641,7 @@
 			)
 		)
 		(property "Value" "IN"
-			(at 55.88 63.5 0)
+			(at 52.07 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5373,7 +5649,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 55.88 69.85 0)
+			(at 52.07 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5382,7 +5658,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 55.88 69.85 0)
+			(at 52.07 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5391,7 +5667,7 @@
 			)
 		)
 		(property "Description" "Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 55.88 69.85 0)
+			(at 52.07 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5400,7 +5676,7 @@
 			)
 		)
 		(property "Fabricant" "Amphenol"
-			(at 55.88 69.85 0)
+			(at 52.07 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5409,7 +5685,7 @@
 			)
 		)
 		(property "Fournisseur" "RS"
-			(at 55.88 69.85 0)
+			(at 52.07 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5418,7 +5694,7 @@
 			)
 		)
 		(property "Ref Fabricant" "OQ0232510000G"
-			(at 55.88 69.85 0)
+			(at 52.07 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5427,7 +5703,7 @@
 			)
 		)
 		(property "Ref Fournisseur" "446-488"
-			(at 55.88 69.85 0)
+			(at 52.07 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5436,7 +5712,7 @@
 			)
 		)
 		(property "Sim.Type" ""
-			(at 55.88 69.85 0)
+			(at 52.07 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5493,7 +5769,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "CollecteurDonne:Résistance L10mm"
 			(at 180.086 65.024 90)
 			(effects
 				(font
@@ -5611,7 +5887,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "CollecteurDonne:Résistance L10mm"
 			(at 165.354 75.184 90)
 			(effects
 				(font
@@ -5771,6 +6047,92 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:D")
+		(at 59.69 49.53 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "83617ede-9393-40c1-b85f-90b08b2ac501")
+		(property "Reference" "D1"
+			(at 59.69 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "D"
+			(at 59.69 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "CollecteurDonne:BarrelJack_Horizontal"
+			(at 59.69 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 59.69 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Diode"
+			(at 59.69 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Device" "D"
+			(at 59.69 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Pins" "1=K 2=A"
+			(at 59.69 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "67bb6f62-c25f-4b9a-b138-bebc493f7b10")
+		)
+		(pin "1"
+			(uuid "13052106-2edd-4e12-abcd-6d627d0d6332")
+		)
+		(instances
+			(project ""
+				(path "/77f264da-4c84-4b0c-9d20-4392731765e6/8078826c-4446-4e50-a209-45fcf7cbe7e4"
+					(reference "D1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C")
 		(at 218.44 59.69 0)
 		(unit 1)
@@ -5797,7 +6159,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm"
+		(property "Footprint" "CollecteurDonne:Capa disc radial 5.08mm"
 			(at 219.4052 63.5 0)
 			(effects
 				(font
@@ -5917,7 +6279,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm"
+		(property "Footprint" "CollecteurDonne:Capa disc radial 5.08mm"
 			(at 166.0652 63.5 0)
 			(effects
 				(font
@@ -6183,7 +6545,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "CollecteurDonne:Résistance L10mm"
 			(at 233.426 59.944 90)
 			(effects
 				(font
@@ -6304,7 +6666,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "CollecteurDonne:Résistance L10mm"
 			(at 72.136 129.794 90)
 			(effects
 				(font
@@ -6418,7 +6780,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm"
+		(property "Footprint" "CollecteurDonne:Capa disc radial 5.08mm"
 			(at 133.35 44.7548 0)
 			(effects
 				(font
@@ -6539,7 +6901,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "CollecteurDonne:Résistance L10mm"
 			(at 140.716 54.864 90)
 			(effects
 				(font
@@ -6700,7 +7062,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Barrel_Jack_Switch_Pin3Ring")
-		(at 53.34 52.07 0)
+		(at 45.72 52.07 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6709,7 +7071,7 @@
 		(fields_autoplaced yes)
 		(uuid "e02b296a-a9bd-4a97-91a5-f1e611669f4b")
 		(property "Reference" "J17"
-			(at 53.34 43.18 0)
+			(at 45.72 43.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6717,15 +7079,15 @@
 			)
 		)
 		(property "Value" "Barrel_Jack_Switch_Pin3Ring"
-			(at 53.34 45.72 0)
+			(at 45.72 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
-			(at 54.61 53.086 0)
+		(property "Footprint" "CollecteurDonne:BarrelJack_Horizontal"
+			(at 46.99 53.086 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6734,7 +7096,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 54.61 53.086 0)
+			(at 46.99 53.086 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6743,7 +7105,7 @@
 			)
 		)
 		(property "Description" "DC Barrel Jack with an internal switch"
-			(at 53.34 52.07 0)
+			(at 45.72 52.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6860,7 +7222,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "CollecteurDonne:Résistance L10mm"
 			(at 129.54 52.07 0)
 			(effects
 				(font
