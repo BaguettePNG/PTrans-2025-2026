@@ -2434,16 +2434,6 @@
 	)
 	(wire
 		(pts
-			(xy 196.85 59.69) (xy 193.04 59.69)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0a1ce63e-1da1-4ad9-8351-d7a5cd8adf35")
-	)
-	(wire
-		(pts
 			(xy 95.25 49.53) (xy 95.25 52.07)
 		)
 		(stroke
@@ -2574,7 +2564,7 @@
 	)
 	(wire
 		(pts
-			(xy 64.77 67.31) (xy 57.15 67.31)
+			(xy 64.77 67.31) (xy 54.61 67.31)
 		)
 		(stroke
 			(width 0)
@@ -2724,7 +2714,7 @@
 	)
 	(wire
 		(pts
-			(xy 196.85 63.5) (xy 196.85 59.69)
+			(xy 193.04 63.5) (xy 193.04 59.69)
 		)
 		(stroke
 			(width 0)
@@ -2864,7 +2854,7 @@
 	)
 	(wire
 		(pts
-			(xy 57.15 69.85) (xy 62.23 69.85)
+			(xy 54.61 69.85) (xy 62.23 69.85)
 		)
 		(stroke
 			(width 0)
@@ -3254,6 +3244,16 @@
 	)
 	(wire
 		(pts
+			(xy 69.85 36.83) (xy 73.66 36.83)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d39c7058-75c5-4e09-9d1f-d570081ea505")
+	)
+	(wire
+		(pts
 			(xy 64.77 49.53) (xy 69.85 49.53)
 		)
 		(stroke
@@ -3381,6 +3381,16 @@
 			(type default)
 		)
 		(uuid "ff225090-e1f2-4d76-8553-28570d85db4f")
+	)
+	(wire
+		(pts
+			(xy 69.85 36.83) (xy 69.85 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ffab8cef-8c4a-4766-b6ad-1a2aa98abf9d")
 	)
 	(image
 		(at 208.28 124.46)
@@ -3783,6 +3793,17 @@
 		)
 		(uuid "fbbf16d3-dea5-484f-8018-ada8ddfccaea")
 	)
+	(hierarchical_label "V_Battery"
+		(shape input)
+		(at 73.66 36.83 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "0e09a56f-288b-4a83-a537-46bb6d16a5ae")
+	)
 	(hierarchical_label "+5V_ALIM"
 		(shape input)
 		(at 168.91 36.83 0)
@@ -3851,7 +3872,7 @@
 	)
 	(hierarchical_label "POWER_UP"
 		(shape input)
-		(at 196.85 63.5 270)
+		(at 193.04 63.5 270)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3899,7 +3920,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "CollecteurDonne:Résistance L10mm"
+		(property "Footprint" "CollecteurDonne:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 72.136 119.634 90)
 			(effects
 				(font
@@ -4014,7 +4035,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "CollecteurDonne:C_polar_D5mm"
+		(property "Footprint" "CollecteurDonne:C_Radial_D10.0mm_H16.0mm_P5.00mm"
 			(at 153.3652 63.5 0)
 			(effects
 				(font
@@ -4135,7 +4156,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "CollecteurDonne:C_polar_D5mm"
+		(property "Footprint" "CollecteurDonne:C_Radial_D10.0mm_H16.0mm_P5.00mm"
 			(at 70.8152 67.31 0)
 			(effects
 				(font
@@ -4255,7 +4276,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "CollecteurDonne:C_polar_D5mm"
+		(property "Footprint" "CollecteurDonne:C_Radial_D10.0mm_H16.0mm_P5.00mm"
 			(at 96.2152 67.31 0)
 			(effects
 				(font
@@ -4376,7 +4397,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "CollecteurDonne:D_DO-35_SOD27_P7.62mm_Horizontal"
 			(at 64.77 57.15 0)
 			(effects
 				(font
@@ -4651,7 +4672,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "CollecteurDonne:Résistance L10mm"
+		(property "Footprint" "CollecteurDonne:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 180.086 54.864 90)
 			(effects
 				(font
@@ -5288,7 +5309,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "CollecteurDonne:Résistance L10mm"
+		(property "Footprint" "CollecteurDonne:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 140.716 65.024 90)
 			(effects
 				(font
@@ -5408,7 +5429,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "CollecteurDonne:Capa disc radial 5.08mm"
+		(property "Footprint" "CollecteurDonne:C_Disc_D5.0mm_W2.5mm_P5.00mm"
 			(at 83.5152 67.31 0)
 			(effects
 				(font
@@ -5529,7 +5550,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "CollecteurDonne:C_polar_D5mm"
+		(property "Footprint" "CollecteurDonne:C_Radial_D10.0mm_H16.0mm_P5.00mm"
 			(at 205.4352 63.5 0)
 			(effects
 				(font
@@ -5624,16 +5645,16 @@
 	)
 	(symbol
 		(lib_id "Connector:Screw_Terminal_01x02")
-		(at 52.07 69.85 180)
+		(at 49.53 69.85 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "4c066261-24e9-4306-837d-fd8a70582bcd")
 		(property "Reference" "J10"
-			(at 52.07 60.96 0)
+			(at 49.53 60.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5641,7 +5662,7 @@
 			)
 		)
 		(property "Value" "IN"
-			(at 52.07 63.5 0)
+			(at 49.53 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5649,7 +5670,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 52.07 69.85 0)
+			(at 49.53 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5658,7 +5679,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 52.07 69.85 0)
+			(at 49.53 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5667,7 +5688,7 @@
 			)
 		)
 		(property "Description" "Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 52.07 69.85 0)
+			(at 49.53 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5676,7 +5697,7 @@
 			)
 		)
 		(property "Fabricant" "Amphenol"
-			(at 52.07 69.85 0)
+			(at 49.53 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5685,7 +5706,7 @@
 			)
 		)
 		(property "Fournisseur" "RS"
-			(at 52.07 69.85 0)
+			(at 49.53 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5694,7 +5715,7 @@
 			)
 		)
 		(property "Ref Fabricant" "OQ0232510000G"
-			(at 52.07 69.85 0)
+			(at 49.53 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5703,7 +5724,7 @@
 			)
 		)
 		(property "Ref Fournisseur" "446-488"
-			(at 52.07 69.85 0)
+			(at 49.53 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5712,7 +5733,7 @@
 			)
 		)
 		(property "Sim.Type" ""
-			(at 52.07 69.85 0)
+			(at 49.53 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5769,7 +5790,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "CollecteurDonne:Résistance L10mm"
+		(property "Footprint" "CollecteurDonne:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 180.086 65.024 90)
 			(effects
 				(font
@@ -5887,7 +5908,7 @@
 				)
 			)
 		)
-		(property "Footprint" "CollecteurDonne:Résistance L10mm"
+		(property "Footprint" "CollecteurDonne:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 165.354 75.184 90)
 			(effects
 				(font
@@ -6072,7 +6093,7 @@
 				)
 			)
 		)
-		(property "Footprint" "CollecteurDonne:BarrelJack_Horizontal"
+		(property "Footprint" "CollecteurDonne:D_DO-35_SOD27_P7.62mm_Horizontal"
 			(at 59.69 49.53 0)
 			(effects
 				(font
@@ -6159,7 +6180,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "CollecteurDonne:Capa disc radial 5.08mm"
+		(property "Footprint" "CollecteurDonne:C_Disc_D5.0mm_W2.5mm_P5.00mm"
 			(at 219.4052 63.5 0)
 			(effects
 				(font
@@ -6279,7 +6300,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "CollecteurDonne:Capa disc radial 5.08mm"
+		(property "Footprint" "CollecteurDonne:C_Disc_D5.0mm_W2.5mm_P5.00mm"
 			(at 166.0652 63.5 0)
 			(effects
 				(font
@@ -6545,7 +6566,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "CollecteurDonne:Résistance L10mm"
+		(property "Footprint" "CollecteurDonne:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 233.426 59.944 90)
 			(effects
 				(font
@@ -6666,7 +6687,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "CollecteurDonne:Résistance L10mm"
+		(property "Footprint" "CollecteurDonne:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 72.136 129.794 90)
 			(effects
 				(font
@@ -6780,7 +6801,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "CollecteurDonne:Capa disc radial 5.08mm"
+		(property "Footprint" "CollecteurDonne:C_Disc_D5.0mm_W2.5mm_P5.00mm"
 			(at 133.35 44.7548 0)
 			(effects
 				(font
@@ -6901,7 +6922,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "CollecteurDonne:Résistance L10mm"
+		(property "Footprint" "CollecteurDonne:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 140.716 54.864 90)
 			(effects
 				(font
@@ -7222,7 +7243,7 @@
 				)
 			)
 		)
-		(property "Footprint" "CollecteurDonne:Résistance L10mm"
+		(property "Footprint" "CollecteurDonne:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 129.54 52.07 0)
 			(effects
 				(font

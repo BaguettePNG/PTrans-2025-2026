@@ -997,7 +997,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "CollecteurDonne:Capa disc radial 5.08mm"
+		(property "Footprint" "CollecteurDonne:C_Disc_D5.0mm_W2.5mm_P5.00mm"
 			(at 116.5352 106.68 0)
 			(effects
 				(font
