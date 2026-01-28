@@ -10,9 +10,10 @@
 // Pin pour alimentation et réveil
 #define WAKE_UP           1
 #define PWR_U_D           2
+#define LED_IR            48
 
 // Niveau de batterie
-#define BAT_PIN           47
+#define BAT_PIN           14
 
 // DHT22 sensor
 #define DHT_PIN           38
@@ -38,7 +39,7 @@
 // CAMERA PINS
 #define SIOD_GPIO_NUM     8 // SDA
 #define SIOC_GPIO_NUM     9 // SCL
-#define D0_GPIO           46
+#define D0_GPIO           47
 #define D1_GPIO           3
 #define D2_GPIO           16
 #define D3_GPIO           15
@@ -48,7 +49,7 @@
 #define D7_GPIO           4
 #define VSYNC_GPIO        40
 #define HREF_GPIO         39
-#define PCLK_GPIO         14
+#define PCLK_GPIO         46
 #define RST_GPIO          -1 // Connect to GND
 #define XCLK_GPIO         -1 // Not Use  
 

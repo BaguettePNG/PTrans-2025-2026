@@ -15,15 +15,18 @@ DHT dht(DHT_PIN, DHT22);
 SendData send;
 
 RTC_DATA_ATTR bool activate = false;
-RTC_DATA_ATTR int lastRefreshDay = 0;
+RTC_DATA_ATTR int lastRefreshDay;
 
 #define WIDTH 1600
 #define HEIGHT 1200
 
 void WakeUpLoop()
 {
+  setCpuFrequencyMhz(240);
+
   digitalWrite(PWR_U_D, HIGH);   // Alimentation ON
   digitalWrite(GPS_PWR_UD, LOW); // Alimentation GPS OFF
+  digitalWrite(LED_IR, HIGH); // Alimentation LED IR ON
 
   cam.begin();
   dht.begin();
@@ -31,6 +34,8 @@ void WakeUpLoop()
   delay(500); // Attente stabilisation
 
   cam.takePhoto();
+
+  digitalWrite(LED_IR, LOW); // Alimentation LED IR OFF
 
   delay(2000);
 
@@ -41,8 +46,13 @@ void WakeUpLoop()
   rtc.getDateTime();
   int currentDay = rtc.getDay().toInt();
 
+  Serial.println(lastRefreshDay);
+  Serial.println(currentDay);
+
   if (!activate || (currentDay != lastRefreshDay))
   {
+    setCpuFrequencyMhz(80);
+
     digitalWrite(GPS_PWR_UD, HIGH); // Alimentation GPS ON
     activate = true;
     Serial.println("Recherche GPS");
@@ -69,6 +79,9 @@ void WakeUpLoop()
 
     // Mise à jour du timestamp du dernier refresh GPS
     lastRefreshDay = gps.getDay().toInt();
+    Serial.println(lastRefreshDay);
+
+    setCpuFrequencyMhz(240);
   }
   else
   {
@@ -95,8 +108,6 @@ void WakeUpLoop()
   String minutes = rtc.getMinutes();
   String seconds = rtc.getSeconds();
 
-  setCpuFrequencyMhz(240);
-
   send.SendAllDataPSRAM(cam.getImage(), cam.getImageSize(), WIDTH, HEIGHT, temperature, humidity, savedLat, savedLon, year, month, day, hours, minutes, seconds, batteryPercent);
 
   setCpuFrequencyMhz(80);
@@ -113,6 +124,7 @@ void setup()
   pinMode(PWR_U_D, OUTPUT);
   pinMode(WAKE_UP, INPUT);
   pinMode(GPS_PWR_UD, OUTPUT);
+  pinMode(LED_IR, OUTPUT);
 
   esp_sleep_wakeup_cause_t cause = esp_sleep_get_wakeup_cause();
 

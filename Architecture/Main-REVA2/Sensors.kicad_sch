@@ -1214,7 +1214,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Transistor_FET:BS170"
+		(symbol "Transistor_FET:IRF540N"
 			(pin_names
 				(hide yes)
 			)
@@ -1230,7 +1230,7 @@
 					(justify left)
 				)
 			)
-			(property "Value" "BS170"
+			(property "Value" "IRF540N"
 				(at 5.08 0 0)
 				(effects
 					(font
@@ -1239,7 +1239,7 @@
 					(justify left)
 				)
 			)
-			(property "Footprint" "Package_TO_SOT_THT:TO-92_Inline"
+			(property "Footprint" "Package_TO_SOT_THT:TO-220-3_Vertical"
 				(at 5.08 -1.905 0)
 				(effects
 					(font
@@ -1250,7 +1250,7 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" "https://www.onsemi.com/pub/Collateral/BS170-D.PDF"
+			(property "Datasheet" "http://www.irf.com/product-info/datasheets/data/irf540n.pdf"
 				(at 5.08 -3.81 0)
 				(effects
 					(font
@@ -1260,7 +1260,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "0.5A Id, 60V Vds, N-Channel MOSFET, TO-92"
+			(property "Description" "33A Id, 100V Vds, HEXFET N-Channel MOSFET, TO-220"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1269,7 +1269,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_keywords" "N-Channel MOSFET"
+			(property "ki_keywords" "HEXFET N-Channel MOSFET"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1278,7 +1278,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_fp_filters" "TO?92*"
+			(property "ki_fp_filters" "TO?220*"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1287,7 +1287,7 @@
 					(hide yes)
 				)
 			)
-			(symbol "BS170_0_1"
+			(symbol "IRF540N_0_1"
 				(polyline
 					(pts
 						(xy 0.254 1.905) (xy 0.254 -1.905)
@@ -1454,7 +1454,7 @@
 					)
 				)
 			)
-			(symbol "BS170_1_1"
+			(symbol "IRF540N_1_1"
 				(pin input line
 					(at -5.08 0 0)
 					(length 2.54)
@@ -1465,7 +1465,7 @@
 							)
 						)
 					)
-					(number "2"
+					(number "1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1483,7 +1483,7 @@
 							)
 						)
 					)
-					(number "1"
+					(number "2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -12485,7 +12485,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "110990030:SEEED_110990030"
+		(property "Footprint" "CollecteurDonne:Grove"
 			(at 201.93 133.35 0)
 			(effects
 				(font
@@ -12682,7 +12682,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "110990030:SEEED_110990030"
+		(property "Footprint" "CollecteurDonne:Grove"
 			(at 119.38 133.35 0)
 			(effects
 				(font
@@ -12878,7 +12878,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical"
 			(at 166.37 88.9 0)
 			(effects
 				(font
@@ -13080,6 +13080,82 @@
 			(project "Main"
 				(path "/77f264da-4c84-4b0c-9d20-4392731765e6/1ddae4dd-6d7b-4ef8-9a8d-fbd44b538466"
 					(reference "C19")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Transistor_FET:IRF540N")
+		(at 142.24 59.69 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "645cfa3b-ddec-45d9-9068-2f5cd5c9cb42")
+		(property "Reference" "Q1"
+			(at 148.59 58.4199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "IRF540N"
+			(at 148.59 60.9599 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_THT:TO-220-3_Vertical"
+			(at 147.32 61.595 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.irf.com/product-info/datasheets/data/irf540n.pdf"
+			(at 147.32 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Description" "33A Id, 100V Vds, HEXFET N-Channel MOSFET, TO-220"
+			(at 142.24 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "fb7f51f1-bace-43ea-8546-ed738b91498d")
+		)
+		(pin "1"
+			(uuid "46e624b7-5cf7-4764-84c2-be8f173a8929")
+		)
+		(pin "3"
+			(uuid "64695ca0-ffc0-4414-9840-cbf5d3d80b38")
+		)
+		(instances
+			(project "Main"
+				(path "/77f264da-4c84-4b0c-9d20-4392731765e6/1ddae4dd-6d7b-4ef8-9a8d-fbd44b538466"
+					(reference "Q1")
 					(unit 1)
 				)
 			)
@@ -13560,127 +13636,6 @@
 			(project "Main"
 				(path "/77f264da-4c84-4b0c-9d20-4392731765e6/1ddae4dd-6d7b-4ef8-9a8d-fbd44b538466"
 					(reference "J8")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Transistor_FET:BS170")
-		(at 142.24 59.69 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "a49139d8-065f-4bfd-bc43-66deb59bed1e")
-		(property "Reference" "Q1"
-			(at 148.59 58.4199 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "BS170"
-			(at 148.59 60.9599 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_THT:TO-92_Inline"
-			(at 147.32 61.595 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.onsemi.com/pub/Collateral/BS170-D.PDF"
-			(at 147.32 63.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Description" "0.5A Id, 60V Vds, N-Channel MOSFET, TO-92"
-			(at 142.24 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Fabricant" "BS170"
-			(at 142.24 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Fournisseur" "RS"
-			(at 142.24 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Ref Fabricant" "ONSEMI"
-			(at 142.24 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Ref Fournisseur" "124-1745"
-			(at 142.24 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Type" ""
-			(at 142.24 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "a363a535-507a-4371-a6c9-147eaccea531")
-		)
-		(pin "3"
-			(uuid "0c4bbfaf-288e-4ff5-8206-74f11dc008e4")
-		)
-		(pin "1"
-			(uuid "91fc17b5-1ca9-4bff-8720-b64cebdedd6b")
-		)
-		(instances
-			(project "Main"
-				(path "/77f264da-4c84-4b0c-9d20-4392731765e6/1ddae4dd-6d7b-4ef8-9a8d-fbd44b538466"
-					(reference "Q1")
 					(unit 1)
 				)
 			)
