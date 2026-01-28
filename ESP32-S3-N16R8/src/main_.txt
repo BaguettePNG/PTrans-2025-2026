@@ -23,6 +23,7 @@ RTC_DATA_ATTR int lastRefreshDay = 0;
 void WakeUpLoop() 
 {
     digitalWrite(PWR_U_D, HIGH); // Alimentation ON 
+    digitalWrite(GPS_PWR_UD, LOW); // 
 
     cam.begin();
     dht.begin(); 
