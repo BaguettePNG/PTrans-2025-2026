@@ -29,14 +29,14 @@ void WakeUpLoop()
   digitalWrite(LED_IR, HIGH); // Alimentation LED IR ON
 
   cam.begin();
-  dht.begin();
-
+  
   delay(500); // Attente stabilisation
 
   cam.takePhoto();
 
   digitalWrite(LED_IR, LOW); // Alimentation LED IR OFF
 
+  dht.begin();
   delay(2000);
 
   float temperature = dht.readTemperature();
@@ -89,13 +89,16 @@ void WakeUpLoop()
     rtc.getDateTime();
   }
 
-  /*
+  Serial.println("=============================================");
+  Serial.println("Température: " + String(temperature) + " °C");
+  Serial.println("Humidité: " + String(humidity) + " %");
+  Serial.println("Batterie: " + String(batteryPercent) + " %");
   Serial.println("Lat: " + String(rtc.getLat()));
   Serial.println("Long: " + String(rtc.getLon()));
   Serial.println("Date: " + String(rtc.getDay()) + "/" + String(rtc.getMonth()) + "/" + String(rtc.getYear()));
-
   Serial.println("Heure: " + String(rtc.getHours()) + ":" + String(rtc.getMinutes()) + ":" + String(rtc.getSeconds()));
-  */
+  Serial.println("=============================================");
+
 
   // Variable Interne RTC
 

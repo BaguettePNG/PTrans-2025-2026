@@ -293,4 +293,6 @@ int SendData::SendAllDataPSRAM(uint8_t* imgData, size_t imgSize, int width, int 
         Serial.println("Envoi des données réussi");
         return 0;
     }
+
+    WiFi.disconnect(true);
 }
