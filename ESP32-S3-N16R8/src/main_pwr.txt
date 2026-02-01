@@ -6,11 +6,14 @@
 #include "GPS.hpp"
 #include "BAT.hpp"
 #include "SENDWIFI.hpp"
+#include "soc/soc.h"
+#include "soc/rtc_cntl_reg.h"
 
 #include <Adafruit_NeoPixel.h>
-#define LED_PIN 48 // ta pin NeoPixel
-#define NUM_LEDS 1 // 1 LED RGB intégrée
+#define LED_PIN 48     // ta pin NeoPixel
+#define NUM_LEDS 1     // 1 LED RGB intégrée
 Adafruit_NeoPixel strip(NUM_LEDS, LED_PIN, NEO_GRB + NEO_KHZ800);
+
 
 BAT bat(BAT_PIN);
 RTC rtc;
@@ -27,24 +30,30 @@ RTC_DATA_ATTR int lastRefreshDay;
 
 void WakeUpLoop()
 {
-    setCpuFrequencyMhz(240);
+    // =========================
+    // 1️⃣ CPU lent et tout OFF
+    // =========================
+    setCpuFrequencyMhz(80);
 
-    digitalWrite(PWR_U_D, HIGH);   // Alimentation ON
-    digitalWrite(GPS_PWR_UD, LOW); // Alimentation GPS OFF
-    digitalWrite(LED_IR, HIGH);    // Alimentation LED IR ON
+    digitalWrite(PWR_U_D, LOW);     // Alim principale OFF
+    digitalWrite(GPS_PWR_UD, LOW);  // GPS OFF
+    digitalWrite(LED_IR, LOW);      // LED IR OFF
+    delay(200);                     // Stabilisation
 
-    delay(250); // Attente stabilisation
+    // =========================
+    // 2️⃣ Alimentation progressive
+    // =========================
+    digitalWrite(PWR_U_D, HIGH);    // Alim ON
+    delay(300);
 
-    cam.begin();
+    digitalWrite(LED_IR, HIGH);     // LED IR ON
+    delay(300);
+
+    // =========================
+    // 3️⃣ Initialisation capteurs
+    // =========================
     dht.begin();
-
-    delay(250); // Attente stabilisation
-
-    cam.takePhoto();
-
-    digitalWrite(LED_IR, LOW); // Alimentation LED IR OFF
-
-    delay(2000);
+    delay(1500);
 
     float temperature = dht.readTemperature();
     float humidity = dht.readHumidity();
@@ -56,11 +65,12 @@ void WakeUpLoop()
     Serial.println(lastRefreshDay);
     Serial.println(currentDay);
 
+    // =========================
+    // 4️⃣ GPS si nécessaire
+    // =========================
     if (!activate || (currentDay != lastRefreshDay))
     {
-        setCpuFrequencyMhz(80);
-
-        digitalWrite(GPS_PWR_UD, HIGH); // Alimentation GPS ON
+        digitalWrite(GPS_PWR_UD, HIGH); // GPS ON
         activate = true;
         Serial.println("Recherche GPS");
 
@@ -80,15 +90,12 @@ void WakeUpLoop()
             gps.getSeconds(),
             gps.getDay(),
             gps.getMonth(),
-            gps.getYear());
+            gps.getYear()
+        );
 
         rtc.getDateTime();
-
-        // Mise à jour du timestamp du dernier refresh GPS
         lastRefreshDay = gps.getDay().toInt();
         Serial.println(lastRefreshDay);
-
-        setCpuFrequencyMhz(240);
     }
     else
     {
@@ -96,6 +103,9 @@ void WakeUpLoop()
         rtc.getDateTime();
     }
 
+    // =========================
+    // 5️⃣ Affichage
+    // =========================
     Serial.println("=============================================");
     Serial.println("Température: " + String(temperature) + " °C");
     Serial.println("Humidité: " + String(humidity) + " %");
@@ -106,39 +116,40 @@ void WakeUpLoop()
     Serial.println("Heure: " + String(rtc.getHours()) + ":" + String(rtc.getMinutes()) + ":" + String(rtc.getSeconds()));
     Serial.println("=============================================");
 
-    // Variable Interne RTC
-
-    String savedLat = rtc.getLat();
-    String savedLon = rtc.getLon();
-    String year = rtc.getYear();
-    String month = rtc.getMonth();
-    String day = rtc.getDay();
-    String hours = rtc.getHours();
-    String minutes = rtc.getMinutes();
-    String seconds = rtc.getSeconds();
-
-    send.SendAllDataPSRAM(cam.getImage(), cam.getImageSize(), WIDTH, HEIGHT, temperature, humidity, savedLat, savedLon, year, month, day, hours, minutes, seconds, batteryPercent);
+    // =========================
+    // 6️⃣ Tout OFF avant envoi / fin
+    // =========================
+    digitalWrite(LED_IR, LOW);
+    digitalWrite(PWR_U_D, LOW);  // Alim principale OFF
+    digitalWrite(GPS_PWR_UD, LOW);
 
     setCpuFrequencyMhz(80);
-
-    digitalWrite(PWR_U_D, LOW); // Alimentation OFF
 }
 
 void setup()
 {
     Serial.begin(115200);
 
+    strip.begin();
+    strip.show(); // initialise toutes les LED à off
+    strip.setPixelColor(0, 0, 0, 0); // RGB off
+    strip.show(); // applique
+
+    WRITE_PERI_REG(RTC_CNTL_BROWN_OUT_REG, 0);
+
     setCpuFrequencyMhz(80);
 
-    strip.begin();
-    strip.show();                    // initialise toutes les LED à off
-    strip.setPixelColor(0, 0, 0, 0); // RGB off
-    strip.show();                    // applique
-
+    // =========================
+    // Définir GPIO et tout OFF dès le départ
+    // =========================
     pinMode(PWR_U_D, OUTPUT);
     pinMode(WAKE_UP, INPUT);
     pinMode(GPS_PWR_UD, OUTPUT);
     pinMode(LED_IR, OUTPUT);
+
+    digitalWrite(PWR_U_D, LOW);
+    digitalWrite(GPS_PWR_UD, LOW);
+    digitalWrite(LED_IR, LOW);
 
     esp_sleep_wakeup_cause_t cause = esp_sleep_get_wakeup_cause();
 

@@ -10,7 +10,7 @@
 // Pin pour alimentation et réveil
 #define WAKE_UP           1
 #define PWR_U_D           2
-#define LED_IR            48
+#define LED_IR            45
 
 // Niveau de batterie
 #define BAT_PIN           14

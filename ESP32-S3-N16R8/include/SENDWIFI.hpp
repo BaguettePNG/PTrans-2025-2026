@@ -13,8 +13,8 @@
 #define RAW_CHUNK_SIZE 32768
 #define RetryNum 2
 
-//#define IP "90.59.66.6"
-#define IP "10.22.113.233"
+#define IP "90.59.66.6"
+//#define IP "10.22.113.233"
 
 
 
