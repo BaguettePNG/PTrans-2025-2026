@@ -4075,7 +4075,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100µF"
+		(property "Value" "470µF"
 			(at 153.67 60.0709 0)
 			(effects
 				(font

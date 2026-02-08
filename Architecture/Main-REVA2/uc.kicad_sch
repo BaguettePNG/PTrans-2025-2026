@@ -31909,7 +31909,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "470uF"
+		(property "Value" "100uF"
 			(at 55.88 108.3309 0)
 			(effects
 				(font
@@ -31918,7 +31918,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "CollecteurDonne:C_Radial_D10.0mm_H16.0mm_P5.00mm"
 			(at 53.0352 111.76 0)
 			(effects
 				(font
