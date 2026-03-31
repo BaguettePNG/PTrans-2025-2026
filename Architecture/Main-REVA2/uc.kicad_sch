@@ -1696,16 +1696,6 @@
 			(embedded_fonts no)
 		)
 	)
-	(text "#ifndef __CONFIG_H__\n#define __CONFIG_H__\n\n// --- SYSTÈME (LIAISON PC) ---\n// Note : Pour libérer 43/44, utilisez l'USB natif sur GPIO 19/20\n// Dans PlatformIO : build_flags = -DARDUINO_USB_CDC_ON_BOOT=1\n\n// --- MODULE 4G LTE (UART1 ou UART0 réassigné) ---\n#define MODEM_RX          43  \n#define MODEM_TX          44  \n\n// --- GPS EXTERNE (UART2) ---\n#define GPS_RX_PIN        16 \n#define GPS_TX_PIN        17 \n\n// --- CARTE SD (SPI) ---\n#define SD_SCK            14 \n#define SD_MISO           12 \n#define SD_MOSI           13 \n#define SD_CS             15 \n\n// --- CAMERA PINS (SÉCURISÉ POUR N16R8) ---\n#define SIOD_GPIO_NUM     21 \n#define SIOC_GPIO_NUM     22 \n#define XCLK_GPIO         -1  \n#define PCLK_GPIO         46  \n#define VSYNC_GPIO        3   \n#define HREF_GPIO         25 \n#define D0_GPIO           26 \n#define D1_GPIO           47  \n#define D2_GPIO           39 \n#define D3_GPIO           32 \n#define D4_GPIO           27 \n#define D5_GPIO           23 \n#define D6_GPIO           45   // Déplacé depuis 20 pour laisser le port USB Natif libre\n#define D7_GPIO           18 \n\n// --- PINS LIBRES ---\n#define FREE_GPIO_0       0\n#define FREE_GPIO_6       6\n#define FREE_GPIO_7       7\n#define FREE_GPIO_8       8\n#define FREE_GPIO_9       9\n#define FREE_GPIO_10      10\n#define FREE_GPIO_11      11\n#define FREE_GPIO_20      20   // Réservé USB Natif (D+)\n#define FREE_GPIO_48      48\n\n// --- PINS INTERDITES (PSRAM/FLASH) ---\n// GPIO 19, 28-31, 33-37\n#endif"
-		(exclude_from_sim no)
-		(at 209.55 98.298 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "95f61cf6-8653-4734-a38b-5d12ddbcc1b1")
-	)
 	(junction
 		(at 71.12 78.74)
 		(diameter 0)
@@ -2055,6 +2045,16 @@
 			(type default)
 		)
 		(uuid "6289bcaa-bfe5-47b5-867b-c948e59a21bc")
+	)
+	(wire
+		(pts
+			(xy 168.91 92.71) (xy 168.91 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "62ae5a61-0ac3-4cb3-90b3-df070c61e1cb")
 	)
 	(wire
 		(pts

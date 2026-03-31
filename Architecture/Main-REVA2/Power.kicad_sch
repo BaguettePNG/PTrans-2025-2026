@@ -2232,6 +2232,19 @@
 		)
 	)
 	(rectangle
+		(start 106.68 29.21)
+		(end 144.78 54.61)
+		(stroke
+			(width 0.635)
+			(type solid)
+			(color 255 0 2 1)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 9388e8a2-0ed7-487f-9c1d-dbc247f8e55c)
+	)
+	(rectangle
 		(start 50.8 107.95)
 		(end 127 146.05)
 		(stroke
@@ -2252,6 +2265,17 @@
 			)
 		)
 		(uuid "24ed3a95-6d08-417c-9540-aac7e91f4651")
+	)
+	(text "MAUVAISE EMPREINTE INDUCTOR\n"
+		(exclude_from_sim no)
+		(at 126.746 34.798 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(color 255 50 6 1)
+			)
+		)
+		(uuid "38124479-c5f1-40a6-b65b-2f4a1e4614a2")
 	)
 	(text "Mesure Battery Voltage"
 		(exclude_from_sim no)
