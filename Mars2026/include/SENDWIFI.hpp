@@ -13,16 +13,17 @@
 #define RAW_CHUNK_SIZE 32768
 #define RetryNum 2
 
-#define IP "90.59.66.6"
+//#define IP "90.59.66.6"
 //#define IP "10.22.113.233"
+#define IP "52.47.159.94"
 
 
 
 class SendData
 {
     private:
-        const char *ssid = "test";
-        const char *password = "testesp@";
+        const char *ssid = "mange caca";
+        const char *password = "mange caca aussi";
         String serverURLimage = "http://" + String(IP) + ":5050/api/image";
         String serverURLdata = "http://" + String(IP) + ":5050/api/data";
         const int SCK = SD_SCK;

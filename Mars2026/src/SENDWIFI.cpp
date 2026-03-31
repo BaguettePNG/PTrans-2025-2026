@@ -41,11 +41,17 @@ int SendData::SendAllData(String File_name, int width, int height, float tempera
 {
     // =============== Initialisation WiFi ================
 
+    WiFi.disconnect(true);  // Nettoyer la connexion précédente
+    delay(100);
+    WiFi.mode(WIFI_STA);     // Mode Station
+    delay(100);
+    
     WiFi.begin(ssid, password);
     Serial.println("Connexion au WiFi...");
+    Serial.printf("SSID: %s\n", ssid);
 
     int retry = 0;
-    while (WiFi.status() != WL_CONNECTED && retry < 50)
+    while (WiFi.status() != WL_CONNECTED && retry < 100)  // Augmenté à 20 secondes
     {
         delay(200);
         Serial.print(".");
@@ -54,11 +60,15 @@ int SendData::SendAllData(String File_name, int width, int height, float tempera
 
     if (WiFi.status() != WL_CONNECTED)
     {
-        Serial.println("\nWiFi échec");
+        Serial.printf("\nWiFi échec - Status: %d\n", WiFi.status());
+        Serial.println("RSSI: " + String(WiFi.RSSI()));
+        WiFi.disconnect(true);
         return -1;
     }
 
     Serial.println("\nWiFi connecté");
+    Serial.println("IP: " + WiFi.localIP().toString());
+    Serial.println("RSSI: " + String(WiFi.RSSI()));
 
     File file;
 
@@ -183,11 +193,17 @@ int SendData::SendAllDataPSRAM(uint8_t* imgData, size_t imgSize, int width, int 
 {
     // =============== Initialisation WiFi ================
 
+    WiFi.disconnect(true);  // Nettoyer la connexion précédente
+    delay(100);
+    WiFi.mode(WIFI_STA);     // Mode Station
+    delay(100);
+    
     WiFi.begin(ssid, password);
     Serial.println("Connexion au WiFi...");
+    Serial.printf("SSID: %s\n", ssid);
 
     int retry = 0;
-    while (WiFi.status() != WL_CONNECTED && retry < 50)
+    while (WiFi.status() != WL_CONNECTED && retry < 100)  // Augmenté à 20 secondes
     {
         delay(200);
         Serial.print(".");
@@ -196,11 +212,15 @@ int SendData::SendAllDataPSRAM(uint8_t* imgData, size_t imgSize, int width, int 
 
     if (WiFi.status() != WL_CONNECTED)
     {
-        Serial.println("\nWiFi échec");
+        Serial.printf("\nWiFi échec - Status: %d\n", WiFi.status());
+        Serial.println("RSSI: " + String(WiFi.RSSI()));
+        WiFi.disconnect(true);
         return -1;
     }
 
     Serial.println("\nWiFi connecté");
+    Serial.println("IP: " + WiFi.localIP().toString());
+    Serial.println("RSSI: " + String(WiFi.RSSI()));
 
     HTTPClient http;
 

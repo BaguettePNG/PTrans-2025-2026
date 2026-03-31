@@ -25,49 +25,128 @@ RTC_DATA_ATTR int lastRefreshDay;
 #define WIDTH 1600
 #define HEIGHT 1200
 
+void WakeUpLoop()
+{
+    setCpuFrequencyMhz(240);
+
+    digitalWrite(PWR_U_D, HIGH);   // Alimentation ON
+    digitalWrite(GPS_PWR_UD, LOW); // Alimentation GPS OFF
+
+    delay(250); // Attente stabilisation
+
+    cam.begin();
+    dht.begin();
+
+    delay(250); // Attente stabilisation
+
+    cam.takePhoto();
+
+
+    delay(2000);
+
+    float temperature = dht.readTemperature();
+    float humidity = dht.readHumidity();
+    float batteryPercent = bat.ReadPercent();
+
+    rtc.getDateTime();
+    int currentDay = rtc.getDay().toInt();
+
+    Serial.println(lastRefreshDay);
+    Serial.println(currentDay);
+
+    if (!activate || (currentDay != lastRefreshDay))
+    {
+        setCpuFrequencyMhz(80);
+
+        activate = true;
+        Serial.println("Recherche GPS");
+        
+        rtc.updateFromGPS(
+            "47.282098",
+            "-1.516272",
+            "11",
+            "36",
+            "00",
+            "31",
+            "03",
+            "2026");
+        rtc.getDateTime();
+
+        // Mise à jour du timestamp du dernier refresh GPS
+        lastRefreshDay = gps.getDay().toInt();
+        Serial.println(lastRefreshDay);
+
+        setCpuFrequencyMhz(240);
+    }
+    else
+    {
+        Serial.println("RTC interne uniquement");
+        rtc.getDateTime();
+    }
+
+    Serial.println("=============================================");
+    Serial.println("Température: " + String(temperature) + " °C");
+    Serial.println("Humidité: " + String(humidity) + " %");
+    Serial.println("Batterie: " + String(batteryPercent) + " %");
+    Serial.println("Lat: " + String(rtc.getLat()));
+    Serial.println("Long: " + String(rtc.getLon()));
+    Serial.println("Date: " + String(rtc.getDay()) + "/" + String(rtc.getMonth()) + "/" + String(rtc.getYear()));
+    Serial.println("Heure: " + String(rtc.getHours()) + ":" + String(rtc.getMinutes()) + ":" + String(rtc.getSeconds()));
+    Serial.println("=============================================");
+
+    // Variable Interne RTC
+
+    String savedLat = rtc.getLat();
+    String savedLon = rtc.getLon();
+    String year = rtc.getYear();
+    String month = rtc.getMonth();
+    String day = rtc.getDay();
+    String hours = rtc.getHours();
+    String minutes = rtc.getMinutes();
+    String seconds = rtc.getSeconds();
+
+    send.SendAllDataPSRAM(cam.getImage(), cam.getImageSize(), WIDTH, HEIGHT, temperature, humidity, savedLat, savedLon, year, month, day, hours, minutes, seconds, batteryPercent);
+
+    setCpuFrequencyMhz(80);
+
+    digitalWrite(PWR_U_D, LOW); // Alimentation OFF
+}
 
 void setup()
 {
     Serial.begin(115200);
 
+    setCpuFrequencyMhz(80);
+
+    strip.begin();
+    strip.show();                    // initialise toutes les LED à off
+    strip.setPixelColor(0, 0, 0, 0); // RGB off
+    strip.show();                    // applique
+
     pinMode(PWR_U_D, OUTPUT);
+    pinMode(WAKE_UP, INPUT);
     pinMode(GPS_PWR_UD, OUTPUT);
-    pinMode(LED_DEB, OUTPUT);
 
-    digitalWrite(PWR_U_D, HIGH);   // Alimentation ON
-    digitalWrite(GPS_PWR_UD, LOW); // Alimentation GPS OFF
+    esp_sleep_wakeup_cause_t cause = esp_sleep_get_wakeup_cause();
 
-    delay(1000); // Attente stabilisation
+    if (cause == ESP_SLEEP_WAKEUP_EXT1)
+    {
+        WakeUpLoop();
 
-    initSD();
-
-    if (!cam.begin()) {
-        Serial.println("Initialisation caméra échouée, arrêt setup.");
-        return;
+        while (digitalRead(WAKE_UP) == HIGH)
+        {
+            delay(1000);
+            Serial.println("Attente que PIR retombe ...");
+        }
+        Serial.println("PIR retombé, mise en veille profonde.");
     }
 
-    cam.takeAndSavePhoto("/test_1.jpg");
-    delay(1000);
-    cam.takeAndSavePhoto("/test_2.jpg");
+    esp_sleep_enable_ext1_wakeup(1ULL << WAKE_UP, ESP_EXT1_WAKEUP_ANY_HIGH);
 
-    dht.begin();
-    
-    pinMode(LED_DEB, OUTPUT);
+    esp_deep_sleep_start();
 }
 
 void loop()
 {
-    digitalWrite(LED_DEB, HIGH);
-    delay(1000);
-    digitalWrite(LED_DEB, LOW);
-    delay(1000);
-
-    Serial.println("Lecture capteurs...");
-    float temperature = dht.readTemperature();
-    float humidity = dht.readHumidity();
-
-    Serial.println("Température: " + String(temperature) + " °C");
-    Serial.println("Humidité: " + String(humidity) + " %");
-
-
+    // Rien ici
 }
