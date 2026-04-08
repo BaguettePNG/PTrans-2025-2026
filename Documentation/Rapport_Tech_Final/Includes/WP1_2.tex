@@ -1,0 +1,172 @@
+
+
+
+\subsection{WP 1.2 — Gestion des échanges données et du microcontrôleur (responsable : Nolan Buchet)}
+
+\subsubsection{Rappel des objectifs}
+
+Pour recontextuatlisé le projet et les objectifs de ce Work Package, le WP 1.2 fait partie du Work parckage 1 qui 
+est dédié à la conception et au développement du système de collecte de données animalières. Le WP 1.2 se concentre 
+spécifiquement sur la gestion des échanges de données entre les différents composants du système, ainsi que sur 
+l'intégration et la programmation du microcontrôleur qui servira de cerveau central pour le projet. De plus celui-ci 
+s'occupera de la partie énergétique du module, ainsi que de la partie stockage des données collectées.
+\\
+
+Voici la liste des taches qui seront réalisées dans le cadre de ce WP :
+\begin{itemize}
+    \item Tache 0 ( Equipe ) : Choix du Microcontrôleur et de la carte SD
+    \item Tache 1 : Gestion du stockage des données collectées
+    \item Tache 2 ( hors WP ) : Gestion de la luminosité pour WP 1.3
+    \item Tache 3 ; Gestion de l'horodatage et de la localisation du modules
+    \item Tache 4 : Définition d'un Automate pour la gestion global du module
+    \item Tache 5 : Développement d'une architecture electrique
+    \item Tache 6 : Intégration des modules ( prototypage )
+    \item Tache 7 : Gestion de l'alimentation du module
+    \item Tache 8 : Création d'un PCB pour le module
+    \\
+\end{itemize}
+
+Pour chacune des taches réalisée ci-dessus, il y a eu une phase de test réalisé, ainsi qu'en amont une phase de concertation avec 
+l'équipe du WP afin que les solutions envisagées soient en adéquation avec les besoins du projet.
+\\
+
+Certaines tâches de ce modules ne sont pas dans l'ordre de conception, en prenant la tache 4 ou 5 qui ont été en constante évolution 
+durant tout le projet. Et certaine taches non essentielle, mais logique, comme l'optimisation des codes, ou rapport / documention ont 
+été réalisé en parallèle de la conception du module.
+\\
+
+\subsubsection{Solution envisagé}
+
+\subsection*{Tache 0 : Choix du Microcontrôleur}
+
+À la suite d’une phase de recherche ( benchmark du début de projet ) concernant le contrôleur à utiliser pour ce projet, nous avons identifié deux solutions susceptibles 
+de répondre à nos besoins : l’ESP32 et le Raspberry Pi Zero.
+\\
+
+Pour rappel, les besoins principaux concernant le contrôleur étaient les suivants :
+\\
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{0.9\textwidth}{>{\bfseries}l|X}
+\toprule
+\textbf{Critère} & \textbf{Description} \\
+\midrule
+Consommation énergétique & Minimiser la consommation pour un usage sur batterie. \\ 
+Performances & Garantir une puissance suffisante pour le traitement des données. \\ 
+Stockage & Disposer d’une capacité suffisante pour enregistrer temporairement les mesures locales et la photographie. \\ 
+Système & Offrir un environnement logiciel simple avec facilité sur les outils de développement utilisés. \\ 
+Interfaces & Proposer des entrées/sorties adaptées aux capteurs et modules externes. \\ 
+Connectivités & Intégrer ou supporter le Wi-Fi, le Bluetooth ou d'autres moyens de communication. \\ 
+Prix & Rester dans une gamme de coût compatible avec le budget du projet. \\ 
+\bottomrule
+\end{tabularx}
+\end{center}
+
+Ces critères nous ont permis de comparer plusieurs solutions techniques lors de la phase de benchmark.
+\\
+
+Les critères suivants ont été considérés lors du choix final du microcontrôleur :
+\begin{itemize}
+    \item Architecture matérielle
+    \item Connectivité
+    \item Consommation énergétique
+    \item Nombre et type de GPIO
+    \item Facilité de développement
+    \item Coût global
+\end{itemize}
+
+À l’issue de l’analyse comparative réalisée entre l’ESP32 et le Raspberry Pi Zero, le choix s’est porté sur l’ESP32 comme microcontrôleur 
+principal pour le collecteur de données animalières. Ce choix est motivé par plusieurs facteurs clés. Tout d’abord, sa faible consommation
+énergétique constitue un avantage décisif pour une utilisation sur batterie dans un environnement isolé. L’ESP32 peut fonctionner 
+plusieurs jours, voire semaines, en mode basse consommation, ce qui garantit une autonomie optimale sur le terrain.
+\\
+
+Ensuite, son intégration native du Wi-Fi et du Bluetooth simplifie la conception matérielle et réduit le besoin de modules externes, 
+tout en permettant la transmission sans fil des données et la configuration à distance du système.
+\\
+
+Enfin, son coût réduit et sa disponibilité sur le marché en font une solution économique et accessible, sans compromis majeur sur 
+les performances nécessaires au projet. En revanche, il est à noter que le Raspberry Pi Zero offre une puissance de calcul et une
+mémoire supérieures, mais celles-ci sont jugées excessives au regard des besoins du projet et pénalisantes en termes de consommation 
+énergétique et de gestion logicielle.
+\\
+
+En conclusion, l’ESP32 répond pleinement aux exigences du projet en matière de consomma tion, de connectivité et de simplicité de 
+déploiement, ce qui en fait la solution la plus adaptée pour le collecteur de données animalières.
+\\
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{Images/WP1_2/Tache_0/ESP32.png}
+    \caption{Pinout Diagramme de l'ESP32}
+\end{figure}
+
+\noindent\textit{Notes :}  
+Un document détaillé présentant l’analyse comparative entre l’ESP32 et le Raspberry Pi Zero, ainsi que les critères de sélection, 
+à été rédigé.
+
+\subsection*{Tache 1 : Gestion du stockage des données collectées}
+
+Commençons par la tache 1 qui est la gestion du stockage des données collectées. Pour cette tache, il a été décidé d'utiliser 
+une carte SD ( par cahier des charges ) pour stocker les données collectées par les métadatas et images. La carte SD offre une grande 
+capacité de stockage, ce qui est essentiel pour notre projet De plus, les cartes SD sont relativement faciles à interfacer avec un 
+microcontrôleur, ce qui facilite l'intégration dans notre système. Enfin celle ci est facilement accessible pour les utilisateurs, 
+ce qui permet une récupération facile des données collectées.
+\\
+
+Dons nous avons utilisé un module de carte SD utilisable en moyen de communication SPI, qui est un protocole de communication série rapide 
+et efficace. Le microcontrôleur peut ainsi envoyer des commandes à la carte SD pour lire et écrire des données de manière rapide et fiable.
+Le module utilisé est un module personnel ( \texttt{AZDelivery SPI Reader} ), celui-ci à été choisi au début du projet car aucune
+commande n'étais envisageable de la part du département ou du client.
+\\
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{Images/WP1_2/Tache_1/ModuleSD.jpg}
+    \caption{Module de carte SD utilisé pour le projet}
+\end{figure}
+
+\subsubsection*{Phase d'implémentation}
+
+Pour utilisé le module, nous avons connecté notre esp32 à ce module en liaison SPI, en utilisant les broches suivantes :
+\begin{itemize}
+    \item MOSI ( Master Out Slave In : Écriture ) : GPIO 13
+    \item MISO ( Master In Slave Out : Lecture ) : GPIO 12
+    \item SCK ( Serial Clock ) : GPIO 14
+    \item CS ( Chip Select ) : GPIO 15
+    \item VCC : 5V
+    \item GND : GND
+\end{itemize}
+
+Nous utiliserons le module HSPI de l'ESP32 pour la communication SPI, qui permet des vitesses de transfert élevées.
+Voici un exmple de communication en SPI pour décrire le moyen de communication entre l'ESP32 et la carte SD. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{Images/WP1_2/Tache_1/SPI.png}
+    \caption{Module de carte SD utilisé pour le projet}
+\end{figure}
+
+
+Pour utiliser ce module, une librairie toute faite à déja été développé, qu'il à suffit d'implémenter dans notre projet pour pouvoir 
+utilisé la carte SD. Cette librairie est la librairie \texttt{SD.h} qui est une librairie standard pour la gestion des cartes SD avec 
+les microcontrôleurs Arduino et ESP32. Elle offre des fonctions pour initialiser la carte SD, lire et écrire des fichiers, 
+et gérer les répertoires. Nous l'avons utilisé pour crée ntre propre bibliothèque visant à simplificer l'utilisation de cette carte avec 
+notement le WPBis qui est dédier à la gestion de la transmission des données collectées.
+\\
+
+\subsubsection*{Phase de Test}
+
+Pour la phase de test, nous avons juste réalisé un test afin de savoir si nous pouvions écrire un fichier texte sur la carte SD,
+En donnant comme Nom de fichier les métadatas ( comme température, humidité, etc ), afin de simulé un buffer de réception d'images avec 
+les données correspondantes.
+\\
+
+Voici un exemple de code utilisé pour ce test :
+
+
+
+\subsubsection{Tests et Validation}
+
+
