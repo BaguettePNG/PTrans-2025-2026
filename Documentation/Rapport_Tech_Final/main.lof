@@ -1,6 +1,12 @@
 \babel@toc {french}{}\relax 
 \contentsline {figure}{\numberline {1}{\ignorespaces Pinout Diagramme de l'ESP32}}{9}{figure.1}%
 \contentsline {figure}{\numberline {2}{\ignorespaces Module de carte SD utilisé pour le projet}}{10}{figure.2}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Module de carte SD utilisé pour le projet}}{11}{figure.3}%
-\contentsline {figure}{\numberline {4}{\ignorespaces Chaîne d’acquisition et de traitement des images du module caméra}}{13}{figure.4}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Influence de la résolution sur la taille des images JPEG et le temps de capture}}{14}{figure.5}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Module de carte SD utilisé pour le projet}}{10}{figure.3}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Résultat du test d'écriture sur la carte SD}}{11}{figure.4}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Courbe de résistance en fonction de la luminosité pour la photorésistance}}{13}{figure.5}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Module GPS utilisé pour le projet}}{15}{figure.6}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Exemple de trame NMEA envoyée par le module GPS}}{15}{figure.7}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Trame GPRMC utilisée pour récupérer la localisation et l'horodatage}}{16}{figure.8}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Schéma du principe de fonctionnement du module RTC pour maintenir l'heure en temps réel}}{17}{figure.9}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Chaîne d’acquisition et de traitement des images du module caméra}}{19}{figure.10}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Influence de la résolution sur la taille des images JPEG et le temps de capture}}{20}{figure.11}%
