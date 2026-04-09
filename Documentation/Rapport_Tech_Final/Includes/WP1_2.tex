@@ -19,9 +19,9 @@ Voici la liste des taches qui seront réalisées dans le cadre de ce WP :
     \item Tache 2 ( hors WP ) : Gestion de la luminosité pour WP 1.3
     \item Tache 3 ; Gestion de l'horodatage et de la localisation du modules
     \item Tache 4 : Définition d'un Automate pour la gestion global du module
-    \item Tache 5 : Développement d'une architecture electrique
+    \item Tache 5 : Gestion de l'alimentation du module
     \item Tache 6 : Intégration des modules ( prototypage )
-    \item Tache 7 : Gestion de l'alimentation du module
+    \item Tache 7 : Développement d'une architecture electrique
     \item Tache 8 : Création d'un PCB pour le module
     \\
 \end{itemize}
@@ -96,12 +96,6 @@ mémoire supérieures, mais celles-ci sont jugées excessives au regard des beso
 En conclusion, l’ESP32 répond pleinement aux exigences du projet en matière de consomma tion, de connectivité et de simplicité de 
 déploiement, ce qui en fait la solution la plus adaptée pour le collecteur de données animalières.
 \\
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{Images/WP1_2/Tache_0/ESP32.png}
-    \caption{Pinout Diagramme de l'ESP32}
-\end{figure}
 
 \noindent\textit{Notes :}  
 Un document détaillé présentant l’analyse comparative entre l’ESP32 et le Raspberry Pi Zero, ainsi que les critères de sélection, 
@@ -225,11 +219,11 @@ qui nous permet de convertir la résistance variable de la photorésistance en u
 Voici un schéma de ce montage :
 \\
 
-%\begin{figure}[H]
-%    \centering
-%    \includegraphics[width=0.8\textwidth]{Images/WP1_2/Tache_2/Diviseur_Tension.png}
-%    \caption{Schéma du montage de diviseur de tension pour la photorésistance}
-%\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{Images/WP1_2/Tache_2/ldr_sche.png}
+    \caption{Schéma du montage de diviseur de tension pour la photorésistance}
+\end{figure}
 
 Dans ce montage, la photorésistance ( LDR ) est connectée en série avec une résistance fixe ( R1 ).
 Lorsque la lumière frappe la photorésistance, sa résistance change, ce qui modifie la tension de sortie ( Vout ) du diviseur de tension.
@@ -247,7 +241,7 @@ de la luminausité ( en LUX ) à partir de la résistance de la résistance, en 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{Images/WP1_2/Tache_2/CourbeLDR.png}
+    \includegraphics[width=0.6\textwidth]{Images/WP1_2/Tache_2/CourbeLDR.png}
     \caption{Courbe de résistance en fonction de la luminosité pour la photorésistance}
 \end{figure}
 
@@ -319,7 +313,7 @@ Mais dans l'ensemble des résultats obtenus étaient cohérents, on a obtenue :
     \resizebox{\textwidth}{!}{%
     \begin{tabular}{|l|c|c|c|c|c|c|c|c|c|}
         \hline
-        & \multicolumn{3}{c|}{\textbf{Theorie (Calcul)}} & \multicolumn{3}{c|}{\textbf{Numerique (Code)}} & \multicolumn{3}{c|}{\textbf{Pratique (Multimetre + Tel)}} \\
+        & \multicolumn{3}{c|}{\textbf{Theorie (Calcul)}} & \multicolumn{3}{c|}{\textbf{Numerique (Code)}} & \multicolumn{3}{c|}{\textbf{Pratique (Multimetre + Telephone)}} \\
         \cline{2-10}
         & \textbf{Tension} & \textbf{Resistance} & \textbf{Lux} & \textbf{Tension} & \textbf{Resistance} & \textbf{Lux} & \textbf{Tension} & \textbf{Resistance} & \textbf{Lux (PAS FIABLE)} \\
         \hline
@@ -327,17 +321,49 @@ Mais dans l'ensemble des résultats obtenus étaient cohérents, on a obtenue :
         \hline
         \textbf{Sombre} &  &  &  & 0,69 & 5668 & 2636 & 0,7 & 5300 & 100 \\
         \hline
-        \textbf{Gris} &  &  &  & 2 & 996 & 10000 & 2,13 & 890 & 500 \\
+        \textbf{Gris} &  &  &  & 2 & 996 & 5413 & 2,13 & 890 & 500 \\
         \hline
-        \textbf{Lumiere} &  &  &  & 2,71 & 329 & 10000 & 2,8 & 237 & 1900 \\
+        \textbf{Lumiere} &  &  &  & 2,71 & 329 & 7312 & 2,8 & 237 & 1900 \\
         \hline
-        \textbf{Flash} & 3,3 & 0,1 & 10000 & 3,3 & 0 & 10000 & 3,22 & 72,3 &  \\
+        \textbf{Flash} & 3,3 & 0,1 & 10000 & 3,3 & 0 & 9820 & 3,22 & 72,3 &  \\
         \hline
     \end{tabular}
     }
     \caption{Comparaison des mesures de luminosite : theorie, calcul numerique et mesures pratiques}
     \label{tab:ldr_comparaison}
 \end{table}
+
+Nous avions pour principe de contruire notre propre couronne de LED Infrarouge, avec ce capteur LDR afin de pouvoir capturer des
+animaux durant la nuit, mais par facilité nous avons décider d'acheter une couronne de LED Infrarouge déjà faite, 
+qui s'allume à partir d'une certaine luminosité, ce qui nous a permis de ne pas avoir à gérer l'allumage de ces LED, et de se 
+concentrer sur d'autres aspects du projet.
+\\
+
+Cette couronne de LED à une détection de luminausité automatique, si le seuil est assez élevé, alors les LED s'allumeront, 
+et si le seuil est bas alors les LED seront éteintes, ce principe est aussi géré par une photorésistance, 
+mais celle ci est intégrée dans la couronne de LED, ce qui nous a permis de ne pas avoir à gérer et de juste à allimenter ce module.
+\\
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Images/WP1_2/Tache_2/couronne_1.jpg}
+        \par\small Couronne de LED Infrarouge utilisée pour le projet - face avant
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Images/WP1_2/Tache_2/couronne_2.jpg}
+        \par\small Couronne de LED Infrarouge utilisée pour le projet - face arrière
+    \end{minipage}
+    \caption{Couronne de LED Infrarouge utilisée pour le projet}
+\end{figure}
+
+Malheureusemenvrai t, avec les différents problème rencontré durant le projet, nous n'avons pas pu faire de vrai test dans la nature afin
+de vérifier que nous puissons capturer les animaux de nuit, mais nous avons pu faire des tests en intérieur, en nous prennant en photo
+dans le noir.
+\\
 
 \subsubsection{Tache 3 : Gestion de l'horodatage et de la localisation du modules}
 
@@ -416,10 +442,706 @@ Voici un schéma du principe que nous voulions implémenter :
     \caption{Schéma du principe de fonctionnement du module RTC pour maintenir l'heure en temps réel}
 \end{figure}
 
-Pour l'implémentation de ce module, nous avons implémenter notre propre librairie qui vise à récupérer 
+Pour l'implémentation de ce module, nous avons implémenter notre propre librairie qui vise à initialiser le module RTC avec les données du GPS, 
+et ensuite comme le GPS avoir des fonctions get() pour récupérer les différentes informations de date et d'heure.
+\\
 
-
-
+Donc après l'implémentation de ce code, nous avons au total 10 données qui sont sauvegardé dans le module RTC, qui sont :
+\begin{itemize}
+    \item Seconde : String
+    \item Minute : String
+    \item Heure : String
+    \item Jour : String
+    \item Mois : String
+    \item Année : String
+    \item Latitude : char 
+    \item Longitude : char 
+    \item activation du GPS : bool ( permettre de connaitre l'activation de la première fois du GPS pour la synchronisation de l'heure )
+    \item lastRefreshDay : int ( permet d'enregistrer le jour à laquelle les metadatas ont été rafraichie par le GPS )
+\end{itemize}
 
 \subsubsection*{Tests et Validation}
+
+Dans un premier temps nous avons vérifier que nous recevions bien les trames NMEA du module GPS, en affichant les données 
+reçues dans le moniteur série de l'ESP32.
+\\
+
+\noindent
+\begin{minipage}[t]{0.45\textwidth}
+\begin{lstlisting}[style=CStyle, caption={Exemple utilisation module GPS}, label={lst:gps_exemple}]
+void loop()
+{
+    gps.update();
+    Serial.println("Donnees GPS recues :");
+
+    Serial.print("Latitude: ");
+    Serial.println(
+        gps.getLatitude());
+    Serial.print("Longitude: ");
+    Serial.println(
+        gps.getLongitude());
+    Serial.print("Heure UTC: ");
+    Serial.print(
+        gps.getHours());
+    Serial.print(":");
+    Serial.print(
+        gps.getMinutes());
+    Serial.print(":");
+    Serial.println(
+        gps.getSeconds());
+    Serial.print("Date (JJ/MM/AAAA): ");
+    Serial.print(
+        gps.getDay());
+    Serial.print("/");
+    Serial.print(
+        gps.getMonth());
+    Serial.print("/");
+    Serial.println(
+        gps.getYear());
+
+    delay(10000); // Attente 10s 
+}
+\end{lstlisting}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+\begin{lstlisting}[style=CStyle, caption={Moniteur Série de l'ESP32}, label={lst:moniteur_exemple}]
+Donnees GPS recues :
+Latitude: 47.2833012
+Longitude: 1.5152623
+Heure UTC: 10:38:32
+Date (JJ/MM/AAAA): 09/04/2026
+
+Donnees GPS recues :
+Latitude: 47.2833012
+Longitude: 1.5152623
+Heure UTC: 10:38:42
+Date (JJ/MM/AAAA): 09/04/2026
+
+Donnees GPS recues :
+Latitude: 47.2833012
+Longitude: 1.5152623
+Heure UTC: 10:38:52
+Date (JJ/MM/AAAA): 09/04/2026
+
+Donnees GPS recues :
+Latitude: 47.2833012
+Longitude: 1.5152623
+Heure UTC: 10:39:02
+Date (JJ/MM/AAAA): 09/04/2026
+
+Donnees GPS recues :
+Latitude: 47.2833012
+Longitude: 1.5152623
+Heure UTC: 10:39:12
+Date (JJ/MM/AAAA): 09/04/2026
+\end{lstlisting}
+\end{minipage}
+
+A la suite de cette validation nous avons pu vérifier que le module RTC fonctionnait correctement, en affichant 
+les données de date et d'heure dans le moniteur série de l'ESP32, et en vérifiant que l'heure était maintenu.
+\\
+
+\noindent
+\begin{minipage}[t]{0.45\textwidth}
+\begin{lstlisting}[style=CStyle, caption={Exemple utilisation module GPS + module RTC}, label={lst:gps_rtc_exemple}]
+#include <Arduino.h>
+#include "GPS.hpp"
+#include "RTC.hpp"
+
+GPS gps(16, 17); // RX, TX
+RTC rtc;
+
+void setup()
+{
+    Serial.begin(115200);
+
+    gps.update();
+    rtc.updateFromGPS(.....);
+    rtc.getDateTime();
+}
+
+void loop()
+{
+    delay(10000); // Attendre 10 secondes 
+
+    rtc.getDateTime();
+}
+\end{lstlisting}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+\begin{lstlisting}[style=CStyle, caption={Moniteur Série de l'ESP32}, label={lst:moniteur_exemple}]
+====================
+Donnees GPS recues :
+Lat: 47.2833012
+Long: 1.5152623
+Date: 09/04/2026
+Heure: 15:42:26
+====================
+
+====================
+RTC interne uniquement :
+Lat: 47.2833012
+Long: 1.5152623
+Date: 09/04/2026
+Heure: 15:42:36
+====================
+
+====================
+RTC interne uniquement :
+Lat: 47.2833012
+Long: 1.5152623
+Date: 09/04/2026
+Heure: 15:42:56
+====================
+\end{lstlisting}
+\end{minipage}
+
+Ces deux tests nous ont permis de vérifier que le modules GPS nous transfait bien les données de localisation et d'horodatage,
+et que le module RTC maintenait correctement l'heure en temps réel, même après la synchronisation initiale avec le GPS.
+Les tests ont été effectués plusieur fois sur plusieur heures, afin de vérifier que le module RTC suffisait à maintenir l'heure 
+sans besoin de resynchronisation fréquente avec le GPS, ce qui est essentiel pour l'efficacité énergétique du système.
+\\
+
+\subsubsection{Tache 4 : Définition d'un Automate pour la gestion global du module}
+
+\subsubsection*{Rappel des objectifs}
+
+Cette tache à été réalisé une première fois, puis remodifié plusieurs fois durant le projet, afin de pouvoir s'adapter au mieux à 
+l'évolution du projet et aux différentes contraintes rencontrées. Au départ nous avions seulement défini tout les élèment à prendre en compte 
+et faire un déroulement d'une prise de photo et récupération des données puis la transmission.
+\\
+
+Mais au vu des différent défis qui sont apparu, comme la gestion du GPS, et puis la gestion des LED infrarouge nous avons du le modifier pour 
+faire apparaitre des branches en cas de besoin / non besoins d'allumer ces éléments.
+
+\subsubsection*{Solution envisagé}
+
+Au départ nous étions parti sur un modèle simple, l'ESP32 devait être en veille donc avoir une phase de reveil, de reception de data, puis de transmission :
+\\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.2\textwidth]{Images/WP1_2/Tache_4/Automate_N1.png}
+    \caption{Automate de gestion du module - version 1}
+\end{figure}
+
+Nous décidons aussi d'ajouter un module de capture de la tension de la batterie, afin de pouvoir surveiller la tension de la batterie, 
+pouvoir faire des statistiques et aussi de permettre à l'utilisateur de savoir quand il faut changer la batterie, ou de faire des 
+prévisions sur l'autonomie restante.
+\\
+
+Celui-ci repose sur le même principe que la photorésistance, c'est à dire un montage de diviseur de tension, qui nous permet de 
+convertir la tension de la batterie en une tension mesurable par l'ESP32. Nous choisissons une forte valeur de résistance pour moins 
+consommer.
+\\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Images/WP1_2/Tache_4/MesureBAT.png}
+    \caption{Schéma du montage de diviseur de tension pour la mesure de la tension de la batterie}
+\end{figure}
+
+La deuxième résistance permet de connaitre la divisions de ce montage, nous décidons de divisé par 4 notre système, car la tension de la 
+batterie sera proche de 12V, celle-ci ne peux pas être directement mesuré par l'ESP32 qui ne supporte que 5V, en divisant par 4 nous nous
+assurons que la tension mesurée ne dépassera pas 3V, ce qui est sécuritaire pour l'ESP32.
+\\
+
+\[
+    V_{out} = \frac{R2}{R1 + R2} \times V_{in}
+\]
+
+La lecture de notre tension se fait grace à un ADC ( Analog to Digital Converter ), qui convertit la tension analogique en une valeur numérique 
+que l'ESP32 peut traiter. 
+\\
+
+Voici la version final que nous avons mis en place pour la finalité de notre projet : 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Images/WP1_2/Tache_4/automate_final.png}
+    \caption{Automate de gestion du module - version finale}
+\end{figure}
+
+La description de cettte automate n'est pas finie, car il nous manque les etapes de transistion, mais dans l'ensemble nous avons 
+la structure de base de notre automate, qui nous permettra de gérer les différentes étapes de notre projet. 
+\\
+
+Nous observons toute les étapes que en commençant par le reveil de notre sytème par un mouvement, une phase de reveil est nécessaire 
+pour que le système puisse s'initialiser, tout de suite après nous allumons la couronne de LED, puis prenons une photo, puis de suite après l'éteinte de celle-ci.
+Nous avons éffectuer cela car notre couronnes est en 12V et celle-ci consomme énormément d'energie. A la suite de la prise de photo, nous prenons nos données de température, humidité, 
+et de localisation et d'horodatage, puis nous éteignons le GPS pour économiser de l'énergie, et ensuite nous transmettons les données collectées.
+Le GPS est activé seulement une fois toute les 24h pour economiser l'énergie qu'il faut à la recherche.
+\\
+
+\subsubsection{Tache 5 : Gestion de l'alimentation du module}
+
+\subsubsection*{Rappel des objectifs}
+
+Dans cette tache j'ai du réaliser un bilan des meilleur moyen d'alimenter les modules afin de moins consommer d'énergie et 
+d'avoir une autonomie plus longue, en effet notre projet est destiné à être utilisé dans des zones isolé, et il est donc 
+essentiel d'avoir une autonomie suffisante pour que le système puisse fonctionner pendant une longue période sans besoin 
+de maintenance fréquente.
+\\
+
+\subsubsection*{Solution envisagée}
+
+Pour la première étape il faut pouvoir mettre en veille les modules afin de pouvoir meiux gérer l'energie : 
+Commençons par l'ESP32, celui-ci offre plusieurs modes de veille qui permettent de réduire considérablement la consommation d'énergie 
+lorsque le système n'est pas actif.
+\\
+
+Voici les différents modes de veille disponibles pour l'ESP32 :
+
+\begin{table}[H]
+    \centering
+    \small
+    \renewcommand{\arraystretch}{1.25}
+    \setlength{\tabcolsep}{4pt}
+    \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{2.2cm}|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}p{3.2cm}|}
+        \hline
+        \textbf{Mode} & \textbf{Consommation typique} & \textbf{Ce qui est éteint} & \textbf{Ce qui reste actif} & \textbf{Comment se réveiller} \\
+        \hline
+        \textbf{Actif} & \ensuremath{\sim 40\,\mathrm{mA} - 240\,\mathrm{mA}} & Rien & Tout & - \\
+        \hline
+        \textbf{Modem Sleep} & \ensuremath{\sim 20\,\mathrm{mA}} & WiFi / BT / Radio & CPU, mémoire, périphériques & Timer, interruption \\
+        \hline
+        \textbf{Light Sleep} & \ensuremath{\sim 0{,}8\,\mathrm{mA}} & CPU, PLL, radio & RTC, mémoire RTC, ULP co-processor & Timer, interruption (GPIO, UART, etc.) \\
+        \hline
+        \textbf{Deep Sleep} & \ensuremath{\sim 10\,\mu\mathrm{A} - 150\,\mu\mathrm{A}} & Presque tout : CPU, WiFi, BT, RAM principale & RTC, mémoire RTC lente (8 KB), ULP co-processor & Timer, épingles RTC, GPIO, touch \\
+        \hline
+        \textbf{Hibernation} & \ensuremath{\sim 2{,}5\,\mu\mathrm{A} - 5\,\mu\mathrm{A}} & Tout, même le RTC est ralenti & Mémoire RTC lente (8 KB) & Timer RTC externe uniquement \\
+        \hline
+    \end{tabularx}
+    \caption{Principaux modes de veille de l'ESP32}
+    \label{tab:esp32_sleep_modes}
+\end{table}
+
+Dans notre projet nous avons pour objectif le consommer le moins mais aussi de pôpuvoir utiliser le module RTC pour la mémoire de la localisation et l'horodatage,
+ce qui nous a permis de choisir le mode de veille "Deep Sleep", qui offre une consommation très faible tout en permettant au RTC de continuer à fonctionner, 
+ce qui est essentiel pour notre projet.
+\\
+
+Plusieur autre méthode sont envisagé pour pouvoir réduire la consommation d'énergie, comme l'arrêt de différent périphériques de ce microcontroleur, ou encore mise 
+en place de pull down sur les GPIO pour éviter les fuites de courant, mais après la phase de test nous nous somme rendu compte que, à part de Wifi et le Bluetooth,
+le reste est négligeable en terme de consommation.
+\\
+
+Ce qu'il y a de plus pour modifier la consommation, c'est surtout de réduire la fréquence d'utilisation du processeur du microcontroleur, mais cela aura un impact 
+sur le temps de traitement et la rapidité d'éxécution de notre code.
+
+\subsubsection*{Tests et Validation}
+
+Nous pouvons observer tout d'abord afin d'avoir une idée de la consommation de base, un code vierge injecter dans l'esp32 : 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Images/WP1_2/Tache_5/Code_Vierge.png}
+    \caption{Consommation de base de l'ESP32 avec un code vierge}
+\end{figure}
+
+Celui ci montre une consomation de 80mA environ.
+\\
+
+Passons maintenant à la réduction de la fréquence de notre microcontrôleur : 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Images/WP1_2/Tache_5/Frequence.png}
+    \caption{Consommation de l'ESP32 en fonction de la fréquence du processeur}
+\end{figure}
+
+Dans ce graphe nous observons différent pallier qui correspond à différente fréquence du processeur, en commençant par 
+20, 40, 80, 160 et 240 MHz. Déja nous avons une nettes différence entre toutes ces fréquences.
+\\
+
+Continuons avec le mode de veille : les mode \texttt{Deep} : 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Images/WP1_2/Tache_5/Deep.png}
+    \caption{Consommation de l'ESP32 en fonction du mode de veille}
+\end{figure}
+
+La consomation en Mode Deep Sleep est de l'ordre de 5mA en moyenne. Ce qui sera un avantage pour notre projet.
+\\
+
+Pour allez plus loins dans nos tests nous avons testé la consommation en mode Deep Sleep, avec réveil par une simualtion de mouvement, don en envoyant 
+un signal sur un GPIO ( simulant le PIR ).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Images/WP1_2/Tache_5/Deep_PIR.png}
+    \caption{Consommation de l'ESP32 en mode Deep Sleep avec réveil par signal GPIO (simulant le PIR)}
+\end{figure}
+
+Nous celui-ci montre un système concluant, avec une faible consomation. Mais nous observons dans tous nos graphe un problème majeur, c'est un pic 
+au démarage, celui-ci correspond à l'initialisation de tout les périphérique de base de l'ESP32.
+
+Voici un exemple de code utilisé pour le test du mode de veille :
+\begin{lstlisting}[style=CStyle, caption={Exemple de code pour le test du mode de veille}, label={lst:deep_sleep_exemple}]
+#define LED_PIN 2
+#define WAKE_PIN 33
+
+void actionAuReveil() 
+{
+  // Se declenche UNE SEULE FOIS par front montant
+  digitalWrite(LED_PIN, HIGH);
+  delay(150);
+  digitalWrite(LED_PIN, LOW);
+  delay(150);
+}
+
+void setup() 
+{
+    setCpuFrequencyMhz(80);
+
+    pinMode(LED_PIN, OUTPUT);
+    pinMode(WAKE_PIN, INPUT_PULLDOWN);
+
+    digitalWrite(LED_PIN, LOW);
+
+    // Cause de reveil 
+    esp_sleep_wakeup_cause_t cause = esp_sleep_get_wakeup_cause();
+
+    if (cause == ESP_SLEEP_WAKEUP_EXT0) 
+    {
+        // Execute l'action UNE seule fois
+        actionAuReveil();
+        while (digitalRead(WAKE_PIN) == HIGH) {}
+    }
+
+    // Rearmer le front montant UNIQUEMENT quand la pin est basse
+    esp_sleep_enable_ext0_wakeup((gpio_num_t)WAKE_PIN, 1);
+
+    esp_deep_sleep_start();
+}
+
+void loop() {}
+
+\end{lstlisting}
+
+\subsubsection{Tache 6 : Intégration des modules}
+
+\subsubsection*{Rappel des objectifs}
+
+Dans cette phase nous avons eu pour objectif d'assembler nos modules de tout le WP1, celui ci correpond à notre premier prototype de notre système.
+Il s'agit de rassembler le travail effectueé par chacun, notement sur la partie de récupération d'images et de métadatas, 
+la partie de stockage sur la carte SD, la partie de localisation et d'horodatage, et la partie transmission.
+\\
+
+\subsubsection*{Solution envisagée}
+
+Pour cela, nous avions décidé, que chacun d'entre nous effectuerait une bibliothèque pour que je puisses juste appeler les fonctions tels 
+l'automate défini précedement. 
+\\
+
+Donc pour résumer la partie de notre système, le WP possède un total de 7 bibliothèques, qui sont :
+\begin{itemize}
+    \item CAM.hpp : bibliothèque de gestion de la caméra, qui permet de prendre des photos 
+    \item GPS.hpp : bibliothèque de gestion du module GPS, qui permet de récupérer la localisation et l'horodatage
+    \item RTC.hpp : bibliothèque de gestion du module RTC, qui permet de maintenir l'heure en temps réel
+    \item SD.hpp : bibliothèque de gestion de la carte SD, qui permet de stocker les données collectées
+    \item SENDWIFI.hpp : bibliothèque de gestion de la transmission des données en Wifi
+    \item BAT.hpp : bibliothèque de récupération tension de la batterie
+    \item CONFIG.h : fichier de configuration du projet, qui contient les différentes constantes et paramètres du projet
+    \\
+\end{itemize}
+
+Le code étant conséquent, il sera disponible en annexe.
+
+\subsubsection*{Tests et Validation}
+
+Au départ pour notre système nous avions comme objectif de faire 10 photographies et de les sauvegarder sur la carte SD, 
+avec les métadatas de localisation et d'horodatage, ainsi que les données de température et d'humidité.
+\\
+
+
+
+
+
+Cependant notre équipe à été assez performant, et à peine la réalisation de ce prototype terminé, nous avons pu faire des tests 
+avec la transmisssion et wifi et reception sur le serveur de stockage distant.
+\\
+
+Un problème majeur est intervenue lors de nos phase de test, c'était tout simplement la résolution de nos photos. De base la biliothèque de 
+la caméra nous permettait de choisir l'emplacement du buffer de l'image, mais malheureusement notre eesp32 personnel n'était pas assez puissant 
+et nous étions obligé de sotcker l'image dans la DRAM ( stockage principale de l'ESP32 ), qui est limité en terme de capacité, et qui ne nous 
+permettait pas de stocker des images de haute résolution. De plus nous ne pouvions pas utiliser la carte SD pour stocker le buffer car le moyen
+de récupération de l'image ( Méthode DMA ( Direct Memory Access ) ) n'est pas compatible avec la carte SD.
+\\
+
+Pour faire face à ce problème nous avons donc décider de regarder la biliothèqe en détail, et nous svons trouver une solution adapté à notre problème qui à 
+été de prendre un ESP32 avec une PSRAM. Une PSRAM ( pseudo-static RAM ) est une mémoire externe qui peut être utilisée pour stocker des données, 
+et qui offre une capacité plus grande que la DRAM interne de l'ESP32, celle ci est direcement connecté à un périphérique de l'ESP32 ( I2S ), 
+ce qui nous a permis de stocker des images de haute résolution sans problème, sans probleme de stockage.
+\\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Images/WP1_2/Tache_6/ESP32-Block-Diagram.jpg}
+    \caption{Schéma de l'architecture du système avec l'ESP32 et la PSRAM pour le stockage des images}
+\end{figure}
+
+Donc nous sommes partie sur un modèle plus haut de gamme de l'ESP32, qui est l'ESP32-WROVER, qui intègre une PSRAM de 8MB. Une amélioration ne 
+vient pas tout de seul, cette modèle possède aussi plus de pins GPIO que notre ancien modèel qui arrivait à saturation.
+\\
+
+\subsubsection{Tache 7 : Développement d'une architecture electrique}
+
+\subsubsection*{Rappel des objectifs}
+
+Dans cette section il s'agit d'éffectuer un étude de notre schéma réaliser grace au prototype, car celui-ci étant conclue, il nous permet 
+de construire notre schéma électrique, qui nous permettra de construire potentiellement un PCB à l'avenir, ou de faire une meilleur gestion 
+de l'alimentation et de la consommation de notre système.
+\\
+
+\subsubsection*{Solution envisagée}
+
+Dans un premier temps, nous recopions juste notre système grace au logiciel de CAO, \textbf{Kicad}. Pour que cela soit plus parlant et mieux en 
+terme de gestion de projet, nous mettons des blocs pour que chaque partie soit clairement identifiée.
+\\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Images/WP1_2/Tache_7/Main.pdf}
+    \caption{Schéma électrique global du système réalisé avec Kicad}
+\end{figure}
+
+Celui montre notre WP1 dans son ensemble avec les différents modules. Commençons par notre partie principal qui est notre microcontroleur
+qui celui-ci montre notre microcontroleur avec toute les pins utilisables, nous ajouteons des pulls-up sur les signaux I2C et des condensateurs
+de découplage pour éviter les problèmes de bruit et de stabilité du système. Une diode de est rajouter, car le pins VIN est aussi la pins de sortie
+de tension du cable de programmation, et cela nous permet d'éviter les problèmes de court-circuit lors de la programmation du module.
+\\ 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Images/WP1_2/Tache_7/uc.png}
+    \caption{Schéma de la partie microcontroleur du système réalisé avec Kicad}
+\end{figure}
+
+Dans un second cas nous prenons la partie capteur, nous avons au total 3 capteurs : le GPS, le module DHT22 ( température et humidité ) et le PIR.
+Nous avons décidé d'ajouter des connecteurs supplémentaires, comme un double connecteur pour notre module personnel mais aussi pour un autre module
+GPS que nous avions sélectionné à commander. L'ajout aussi d'un transistor MOSFET pour pouvoir controler l'alimentation de celui-ci.
+\\
+
+Nous avons aussi rajouter une Led de DEBUG, qui nous permettra de faire du debug visuel de notre système, en indiquant par exemple l'état du système 
+ou les différentes étapes de notre automate.
+\\
+
+Et enfin d'autre connecteur comme deux connecteurs Groove ( pour les modules I2C ) et un connecteur pour un autre capteur de température, humidité, et pression ( BME280 ) que nous avions sélectionné à commander.
+préssion et qualité de l'air, qui était dans la commande initiale, mais qui n'était pas arrivé à temps pour les tests, mais qui nous permettra d'avoir des données supplémentaires sur les conditions environnementales de la zone.
+\\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Images/WP1_2/Tache_7/Main-Sensors.pdf}
+    \caption{Schéma de la partie microcontroleur du système réalisé avec Kicad}
+\end{figure}
+
+Passons à la partie de la caméra, qui quand à lui possède un connecteur pour la caméra OV2640, mais aussi un connecteur pour la couronne de LED infrarouge, nous avons
+aussi rajouté d'un transistor MOSFET pour pouvoir controler l'alimentation de celle-la.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Images/WP1_2/Tache_7/Main-Cam.pdf}
+    \caption{Schéma de la partie microcontroleur du système réalisé avec Kicad}
+\end{figure}
+
+Nous avons ensuire les connecteurs pour le module de carte SD ainsi que le future module de carte SIM pour une transmission en 4G :
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Images/WP1_2/Tache_7/4G.png}
+        \par\small Connecteur pour le module 4G
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Images/WP1_2/Tache_7/SD.png}
+        \par\small Connecteur pour le module de carte SD
+    \end{minipage}
+    \caption{Autre section de notre architecure}
+\end{figure}
+
+Enfin pour finir nous avons la partie d'alimentation, celle-ci nous a donné un peu plus de réflexion étant donné que notre système fonctionnait 
+à 12V, mais que notre microcontroleur et les autres modules fonctionnaient à 5V, nous avons donc décidé d'utiliser un régulateur de tension pour abaisser la tension de 12V à 5V.
+\\
+
+De plus il a fallut réflechir à un moyen de pouvoir avoir une alimentation qui alimenter notre ESP32 et notre PIR tout le temps afin de detecter ou non, et une autre activable 
+seulement lors de la prise de photo pour alimenter la couronne de LED et la caméra, afin d'économiser de l'énergie, nous avons donc décidé d'utiliser un transistor MOSFET 
+pour pouvoir controler l'alimentation de ces éléments.
+\\
+
+Le montage suivant est réalisé à l'aide d'un transistor MOSFET P-Channel, qui agit comme un relai en reliant le 5V du régulateur avec les différents modules.
+\\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Images/WP1_2/Tache_7/Montage_PowerUp.png}
+    \caption{Schéma du montage de contrôle d'alimentation avec un transistor MOSFET P-Channel}
+\end{figure}
+
+Dans ce montage si une tension à la sortie du régulateur est présent, alors le transistor est éteint et ne laisse pas passer le courant, mais lorsque la pin de contrôle du transistor est mise à LOW, 
+alors le transistor s'active et laisse passer le courant, ce qui permet d'alimenter les modules connectés à la sortie du transistor. 
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Images/WP1_2/Tache_7/Power_Up.pdf}
+        \par\small Simulation du fonctionnement
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Images/WP1_2/Tache_7/delay_power_up.png}
+        \par\small Simulation du délai d'activation du transistor MOSFET
+    \end{minipage}
+    \caption{Simulation du fonctionnement du montage de contrôle d'alimentation avec un transistor MOSFET P-Channel}
+\end{figure}
+
+Nous avons aussi observé le delai d'activation entre nos deux tension qui est de 10us, ce qui est largement suffisant pour notre projet.
+\\
+
+Pour résumer notre schéma d'alimentation, voici un tableau récapitulatif de notre architecture d'alimentation :
+
+\begin{table}[H]
+    \centering
+    \renewcommand{\arraystretch}{1.35}
+    \setlength{\tabcolsep}{10pt}
+    \begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}p{0.28\textwidth}|>{\centering\arraybackslash}p{0.33\textwidth}|>{\centering\arraybackslash}p{0.33\textwidth}|}
+        \hline
+        \textbf{12V} & \textbf{5V -- Sortie Régulateur} & \textbf{5V -- Power Up} \\
+        \hline
+        \begin{tabular}[t]{@{}l@{}}Couronne LED\\Régulateur\end{tabular} &
+        \begin{tabular}[t]{@{}l@{}}ESP32\\PIR\\Caméra (Mode Veille)\end{tabular} &
+        \begin{tabular}[t]{@{}l@{}}DHT22\\Carte SD\\GPS\\4G\\DEBUG\\Autre Capteur\end{tabular} \\
+        \hline
+    \end{tabularx}
+    \caption{Répartition des éléments selon les différentes alimentations du système}
+    \label{tab:architecture_alimentation}
+\end{table}
+
+Et voici le schéma d'alimentation de notre système complet, celui si possède un régulateur 12V vers 5V, de chez Microchip ( Demande du client ), avec le ssytème de power up / down, et le pont 
+diviseur de notre système de mesure de la tension de la batterie :
+\\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Images/WP1_2/Tache_7/Main-Power.pdf}
+    \caption{Schéma d'alimentation complet du système réalisé avec Kicad}
+\end{figure}
+
+\subsubsection{Tache 8 : Création d'un PCB pour le module}
+
+\subsubsection*{Rappel des objectifs}
+
+Jusqu'a présent nous avons réalisé notre système sur une breadboard, ce qui est pratique pour les phases de test et de développement, mais qui n'est pas adapté pour une utilisation finale,
+car cela peut être fragile et peu fiable, de plus cela peut engendrer des problème d'interférence, notement sur la caméra qui pssède des signaux de synchronisation très sensible.
+De plus notre système jusqu'a présent était alimenté via une batterie externe classique, ce qui n'est pas la finalité de notre projet.
+\\
+
+Pour allez plus loin dans notre projet, nous avons décidé de réaliser un PCB ( Printed Circuit Board ) pour notre système, ce qui nous permettra d'avoir un système plus compact, plus fiable, 
+et plus facile à utiliser, sans cable volant partout. Nous continuons à utiliser le logiciel Kicad qui permet la réalisation de PCB.
+\\
+
+\subsubsection*{Solution envisagée}
+
+Pour la première partie de conception d'un circuit imprimé nous devons attribué une empreinte ( Footprint ) à chaque composant de notre schéma, cela permet de définir la forme et les dimensions 
+de chaque composant sur le PCB, ainsi que les points de soudure pour les connexions électriques. La plupart des composants basique comme les résistances,
+inductance ou condensateur possèdent des empreintes standard, mais pour les composants plus spécifique comme notre microcontroleur ou notre module de caméra, nous avons du créer nos propres empreintes, 
+en respectant les dimensions et les caractéristiques de ces composants.
+\\
+
+Pour le cas du microcontroleur deux connecteur femelles pour les broches, et pour la caméra seulr un connecteur 2x9 broches, qui correspond à la nappe de la caméra OV2640.
+l'objectif étant de supprimé les cables, nous déssidons de connecter la caméra sur le PCB. : 
+\\
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[t]{0.35\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Images/WP1_2/Tache_8/FootPrint_ESP.png}
+        \par\small Empreinte du microcontroleur ESP32-WROVER
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.35\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Images/WP1_2/Tache_8/FootPrint_CAM.png}
+        \par\small Empreinte du module de caméra OV2640
+    \end{minipage}
+    \caption{Empreintes des composants sur le PCB}
+\end{figure}
+
+Pour la caméra nous choissions d'ajouter 4 trous de fixation mécanique, deux pour la caméra, et deux autres pour la couronnes de LED qui viendra par dessus.
+\\
+
+A la suite de ça nous avons réalisé le placement des composants, celui-ci en concertation avec le WP Boitier, qui s'occupe de la partie mécanique du projet,
+afin de pouvoir faire un placement optimal des composants sur le PCB, en prenant en compte les contraintes mécaniques et d'encombrement du boitier.
+\\
+
+A la suite nous avons réalisé le routage de la carte, pour les règles de routage, quelque chose de basique à été réalisé, des pistes de 0.5mm pour l'alimentation 
+et des pistes de 0.3mm pour les signaux. Aucune puissance n'étant réellement élevée, nous n'avons pas besoin de faire des pistes plus large, 
+et cela nous permet de gagner de la place sur le PCB.
+\\
+
+Aucun plan de masse n'a été réalisé, car notre système n'est pas sensible au bruit électromagnétique, l'isolement des pistes via des condensateurs de découplage
+est suffisant pour assurer la stabilité du système, et cela nous permet de gagner de la place sur le PCB.
+\\
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Images/WP1_2/Tache_8/TopPCB.png}
+        \par\small Vue du haut du PCB
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Images/WP1_2/Tache_8/BotPCB.png}
+        \par\small Vue du bas du PCB
+    \end{minipage}
+    \caption{Rendu final du PCB réalisé avec Kicad}
+\end{figure}
+
+Voici le rendu final de notre PCB, celui-ci est réalisé en double couche, avec les composants montés des deux côtés du PCB, ce qui nous permet de gagner de la place et d'avoir un système plus compact.
+\\
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Images/WP1_2/Tache_8/3DPCB_TOP.png}
+        \par\small Vue du haut du PCB
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Images/WP1_2/Tache_8/3DPCB_BOT.png}
+        \par\small Vue du bas du PCB
+    \end{minipage}
+    \caption{Rendu final 3D du PCB réalisé avec Kicad}
+\end{figure}
+
+Voici le rendu final en 3D de notre PCB, celui-ci nous permet de visualiser notre système dans son ensemble, et de vérifier que tout les composants sont correctement placés et connectés,
+ainsi que de vérifier les dimensions et l'encombrement du système, ce qui est essentiel pour la suite de notre projet, notamment pour la partie mécanique du boitier.
+\\
+
+\subsubsection*{Tests et Validation}
+
+
+
+
+
+
+
+
+
+
+
 

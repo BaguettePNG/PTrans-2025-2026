@@ -688,7 +688,7 @@
     },
     "net_format_name": "",
     "page_layout_descr_file": "",
-    "plot_directory": "../../../../../../../Downloads/",
+    "plot_directory": "../../Documentation/Rapport_Tech_Final/Images/WP1_2/Tache_7/",
     "space_save_all_events": true,
     "spice_current_sheet_as_root": false,
     "spice_external_command": "spice \"%I\"",

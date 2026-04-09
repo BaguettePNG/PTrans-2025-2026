@@ -15255,7 +15255,7 @@
 			)
 		)
 		(property "Value" "Conn_02x09_Odd_Even"
-			(at 0 -1 90)
+			(at 13 -0.26 90)
 			(unlocked yes)
 			(layer "B.Fab")
 			(uuid "8bfae862-3362-474f-b134-c6bfce891119")
@@ -15601,31 +15601,6 @@
 			)
 			(layer "B.Fab")
 			(uuid "364c6223-c40f-4bd8-9ac2-0fa8493f32c9")
-		)
-		(fp_text user "${REFERENCE}"
-			(at -8.6 2.4 90)
-			(layer "B.Fab")
-			(uuid "2815ef47-e62c-48df-8b7c-3b468963c62e")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(fp_text user "${REFERENCE}"
-			(at -8.8 0.4 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(uuid "547e4693-e9ca-46d5-84d4-fc55002a883c")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
 		)
 		(pad "" np_thru_hole circle
 			(at 14.99 -20.45 180)

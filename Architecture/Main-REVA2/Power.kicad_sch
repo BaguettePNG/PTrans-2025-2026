@@ -2256,16 +2256,6 @@
 		)
 		(uuid c57cbc65-7855-49d8-ae90-49c6ec8d56c4)
 	)
-	(text "https://www.microchip.com/en-us/parametric-search/418?filters=JTdCJTIyYWN0aXZlU2xpZGVyRmlsdGVycyUyMiUzQSU1QiU1QiUyMlZJTiUyME1pbiUyMFYlMjAodm9sdCklMjIlMkMlNUI0LjIlMkMyLjIlNUQlNUQlNUQlMkMlMjJjYXRlZ29yeWRyb3Bkb3duJTIyJTNBJTVCJTIyUG93ZXIlMjBNYW5hZ2VtZW50JTIyJTJDJTIyREMtREMlMjBCb29zdCUyMChTdGVwLVVwKSUyMFN3aXRjaGluZyUyMENvbnZlcnRlcnMlMjIlMkMlMjJCdWNrJTIwU3dpdGNoaW5nJTIwQ29udmVydGVycyUyMCVFMiU4MCU5MyUyMFN0ZXAlMjBEb3duJTIwKDEwViUyMHRvJTIwMzZWKSUyMiU1RCU3RA=="
-		(exclude_from_sim no)
-		(at 155.702 -12.192 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "24ed3a95-6d08-417c-9540-aac7e91f4651")
-	)
 	(text "MAUVAISE EMPREINTE INDUCTOR\n"
 		(exclude_from_sim no)
 		(at 126.746 34.798 0)
