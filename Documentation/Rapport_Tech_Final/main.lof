@@ -18,13 +18,13 @@
 \contentsline {figure}{\numberline {17}{\ignorespaces Consommation de l'ESP32 en mode Deep Sleep avec réveil par signal GPIO (simulant le PIR)}}{24}{figure.17}%
 \contentsline {figure}{\numberline {18}{\ignorespaces Prototype du système avec tous les modules intégrés}}{26}{figure.18}%
 \contentsline {figure}{\numberline {19}{\ignorespaces Différence entre la photographie de notre Caméra et de notre Téléphone}}{27}{figure.19}%
-\contentsline {figure}{\numberline {20}{\ignorespaces Autre section de notre architecure}}{27}{figure.20}%
+\contentsline {figure}{\numberline {20}{\ignorespaces Autre section de notre architecture}}{27}{figure.20}%
 \contentsline {figure}{\numberline {21}{\ignorespaces Schéma de l'architecture du système avec l'ESP32 et la PSRAM pour le stockage des images}}{28}{figure.21}%
 \contentsline {figure}{\numberline {22}{\ignorespaces Schéma électrique global du système réalisé avec Kicad}}{29}{figure.22}%
-\contentsline {figure}{\numberline {23}{\ignorespaces Schéma de la partie microcontroleur du système réalisé avec Kicad}}{30}{figure.23}%
-\contentsline {figure}{\numberline {24}{\ignorespaces Schéma de la partie microcontroleur du système réalisé avec Kicad}}{31}{figure.24}%
-\contentsline {figure}{\numberline {25}{\ignorespaces Schéma de la partie microcontroleur du système réalisé avec Kicad}}{32}{figure.25}%
-\contentsline {figure}{\numberline {26}{\ignorespaces Autre section de notre architecure}}{32}{figure.26}%
+\contentsline {figure}{\numberline {23}{\ignorespaces Schéma de la partie microcontrôleur du système réalisé avec Kicad}}{30}{figure.23}%
+\contentsline {figure}{\numberline {24}{\ignorespaces Schéma de la partie capteurs du système réalisé avec Kicad}}{31}{figure.24}%
+\contentsline {figure}{\numberline {25}{\ignorespaces Schéma de la partie caméra du système réalisé avec Kicad}}{32}{figure.25}%
+\contentsline {figure}{\numberline {26}{\ignorespaces Autre section de notre architecture}}{32}{figure.26}%
 \contentsline {figure}{\numberline {27}{\ignorespaces Schéma du montage de contrôle d'alimentation avec un transistor MOSFET P-Channel}}{33}{figure.27}%
 \contentsline {figure}{\numberline {28}{\ignorespaces Simulation du fonctionnement du montage de contrôle d'alimentation avec un transistor MOSFET P-Channel}}{34}{figure.28}%
 \contentsline {figure}{\numberline {29}{\ignorespaces Schéma d'alimentation complet du système réalisé avec Kicad}}{35}{figure.29}%

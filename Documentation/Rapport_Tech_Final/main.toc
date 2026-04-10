@@ -15,15 +15,15 @@
 \contentsline {subsubsection}{\numberline {3.1.3}Tests et Validation}{6}{subsubsection.3.1.3}%
 \contentsline {subsection}{\numberline {3.2}WP 1.2 — Gestion des échanges données et du microcontrôleur (responsable : Nolan Buchet)}{7}{subsection.3.2}%
 \contentsline {subsubsection}{\numberline {3.2.1}Rappel des objectifs}{7}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Tache 0 : Choix du Microcontrôleur}{7}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}Tache 1 : Gestion du stockage des données collectées}{9}{subsubsection.3.2.3}%
-\contentsline {subsubsection}{\numberline {3.2.4}Tache 2 : Hors WP : Gestion de la luminosité pour WP 1.3}{11}{subsubsection.3.2.4}%
-\contentsline {subsubsection}{\numberline {3.2.5}Tache 3 : Gestion de l'horodatage et de la localisation du modules}{15}{subsubsection.3.2.5}%
-\contentsline {subsubsection}{\numberline {3.2.6}Tache 4 : Définition d'un Automate pour la gestion global du module}{19}{subsubsection.3.2.6}%
-\contentsline {subsubsection}{\numberline {3.2.7}Tache 5 : Gestion de l'alimentation du module}{22}{subsubsection.3.2.7}%
-\contentsline {subsubsection}{\numberline {3.2.8}Tache 6 : Intégration des modules}{25}{subsubsection.3.2.8}%
-\contentsline {subsubsection}{\numberline {3.2.9}Tache 7 : Développement d'une architecture electrique}{29}{subsubsection.3.2.9}%
-\contentsline {subsubsection}{\numberline {3.2.10}Tache 8 : Création d'un PCB pour le module}{35}{subsubsection.3.2.10}%
+\contentsline {subsubsection}{\numberline {3.2.2}Tâche 0 : Choix du Microcontrôleur}{7}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Tâche 1 : Gestion du stockage des données collectées}{9}{subsubsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.4}Tâche 2 : Hors WP : Gestion de la luminosité pour WP 1.3}{11}{subsubsection.3.2.4}%
+\contentsline {subsubsection}{\numberline {3.2.5}Tâche 3 : Gestion de l'horodatage et de la localisation du module}{15}{subsubsection.3.2.5}%
+\contentsline {subsubsection}{\numberline {3.2.6}Tâche 4 : Définition d'un automate pour la gestion globale du module}{19}{subsubsection.3.2.6}%
+\contentsline {subsubsection}{\numberline {3.2.7}Tâche 5 : Gestion de l'alimentation du module}{22}{subsubsection.3.2.7}%
+\contentsline {subsubsection}{\numberline {3.2.8}Tâche 6 : Intégration des modules}{25}{subsubsection.3.2.8}%
+\contentsline {subsubsection}{\numberline {3.2.9}Tâche 7 : Développement d'une architecture électrique}{29}{subsubsection.3.2.9}%
+\contentsline {subsubsection}{\numberline {3.2.10}Tâche 8 : Création d'un PCB pour le module}{35}{subsubsection.3.2.10}%
 \contentsline {subsubsection}{\numberline {3.2.11}Synthèse du WP1.2}{40}{subsubsection.3.2.11}%
 \contentsline {subsection}{\numberline {3.3}WP 1.3 — Caméra (responsable : Xueying Xu)}{41}{subsection.3.3}%
 \contentsline {subsubsection}{\numberline {3.3.1}Rappel des objectifs}{41}{subsubsection.3.3.1}%

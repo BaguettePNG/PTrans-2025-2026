@@ -5,39 +5,39 @@
 
 \subsubsection{Rappel des objectifs}
 
-Pour recontextuatlisé le projet et les objectifs de ce Work Package, le WP 1.2 fait partie du Work parckage 1 qui 
+Pour recontextualiser le projet et les objectifs de ce Work Package, le WP 1.2 fait partie du Work Package 1 qui 
 est dédié à la conception et au développement du système de collecte de données animalières. Le WP 1.2 se concentre 
 spécifiquement sur la gestion des échanges de données entre les différents composants du système, ainsi que sur 
 l'intégration et la programmation du microcontrôleur qui servira de cerveau central pour le projet. De plus celui-ci 
 s'occupera de la partie énergétique du module, ainsi que de la partie stockage des données collectées.
 \\
 
-Voici la liste des taches qui seront réalisées dans le cadre de ce WP :
+Voici la liste des tâches qui seront réalisées dans le cadre de ce WP :
 \begin{itemize}
-    \item Tache 0 ( Equipe ) : Choix du Microcontrôleur et de la carte SD
-    \item Tache 1 : Gestion du stockage des données collectées
-    \item Tache 2 ( hors WP ) : Gestion de la luminosité pour WP 1.3
-    \item Tache 3 ; Gestion de l'horodatage et de la localisation du modules
-    \item Tache 4 : Définition d'un Automate pour la gestion global du module
-    \item Tache 5 : Gestion de l'alimentation du module
-    \item Tache 6 : Intégration des modules ( prototypage )
-    \item Tache 7 : Développement d'une architecture electrique
-    \item Tache 8 : Création d'un PCB pour le module
+    \item Tâche 0 ( Équipe ) : Choix du microcontrôleur et de la carte SD
+    \item Tâche 1 : Gestion du stockage des données collectées
+    \item Tâche 2 ( hors WP ) : Gestion de la luminosité pour WP 1.3
+    \item Tâche 3 : Gestion de l'horodatage et de la localisation du module
+    \item Tâche 4 : Définition d'un automate pour la gestion globale du module
+    \item Tâche 5 : Gestion de l'alimentation du module
+    \item Tâche 6 : Intégration des modules ( prototypage )
+    \item Tâche 7 : Développement d'une architecture électrique
+    \item Tâche 8 : Création d'un PCB pour le module
     \\
 \end{itemize}
 
-Pour chacune des taches réalisée ci-dessus, il y a eu une phase de test réalisé, ainsi qu'en amont une phase de concertation avec 
+Pour chacune des tâches réalisées ci-dessus, il y a eu une phase de test réalisée, ainsi qu'en amont une phase de concertation avec 
 l'équipe du WP afin que les solutions envisagées soient en adéquation avec les besoins du projet.
 \\
 
-Certaines tâches de ce modules ne sont pas dans l'ordre de conception, en prenant la tache 4 ou 5 qui ont été en constante évolution 
-durant tout le projet. Et certaine taches non essentielle, mais logique, comme l'optimisation des codes, ou rapport / documention ont 
-été réalisé en parallèle de la conception du module.
+Certaines tâches de ce module ne sont pas dans l'ordre de conception, comme la tâche 4 ou 5 qui ont été en constante évolution 
+durant tout le projet. Et certaines tâches non essentielles, mais logiques, comme l'optimisation du code ou le rapport / documentation, ont 
+été réalisées en parallèle de la conception du module.
 \\
 
-\subsubsection{Tache 0 : Choix du Microcontrôleur}
+\subsubsection{Tâche 0 : Choix du Microcontrôleur}
 
-\subsubsection*{Solution envisagé}
+\subsubsection*{Solution envisagée}
 
 À la suite d’une phase de recherche ( benchmark du début de projet ) concernant le contrôleur à utiliser pour ce projet, nous avons identifié deux solutions susceptibles 
 de répondre à nos besoins : l’ESP32 et le Raspberry Pi Zero.
@@ -93,29 +93,29 @@ mémoire supérieures, mais celles-ci sont jugées excessives au regard des beso
 énergétique et de gestion logicielle.
 \\
 
-En conclusion, l’ESP32 répond pleinement aux exigences du projet en matière de consomma tion, de connectivité et de simplicité de 
+En conclusion, l’ESP32 répond pleinement aux exigences du projet en matière de consommation, de connectivité et de simplicité de 
 déploiement, ce qui en fait la solution la plus adaptée pour le collecteur de données animalières.
 \\
 
 \noindent\textit{Notes :}  
 Un document détaillé présentant l’analyse comparative entre l’ESP32 et le Raspberry Pi Zero, ainsi que les critères de sélection, 
-à été rédigé.
+a été rédigé.
 
-\subsubsection{Tache 1 : Gestion du stockage des données collectées}
+\subsubsection{Tâche 1 : Gestion du stockage des données collectées}
 
 \subsubsection*{Rappel des objectifs}
 
-Commençons par la tache 1 qui est la gestion du stockage des données collectées. Pour cette tache, il a été décidé d'utiliser 
-une carte SD ( par cahier des charges ) pour stocker les données collectées par les métadatas et images. La carte SD offre une grande 
-capacité de stockage, ce qui est essentiel pour notre projet De plus, les cartes SD sont relativement faciles à interfacer avec un 
-microcontrôleur, ce qui facilite l'intégration dans notre système. Enfin celle ci est facilement accessible pour les utilisateurs, 
+Commençons par la tâche 1, qui est la gestion du stockage des données collectées. Pour cette tâche, il a été décidé d'utiliser 
+une carte SD ( par cahier des charges ) pour stocker les données collectées, notamment les métadonnées et les images. La carte SD offre une grande 
+capacité de stockage, ce qui est essentiel pour notre projet. De plus, les cartes SD sont relativement faciles à interfacer avec un 
+microcontrôleur, ce qui facilite l'intégration dans notre système. Enfin, celle-ci est facilement accessible pour les utilisateurs, 
 ce qui permet une récupération facile des données collectées.
 \\
 
-Dons nous avons utilisé un module de carte SD utilisable en moyen de communication SPI, qui est un protocole de communication série rapide 
+Donc nous avons utilisé un module de carte SD utilisable via le moyen de communication SPI, qui est un protocole de communication série rapide 
 et efficace. Le microcontrôleur peut ainsi envoyer des commandes à la carte SD pour lire et écrire des données de manière rapide et fiable.
-Le module utilisé est un module personnel ( \texttt{AZDelivery SPI Reader} ), celui-ci à été choisi au début du projet car aucune
-commande n'étais envisageable de la part du département ou du client.
+Le module utilisé est un module personnel ( \texttt{AZDelivery SPI Reader} ), celui-ci a été choisi au début du projet car aucune
+commande n'était envisageable de la part du département ou du client.
 \\
 
 \begin{figure}[H]
@@ -126,7 +126,7 @@ commande n'étais envisageable de la part du département ou du client.
 
 \subsubsection*{Solution envisagée}
 
-Pour utilisé le module, nous avons connecté notre esp32 à ce module en liaison SPI, en utilisant les broches suivantes :
+Pour utiliser le module, nous avons connecté notre ESP32 à ce module en liaison SPI, en utilisant les broches suivantes :
 \begin{itemize}
     \item MOSI ( Master Out Slave In : Écriture ) : GPIO 13
     \item MISO ( Master In Slave Out : Lecture ) : GPIO 12
@@ -138,7 +138,7 @@ Pour utilisé le module, nous avons connecté notre esp32 à ce module en liaiso
 \end{itemize}
 
 Nous utiliserons le module HSPI de l'ESP32 pour la communication SPI, qui permet des vitesses de transfert élevées.
-Voici un exmple de communication en SPI pour décrire le moyen de communication entre l'ESP32 et la carte SD. 
+Voici un exemple de communication en SPI pour décrire le moyen de communication entre l'ESP32 et la carte SD. 
 
 \begin{figure}[H]
     \centering
@@ -147,17 +147,17 @@ Voici un exmple de communication en SPI pour décrire le moyen de communication 
 \end{figure}
 
 
-Pour utiliser ce module, une librairie toute faite à déja été développé, qu'il à suffit d'implémenter dans notre projet pour pouvoir 
-utilisé la carte SD. Cette librairie est la librairie \texttt{SD.h} qui est une librairie standard pour la gestion des cartes SD avec 
+Pour utiliser ce module, une librairie toute faite a déjà été développée, qu'il a suffi d'implémenter dans notre projet pour pouvoir 
+utiliser la carte SD. Cette librairie est la librairie \texttt{SD.h} qui est une librairie standard pour la gestion des cartes SD avec 
 les microcontrôleurs Arduino et ESP32. Elle offre des fonctions pour initialiser la carte SD, lire et écrire des fichiers, 
-et gérer les répertoires. Nous l'avons utilisé pour crée ntre propre bibliothèque visant à simplificer l'utilisation de cette carte avec 
-notement le WPBis qui est dédier à la gestion de la transmission des données collectées.
+et gérer les répertoires. Nous l'avons utilisée pour créer notre propre bibliothèque visant à simplifier l'utilisation de cette carte, 
+notamment pour le WPBis qui est dédié à la gestion de la transmission des données collectées.
 \\
 
 \subsubsection*{Tests et Validation}
 
 Pour la phase de test, nous avons juste réalisé un test afin de savoir si nous pouvions écrire un fichier texte sur la carte SD,
-En donnant comme Nom de fichier les métadatas ( comme température, humidité, etc ), afin de simulé un buffer de réception d'images avec 
+en donnant comme nom de fichier les métadonnées ( comme température, humidité, etc ), afin de simuler un buffer de réception d'images avec 
 les données correspondantes.
 \\
 
@@ -189,20 +189,20 @@ void setup()
     \caption{Résultat du test d'écriture sur la carte SD}
 \end{figure}
 
-\subsubsection{Tache 2 : Hors WP : Gestion de la luminosité pour WP 1.3}
+\subsubsection{Tâche 2 : Hors WP : Gestion de la luminosité pour WP 1.3}
 
 \subsubsection*{Rappel des objectifs}
 
-Pour cette partie nous avons décidé de me séparé de mon WP afin d'aider le 
+Pour cette partie nous avons décidé de nous séparer de notre WP afin d'aider le 
 WP 1.3 qui est dédié à la gestion de la caméra, notamment pour la partie de 
 la luminosité. En effet, la luminosité est un facteur important pour la 
 prise de vue des images, car d'après notre cahier des charges, nous voulions
-prendre des photographie de jour comme de nuit. 
+prendre des photographies de jour comme de nuit. 
 \\
 
-Avoir la possibilité de connaitre la luminosité de l'environnement, nous permettrai
-de pourvoir allumer une source de lumière ( comme des LED Infrarouge ) pour pouvoir
-capturer des élement de nuit.
+Avoir la possibilité de connaître la luminosité de l'environnement nous permettrait
+de pouvoir allumer une source de lumière ( comme des LED infrarouges ) pour pouvoir
+capturer des éléments de nuit.
 \\
 
 \subsubsection*{Solution envisagée}
@@ -214,7 +214,7 @@ en œuvre et à interfacer avec un microcontrôleur comme l'ESP32. En mesurant l
 photorésistance, nous pouvons déterminer la luminosité ambiante et ajuster le comportement de notre système.
 \\
 
-Pour connaitre la résistance de ce capteur, nous utilisons un montage de diviseur de tension, 
+Pour connaître la résistance de ce capteur, nous utilisons un montage de diviseur de tension, 
 qui nous permet de convertir la résistance variable de la photorésistance en une tension mesurable par l'ESP32.
 Voici un schéma de ce montage :
 \\
@@ -235,8 +235,8 @@ En mesurant cette tension de sortie avec l'ESP32, nous pouvons calculer la rési
 \]
 
 
-A partir de la documention technique de la LDR nous pouvons facilement retrouver la valeur
-de la luminausité ( en LUX ) à partir de la résistance de la résistance, en utilisant la courbe suivante :
+À partir de la documentation technique de la LDR, nous pouvons facilement retrouver la valeur
+de la luminosité ( en LUX ) à partir de la résistance, en utilisant la courbe suivante :
 \\
 
 \begin{figure}[H]
@@ -251,8 +251,8 @@ de la luminausité ( en LUX ) à partir de la résistance de la résistance, en 
 
 \subsubsection*{Tests et Validation}
 
-Pour la phase de test de cette LDR nous avons tous simplement effectué 
-plusieur mesure avec des taux de luminosité différent, en utilisant une lampe, chiffon, rideau, etc ... 
+Pour la phase de test de cette LDR, nous avons tout simplement effectué 
+plusieurs mesures avec des taux de luminosité différents, en utilisant une lampe, un chiffon, un rideau, etc. 
 pour faire varier la luminosité, et en mesurant la tension de sortie du diviseur de tension.
 \\
 
@@ -297,12 +297,12 @@ void loop()
 
 Avec ce code nous avons pu vérifier que notre capteur LDR fonctionnait comme un luxmètre,
 en affichant la valeur de luminosité en LUX dans le moniteur série de l'ESP32. 
-Nous avons en même temps vérifier à l'aide d'une lumètre ( téléphone ) que les valeurs de 
+Nous avons en même temps vérifié à l'aide d'un luxmètre ( téléphone ) que les valeurs de 
 luminosité affichées étaient cohérentes avec les mesures réelles. Malheureusement le téléphone 
-utilisant une application celui-ci n'était pas très précis.
+utilisant une application, celui-ci n'était pas très précis.
 \\
 
-Mais dans l'ensemble des résultats obtenus étaient cohérents, on a obtenue : 
+Mais dans l'ensemble, les résultats obtenus étaient cohérents, nous avons obtenu : 
 \\
 
 \begin{table}[H]
@@ -333,15 +333,15 @@ Mais dans l'ensemble des résultats obtenus étaient cohérents, on a obtenue :
     \label{tab:ldr_comparaison}
 \end{table}
 
-Nous avions pour principe de contruire notre propre couronne de LED Infrarouge, avec ce capteur LDR afin de pouvoir capturer des
-animaux durant la nuit, mais par facilité nous avons décider d'acheter une couronne de LED Infrarouge déjà faite, 
+Nous avions pour principe de construire notre propre couronne de LED infrarouges, avec ce capteur LDR, afin de pouvoir capturer des
+animaux durant la nuit, mais par facilité nous avons décidé d'acheter une couronne de LED infrarouges déjà faite, 
 qui s'allume à partir d'une certaine luminosité, ce qui nous a permis de ne pas avoir à gérer l'allumage de ces LED, et de se 
 concentrer sur d'autres aspects du projet.
 \\
 
-Cette couronne de LED à une détection de luminausité automatique, si le seuil est assez élevé, alors les LED s'allumeront, 
+Cette couronne de LED a une détection de luminosité automatique, si le seuil est assez élevé, alors les LED s'allumeront, 
 et si le seuil est bas alors les LED seront éteintes, ce principe est aussi géré par une photorésistance, 
-mais celle ci est intégrée dans la couronne de LED, ce qui nous a permis de ne pas avoir à gérer et de juste à allimenter ce module.
+mais celle-ci est intégrée dans la couronne de LED, ce qui nous a permis de ne pas avoir à gérer cet aspect et de simplement alimenter ce module.
 \\
 
 \begin{figure}[H]
@@ -360,23 +360,23 @@ mais celle ci est intégrée dans la couronne de LED, ce qui nous a permis de ne
     \caption{Couronne de LED Infrarouge utilisée pour le projet}
 \end{figure}
 
-Malheureusemenvrai t, avec les différents problème rencontré durant le projet, nous n'avons pas pu faire de vrai test dans la nature afin
-de vérifier que nous puissons capturer les animaux de nuit, mais nous avons pu faire des tests en intérieur, en nous prennant en photo
+Malheureusement, avec les différents problèmes rencontrés durant le projet, nous n'avons pas pu faire de vrais tests dans la nature afin
+de vérifier que nous puissions capturer les animaux de nuit, mais nous avons pu faire des tests en intérieur, en nous prenant en photo
 dans le noir.
 \\
 
-\subsubsection{Tache 3 : Gestion de l'horodatage et de la localisation du modules}
+\subsubsection{Tâche 3 : Gestion de l'horodatage et de la localisation du module}
 
 \subsubsection*{Rappel des objectifs}
 
-Pour cette tache, nous avons décidé d'ajouter un module GPS afin de pouvoir récupérer la localisation du module, ainsi que l'heure 
-grâce à ce module. En effet, les données d'horodatage sont necessaires pour pouvoir avoir des statistique sur le taux
-de passage dans la zone en question, et la localisation est nécessaire dans le cas nous aurions plusieurs modules à déployer, afin 
-d'observer les zonnes de passage.
+Pour cette tâche, nous avons décidé d'ajouter un module GPS afin de pouvoir récupérer la localisation du module, ainsi que l'heure 
+grâce à ce module. En effet, les données d'horodatage sont nécessaires pour pouvoir obtenir des statistiques sur le taux
+de passage dans la zone en question, et la localisation est nécessaire dans le cas où nous aurions plusieurs modules à déployer, afin 
+d'observer les zones de passage.
 \\
 
 Nous avons décidé d'utiliser un module GPS personnel ( dans le même cas que pour la carte SD, aucune commande n'était envisageable de 
-la part du département ou du client ), qui est un module basique déstiné plutot pour les drones FPV.
+la part du département ou du client ), qui est un module basique destiné plutôt aux drones FPV.
 \\
 
 \begin{figure}[H]
@@ -388,11 +388,11 @@ la part du département ou du client ), qui est un module basique déstiné plut
 \subsubsection*{Solution envisagée - GPS}
 
 Ce module est basé sur une communication Série UART, qui est un protocole de communication simple et largement utilisé pour les modules GPS.
-Celui ci envoie des données de localisation et d'horodatage au format NMEA, qui est un format standard pour les données GPS.
+Celui-ci envoie des données de localisation et d'horodatage au format NMEA, qui est un format standard pour les données GPS.
 Différentes trames NMEA contiennent différentes informations, telles que la position, la vitesse, l'heure, etc. 
 \\
 
-Pour exemple la trame la plus connue est celle de GGA, qui est : 
+Par exemple, la trame la plus connue est celle de GGA, qui est : 
 \\
 
 \begin{figure}[H]
@@ -409,26 +409,26 @@ Dans notre cas nous allons utiliser la trame \texttt{GPRMC} :
     \caption{Trame GPRMC utilisée pour récupérer la localisation et l'horodatage}
 \end{figure}
 
-Grace à cette trame, nous allons pouvoir récupérer l'heure ( UTC ), la latitude, la longitude.
+Grâce à cette trame, nous allons pouvoir récupérer l'heure ( UTC ), la latitude et la longitude.
 \\
 
-Pour l'implémentation de ce module, nous avons crée notre librairie Arduino visant à récuper les informations que 
-nous shouaitons à partir des information communication en liaisons UART. 
+Pour l'implémentation de ce module, nous avons créé notre librairie Arduino visant à récupérer les informations que 
+nous souhaitons à partir des informations de communication en liaison UART. 
 \\
 
-Le principe est simple nous attendons qu'une trame complète soit arrivée, nous anaylison sur le carractère du début est bien \texttt{\$GPRMC} 
-et nous analysons les caractère qui sont séparé par des virgules pour récupérer les différentes informations.
-A la suite de ça nous avons crée une class en c permettant de pouvoir récupér les valeur directement via une simple fonction, \texttt{get()}.
+Le principe est simple : nous attendons qu'une trame complète soit arrivée, nous analysons si le caractère de début est bien \texttt{\$GPRMC}, 
+et nous analysons les caractères qui sont séparés par des virgules pour récupérer les différentes informations.
+À la suite de ça nous avons créé une classe en C permettant de pouvoir récupérer les valeurs directement via une simple fonction, \texttt{get()}.
 \\
 
 \subsubsection*{Solution envisagée - RTC}
 
-Pour la partie du GPS nous avons pu voir que nous pouvions récupérer toute les inforamtions néecssaire à notre projet,
-cependant il y avait un probleme, le GPS met du temps à se capter la localisation car celui-ci dépend de la position des 
-satellites, et dans le cas ou le module est dans une zone isolé, il peut mettre du temps à se capter la localisation.
+Pour la partie du GPS nous avons pu voir que nous pouvions récupérer toutes les informations nécessaires à notre projet,
+cependant il y avait un problème : le GPS met du temps à capter la localisation car celui-ci dépend de la position des 
+satellites, et dans le cas où le module est dans une zone isolée, il peut mettre du temps à capter la localisation.
 \\
 
-Une solution était d'utiliser un module RTC ( Real Time Clock ), celui si permettrait de continuer à obtenir l'heure sans pour autant
+Une solution était d'utiliser un module RTC ( Real Time Clock ), celui-ci permettrait de continuer à obtenir l'heure sans pour autant
 avoir besoin d'utiliser le module GPS, ce qui nous permettrait de gagner du temps sur tout le cheminement de la capture à la transmission.
 \\
 
@@ -442,11 +442,11 @@ Voici un schéma du principe que nous voulions implémenter :
     \caption{Schéma du principe de fonctionnement du module RTC pour maintenir l'heure en temps réel}
 \end{figure}
 
-Pour l'implémentation de ce module, nous avons implémenter notre propre librairie qui vise à initialiser le module RTC avec les données du GPS, 
-et ensuite comme le GPS avoir des fonctions get() pour récupérer les différentes informations de date et d'heure.
+Pour l'implémentation de ce module, nous avons implémenté notre propre librairie qui vise à initialiser le module RTC avec les données du GPS, 
+et ensuite, comme pour le GPS, à avoir des fonctions get() pour récupérer les différentes informations de date et d'heure.
 \\
 
-Donc après l'implémentation de ce code, nous avons au total 10 données qui sont sauvegardé dans le module RTC, qui sont :
+Donc après l'implémentation de ce code, nous avons au total 10 données qui sont sauvegardées dans le module RTC, qui sont :
 \begin{itemize}
     \item Seconde : String
     \item Minute : String
@@ -456,13 +456,13 @@ Donc après l'implémentation de ce code, nous avons au total 10 données qui so
     \item Année : String
     \item Latitude : char 
     \item Longitude : char 
-    \item activation du GPS : bool ( permettre de connaitre l'activation de la première fois du GPS pour la synchronisation de l'heure )
-    \item lastRefreshDay : int ( permet d'enregistrer le jour à laquelle les metadatas ont été rafraichie par le GPS )
+    \item activation du GPS : bool ( permet de connaître l'activation de la première fois du GPS pour la synchronisation de l'heure )
+    \item lastRefreshDay : int ( permet d'enregistrer le jour auquel les métadonnées ont été rafraîchies par le GPS )
 \end{itemize}
 
 \subsubsection*{Tests et Validation}
 
-Dans un premier temps nous avons vérifier que nous recevions bien les trames NMEA du module GPS, en affichant les données 
+Dans un premier temps nous avons vérifié que nous recevions bien les trames NMEA du module GPS, en affichant les données 
 reçues dans le moniteur série de l'ESP32.
 \\
 
@@ -538,8 +538,8 @@ Date (JJ/MM/AAAA): 09/04/2026
 \end{lstlisting}
 \end{minipage}
 
-A la suite de cette validation nous avons pu vérifier que le module RTC fonctionnait correctement, en affichant 
-les données de date et d'heure dans le moniteur série de l'ESP32, et en vérifiant que l'heure était maintenu.
+À la suite de cette validation nous avons pu vérifier que le module RTC fonctionnait correctement, en affichant 
+les données de date et d'heure dans le moniteur série de l'ESP32, et en vérifiant que l'heure était maintenue.
 \\
 
 \noindent
@@ -598,27 +598,27 @@ Heure: 15:42:56
 \end{lstlisting}
 \end{minipage}
 
-Ces deux tests nous ont permis de vérifier que le modules GPS nous transfait bien les données de localisation et d'horodatage,
+Ces deux tests nous ont permis de vérifier que le module GPS nous transmettait bien les données de localisation et d'horodatage,
 et que le module RTC maintenait correctement l'heure en temps réel, même après la synchronisation initiale avec le GPS.
-Les tests ont été effectués plusieur fois sur plusieur heures, afin de vérifier que le module RTC suffisait à maintenir l'heure 
+Les tests ont été effectués plusieurs fois sur plusieurs heures, afin de vérifier que le module RTC suffisait à maintenir l'heure 
 sans besoin de resynchronisation fréquente avec le GPS, ce qui est essentiel pour l'efficacité énergétique du système.
 \\
 
-\subsubsection{Tache 4 : Définition d'un Automate pour la gestion global du module}
+\subsubsection{Tâche 4 : Définition d'un automate pour la gestion globale du module}
 
 \subsubsection*{Rappel des objectifs}
 
-Cette tache à été réalisé une première fois, puis remodifié plusieurs fois durant le projet, afin de pouvoir s'adapter au mieux à 
-l'évolution du projet et aux différentes contraintes rencontrées. Au départ nous avions seulement défini tout les élèment à prendre en compte 
+Cette tâche a été réalisée une première fois, puis modifiée plusieurs fois durant le projet, afin de pouvoir s'adapter au mieux à 
+l'évolution du projet et aux différentes contraintes rencontrées. Au départ nous avions seulement défini tous les éléments à prendre en compte 
 et faire un déroulement d'une prise de photo et récupération des données puis la transmission.
 \\
 
-Mais au vu des différent défis qui sont apparu, comme la gestion du GPS, et puis la gestion des LED infrarouge nous avons du le modifier pour 
-faire apparaitre des branches en cas de besoin / non besoins d'allumer ces éléments.
+Mais au vu des différents défis qui sont apparus, comme la gestion du GPS, et puis la gestion des LED infrarouges, nous avons dû le modifier pour 
+faire apparaître des branches en cas de besoin / non-besoin d'allumer ces éléments.
 
-\subsubsection*{Solution envisagé}
+\subsubsection*{Solution envisagée}
 
-Au départ nous étions parti sur un modèle simple, l'ESP32 devait être en veille donc avoir une phase de reveil, de reception de data, puis de transmission :
+Au départ nous étions partis sur un modèle simple : l'ESP32 devait être en veille, donc avoir une phase de réveil, de réception de données, puis de transmission :
 \\
 
 \begin{figure}[H]
@@ -627,7 +627,7 @@ Au départ nous étions parti sur un modèle simple, l'ESP32 devait être en vei
     \caption{Automate de gestion du module - version 1}
 \end{figure}
 
-Nous décidons aussi d'ajouter un module de capture de la tension de la batterie, afin de pouvoir surveiller la tension de la batterie, 
+Nous avons aussi décidé d'ajouter un module de capture de la tension de la batterie, afin de pouvoir surveiller la tension de la batterie, 
 pouvoir faire des statistiques et aussi de permettre à l'utilisateur de savoir quand il faut changer la batterie, ou de faire des 
 prévisions sur l'autonomie restante.
 \\
@@ -643,8 +643,8 @@ consommer.
     \caption{Schéma du montage de diviseur de tension pour la mesure de la tension de la batterie}
 \end{figure}
 
-La deuxième résistance permet de connaitre la divisions de ce montage, nous décidons de divisé par 4 notre système, car la tension de la 
-batterie sera proche de 12V, celle-ci ne peux pas être directement mesuré par l'ESP32 qui ne supporte que 5V, en divisant par 4 nous nous
+La deuxième résistance permet de connaître la division de ce montage, nous avons décidé de diviser par 4 notre système, car la tension de la 
+batterie sera proche de 12V, celle-ci ne peut pas être directement mesurée par l'ESP32 qui ne supporte que 5V. En divisant par 4 nous nous
 assurons que la tension mesurée ne dépassera pas 3V, ce qui est sécuritaire pour l'ESP32.
 \\
 
@@ -652,11 +652,11 @@ assurons que la tension mesurée ne dépassera pas 3V, ce qui est sécuritaire p
     V_{out} = \frac{R2}{R1 + R2} \times V_{in}
 \]
 
-La lecture de notre tension se fait grace à un ADC ( Analog to Digital Converter ), qui convertit la tension analogique en une valeur numérique 
+La lecture de notre tension se fait grâce à un ADC ( Analog to Digital Converter ), qui convertit la tension analogique en une valeur numérique 
 que l'ESP32 peut traiter. 
 \\
 
-Voici la version final que nous avons mis en place pour la finalité de notre projet : 
+Voici la version finale que nous avons mise en place pour la finalité de notre projet : 
 
 \begin{figure}[H]
     \centering
@@ -664,30 +664,30 @@ Voici la version final que nous avons mis en place pour la finalité de notre pr
     \caption{Automate de gestion du module - version finale}
 \end{figure}
 
-La description de cettte automate n'est pas finie, car il nous manque les etapes de transistion, mais dans l'ensemble nous avons 
+La description de cet automate n'est pas finie, car il nous manque les étapes de transition, mais dans l'ensemble nous avons 
 la structure de base de notre automate, qui nous permettra de gérer les différentes étapes de notre projet. 
 \\
 
-Nous observons toute les étapes que en commençant par le reveil de notre sytème par un mouvement, une phase de reveil est nécessaire 
-pour que le système puisse s'initialiser, tout de suite après nous allumons la couronne de LED, puis prenons une photo, puis de suite après l'éteinte de celle-ci.
-Nous avons éffectuer cela car notre couronnes est en 12V et celle-ci consomme énormément d'energie. A la suite de la prise de photo, nous prenons nos données de température, humidité, 
+Nous observons toutes les étapes en commençant par le réveil de notre système par un mouvement. Une phase de réveil est nécessaire 
+pour que le système puisse s'initialiser. Tout de suite après, nous allumons la couronne de LED, puis prenons une photo, puis réalisons l'extinction de celle-ci.
+Nous avons effectué cela car notre couronne est en 12V et celle-ci consomme énormément d'énergie. À la suite de la prise de photo, nous prenons nos données de température, d'humidité, 
 et de localisation et d'horodatage, puis nous éteignons le GPS pour économiser de l'énergie, et ensuite nous transmettons les données collectées.
-Le GPS est activé seulement une fois toute les 24h pour economiser l'énergie qu'il faut à la recherche.
+Le GPS est activé seulement une fois toutes les 24h pour économiser l'énergie nécessaire à la recherche.
 \\
 
-\subsubsection{Tache 5 : Gestion de l'alimentation du module}
+\subsubsection{Tâche 5 : Gestion de l'alimentation du module}
 
 \subsubsection*{Rappel des objectifs}
 
-Dans cette tache j'ai du réaliser un bilan des meilleur moyen d'alimenter les modules afin de moins consommer d'énergie et 
-d'avoir une autonomie plus longue, en effet notre projet est destiné à être utilisé dans des zones isolé, et il est donc 
+Dans cette tâche, j'ai dû réaliser un bilan des meilleurs moyens d'alimenter les modules afin de moins consommer d'énergie et 
+d'avoir une autonomie plus longue. En effet notre projet est destiné à être utilisé dans des zones isolées, et il est donc 
 essentiel d'avoir une autonomie suffisante pour que le système puisse fonctionner pendant une longue période sans besoin 
 de maintenance fréquente.
 \\
 
 \subsubsection*{Solution envisagée}
 
-Pour la première étape il faut pouvoir mettre en veille les modules afin de pouvoir meiux gérer l'energie : 
+Pour la première étape il faut pouvoir mettre en veille les modules afin de pouvoir mieux gérer l'énergie : 
 Commençons par l'ESP32, celui-ci offre plusieurs modes de veille qui permettent de réduire considérablement la consommation d'énergie 
 lorsque le système n'est pas actif.
 \\
@@ -718,22 +718,22 @@ Voici les différents modes de veille disponibles pour l'ESP32 :
     \label{tab:esp32_sleep_modes}
 \end{table}
 
-Dans notre projet nous avons pour objectif le consommer le moins mais aussi de pôpuvoir utiliser le module RTC pour la mémoire de la localisation et l'horodatage,
+Dans notre projet nous avons pour objectif de consommer le moins possible mais aussi de pouvoir utiliser le module RTC pour la mémoire de la localisation et l'horodatage,
 ce qui nous a permis de choisir le mode de veille "Deep Sleep", qui offre une consommation très faible tout en permettant au RTC de continuer à fonctionner, 
 ce qui est essentiel pour notre projet.
 \\
 
-Plusieur autre méthode sont envisagé pour pouvoir réduire la consommation d'énergie, comme l'arrêt de différent périphériques de ce microcontroleur, ou encore mise 
-en place de pull down sur les GPIO pour éviter les fuites de courant, mais après la phase de test nous nous somme rendu compte que, à part de Wifi et le Bluetooth,
-le reste est négligeable en terme de consommation.
+Plusieurs autres méthodes sont envisagées pour pouvoir réduire la consommation d'énergie, comme l'arrêt de différents périphériques de ce microcontrôleur, ou encore la mise 
+en place de pull-down sur les GPIO pour éviter les fuites de courant, mais après la phase de test nous nous sommes rendu compte que, à part le Wi-Fi et le Bluetooth,
+le reste est négligeable en termes de consommation.
 \\
 
-Ce qu'il y a de plus pour modifier la consommation, c'est surtout de réduire la fréquence d'utilisation du processeur du microcontroleur, mais cela aura un impact 
-sur le temps de traitement et la rapidité d'éxécution de notre code.
+Ce qui a le plus d'impact sur la consommation, c'est surtout de réduire la fréquence d'utilisation du processeur du microcontrôleur, mais cela aura un impact 
+sur le temps de traitement et la rapidité d'exécution de notre code.
 
 \subsubsection*{Tests et Validation}
 
-Nous pouvons observer tout d'abord afin d'avoir une idée de la consommation de base, un code vierge injecter dans l'esp32 : 
+Nous pouvons observer tout d'abord, afin d'avoir une idée de la consommation de base, un code vierge injecté dans l'ESP32 : 
 
 \begin{figure}[H]
     \centering
@@ -741,7 +741,7 @@ Nous pouvons observer tout d'abord afin d'avoir une idée de la consommation de 
     \caption{Consommation de base de l'ESP32 avec un code vierge}
 \end{figure}
 
-Celui ci montre une consomation de 80mA environ.
+Celui-ci montre une consommation de 80mA environ.
 \\
 
 Passons maintenant à la réduction de la fréquence de notre microcontrôleur : 
@@ -752,11 +752,11 @@ Passons maintenant à la réduction de la fréquence de notre microcontrôleur :
     \caption{Consommation de l'ESP32 en fonction de la fréquence du processeur}
 \end{figure}
 
-Dans ce graphe nous observons différent pallier qui correspond à différente fréquence du processeur, en commençant par 
-20, 40, 80, 160 et 240 MHz. Déja nous avons une nettes différence entre toutes ces fréquences.
+Dans ce graphe nous observons différents paliers qui correspondent à différentes fréquences du processeur, en commençant par 
+20, 40, 80, 160 et 240 MHz. Déjà nous avons une nette différence entre toutes ces fréquences.
 \\
 
-Continuons avec le mode de veille : les mode \texttt{Deep} : 
+Continuons avec le mode de veille : les modes \texttt{Deep} : 
 
 \begin{figure}[H]
     \centering
@@ -764,10 +764,10 @@ Continuons avec le mode de veille : les mode \texttt{Deep} :
     \caption{Consommation de l'ESP32 en fonction du mode de veille}
 \end{figure}
 
-La consomation en Mode Deep Sleep est de l'ordre de 5mA en moyenne. Ce qui sera un avantage pour notre projet.
+La consommation en mode Deep Sleep est de l'ordre de 5mA en moyenne, ce qui sera un avantage pour notre projet.
 \\
 
-Pour allez plus loins dans nos tests nous avons testé la consommation en mode Deep Sleep, avec réveil par une simualtion de mouvement, don en envoyant 
+Pour aller plus loin dans nos tests nous avons testé la consommation en mode Deep Sleep, avec réveil par une simulation de mouvement, donc en envoyant 
 un signal sur un GPIO ( simulant le PIR ).
 
 \begin{figure}[H]
@@ -776,8 +776,8 @@ un signal sur un GPIO ( simulant le PIR ).
     \caption{Consommation de l'ESP32 en mode Deep Sleep avec réveil par signal GPIO (simulant le PIR)}
 \end{figure}
 
-Nous celui-ci montre un système concluant, avec une faible consomation. Mais nous observons dans tous nos graphe un problème majeur, c'est un pic 
-au démarage, celui-ci correspond à l'initialisation de tout les périphérique de base de l'ESP32.
+Celui-ci montre un système concluant, avec une faible consommation. Mais nous observons dans tous nos graphes un problème majeur, c'est un pic 
+au démarrage, celui-ci correspond à l'initialisation de tous les périphériques de base de l'ESP32.
 
 Voici un exemple de code utilisé pour le test du mode de veille :
 \begin{lstlisting}[style=CStyle, caption={Exemple de code pour le test du mode de veille}, label={lst:deep_sleep_exemple}]
@@ -822,19 +822,19 @@ void loop() {}
 
 \end{lstlisting}
 
-\subsubsection{Tache 6 : Intégration des modules}
+\subsubsection{Tâche 6 : Intégration des modules}
 
 \subsubsection*{Rappel des objectifs}
 
-Dans cette phase nous avons eu pour objectif d'assembler nos modules de tout le WP1, celui ci correpond à notre premier prototype de notre système.
-Il s'agit de rassembler le travail effectueé par chacun, notement sur la partie de récupération d'images et de métadatas, 
+Dans cette phase nous avons eu pour objectif d'assembler nos modules de tout le WP1, celui-ci correspond à notre premier prototype de notre système.
+Il s'agit de rassembler le travail effectué par chacun, notamment sur la partie de récupération d'images et de métadonnées, 
 la partie de stockage sur la carte SD, la partie de localisation et d'horodatage, et la partie transmission.
 \\
 
 \subsubsection*{Solution envisagée}
 
-Pour cela, nous avions décidé, que chacun d'entre nous effectuerait une bibliothèque pour que je puisses juste appeler les fonctions tels 
-l'automate défini précedement. 
+Pour cela, nous avions décidé que chacun d'entre nous effectuerait une bibliothèque pour que je puisse simplement appeler les fonctions telles que 
+l'automate défini précédemment. 
 \\
 
 Donc pour résumer la partie de notre système, le WP possède un total de 7 bibliothèques, qui sont :
@@ -843,8 +843,8 @@ Donc pour résumer la partie de notre système, le WP possède un total de 7 bib
     \item GPS.hpp : bibliothèque de gestion du module GPS, qui permet de récupérer la localisation et l'horodatage
     \item RTC.hpp : bibliothèque de gestion du module RTC, qui permet de maintenir l'heure en temps réel
     \item SD.hpp : bibliothèque de gestion de la carte SD, qui permet de stocker les données collectées
-    \item SENDWIFI.hpp : bibliothèque de gestion de la transmission des données en Wifi
-    \item BAT.hpp : bibliothèque de récupération tension de la batterie
+    \item SENDWIFI.hpp : bibliothèque de gestion de la transmission des données en Wi-Fi
+    \item BAT.hpp : bibliothèque de récupération de la tension de la batterie
     \item CONFIG.h : fichier de configuration du projet, qui contient les différentes constantes et paramètres du projet
     \\
 \end{itemize}
@@ -854,7 +854,7 @@ Le code étant conséquent, il sera disponible en annexe.
 \subsubsection*{Tests et Validation}
 
 Au départ pour notre système nous avions comme objectif de faire 10 photographies et de les sauvegarder sur la carte SD, 
-avec les métadatas de localisation et d'horodatage, ainsi que les données de température et d'humidité.
+avec les métadonnées de localisation et d'horodatage, ainsi que les données de température et d'humidité.
 \\
 
 \begin{figure}[H]
@@ -868,7 +868,7 @@ avec les métadatas de localisation et d'horodatage, ainsi que les données de t
     \begin{minipage}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\linewidth]{Images/WP1_2/Tache_6/Exterieur_telephone.jpeg}
-        \par\small Photograhie Téléphone
+        \par\small Photographie Téléphone
     \end{minipage}
     \hfill
     \begin{minipage}[t]{0.45\textwidth}
@@ -884,7 +884,7 @@ avec les métadatas de localisation et d'horodatage, ainsi que les données de t
     \begin{minipage}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\linewidth]{Images/WP1_2/Tache_6/Interieur.png}
-        \par\small Photograhie interieure
+        \par\small Photographie intérieure
     \end{minipage}
     \hfill
     \begin{minipage}[t]{0.45\textwidth}
@@ -892,24 +892,24 @@ avec les métadatas de localisation et d'horodatage, ainsi que les données de t
         \includegraphics[width=\linewidth]{Images/WP1_2/Tache_6/Humain.png}
         \par\small Photographie Humain
     \end{minipage}
-    \caption{Autre section de notre architecure}
+    \caption{Autre section de notre architecture}
 \end{figure}
 
-Cependant notre équipe à été assez performant, et à peine la réalisation de ce prototype terminé, nous avons pu faire des tests 
-avec la transmisssion et wifi et reception sur le serveur de stockage distant. 
+Cependant notre équipe a été assez performante, et à peine la réalisation de ce prototype terminée, nous avons pu faire des tests 
+de transmission en Wi-Fi et de réception sur le serveur de stockage distant. 
 \\
 
-Un problème majeur est intervenue lors de nos phase de test, c'était tout simplement la résolution de nos photos. De base la biliothèque de 
-la caméra nous permettait de choisir l'emplacement du buffer de l'image, mais malheureusement notre eesp32 personnel n'était pas assez puissant 
-et nous étions obligé de sotcker l'image dans la DRAM ( stockage principale de l'ESP32 ), qui est limité en terme de capacité, et qui ne nous 
+Un problème majeur est survenu lors de nos phases de test, c'était tout simplement la résolution de nos photos. De base la bibliothèque de 
+la caméra nous permettait de choisir l'emplacement du buffer de l'image, mais malheureusement notre ESP32 personnel n'était pas assez puissant 
+et nous étions obligés de stocker l'image dans la DRAM ( stockage principal de l'ESP32 ), qui est limitée en termes de capacité, et qui ne nous 
 permettait pas de stocker des images de haute résolution. De plus nous ne pouvions pas utiliser la carte SD pour stocker le buffer car le moyen
 de récupération de l'image ( Méthode DMA ( Direct Memory Access ) ) n'est pas compatible avec la carte SD.
 \\
 
-Pour faire face à ce problème nous avons donc décider de regarder la biliothèqe en détail, et nous svons trouver une solution adapté à notre problème qui à 
+Pour faire face à ce problème nous avons donc décidé de regarder la bibliothèque en détail, et nous avons trouvé une solution adaptée à notre problème, qui a 
 été de prendre un ESP32 avec une PSRAM. Une PSRAM ( pseudo-static RAM ) est une mémoire externe qui peut être utilisée pour stocker des données, 
-et qui offre une capacité plus grande que la DRAM interne de l'ESP32, celle ci est direcement connecté à un périphérique de l'ESP32 ( I2S ), 
-ce qui nous a permis de stocker des images de haute résolution sans problème, sans probleme de stockage.
+et qui offre une capacité plus grande que la DRAM interne de l'ESP32 ; celle-ci est directement connectée à un périphérique de l'ESP32 ( I2S ), 
+ce qui nous a permis de stocker des images de haute résolution sans problème de stockage.
 \\
 
 \begin{figure}[H]
@@ -918,22 +918,22 @@ ce qui nous a permis de stocker des images de haute résolution sans problème, 
     \caption{Schéma de l'architecture du système avec l'ESP32 et la PSRAM pour le stockage des images}
 \end{figure}
 
-Donc nous sommes partie sur un modèle plus haut de gamme de l'ESP32, qui est l'ESP32-WROVER, qui intègre une PSRAM de 8MB. Une amélioration ne 
-vient pas tout de seul, cette modèle possède aussi plus de pins GPIO que notre ancien modèel qui arrivait à saturation.
+Donc nous sommes partis sur un modèle plus haut de gamme de l'ESP32, qui est l'ESP32-WROVER, qui intègre une PSRAM de 8MB. Une amélioration ne 
+vient pas toute seule, ce modèle possède aussi plus de pins GPIO que notre ancien modèle qui arrivait à saturation.
 \\
 
-\subsubsection{Tache 7 : Développement d'une architecture electrique}
+\subsubsection{Tâche 7 : Développement d'une architecture électrique}
 
 \subsubsection*{Rappel des objectifs}
 
-Dans cette section il s'agit d'éffectuer un étude de notre schéma réaliser grace au prototype, car celui-ci étant conclue, il nous permet 
-de construire notre schéma électrique, qui nous permettra de construire potentiellement un PCB à l'avenir, ou de faire une meilleur gestion 
+Dans cette section il s'agit d'effectuer une étude de notre schéma réalisé grâce au prototype, car celui-ci étant concluant, il nous permet 
+de construire notre schéma électrique, qui nous permettra de construire potentiellement un PCB à l'avenir, ou de faire une meilleure gestion 
 de l'alimentation et de la consommation de notre système.
 \\
 
 \subsubsection*{Solution envisagée}
 
-Dans un premier temps, nous recopions juste notre système grace au logiciel de CAO, \textbf{Kicad}. Pour que cela soit plus parlant et mieux en 
+Dans un premier temps, nous recopions juste notre système grâce au logiciel de CAO, \textbf{Kicad}. Pour que cela soit plus parlant et mieux en 
 terme de gestion de projet, nous mettons des blocs pour que chaque partie soit clairement identifiée.
 \\
 
@@ -943,47 +943,47 @@ terme de gestion de projet, nous mettons des blocs pour que chaque partie soit c
     \caption{Schéma électrique global du système réalisé avec Kicad}
 \end{figure}
 
-Celui montre notre WP1 dans son ensemble avec les différents modules. Commençons par notre partie principal qui est notre microcontroleur
-qui celui-ci montre notre microcontroleur avec toute les pins utilisables, nous ajouteons des pulls-up sur les signaux I2C et des condensateurs
-de découplage pour éviter les problèmes de bruit et de stabilité du système. Une diode de est rajouter, car le pins VIN est aussi la pins de sortie
-de tension du cable de programmation, et cela nous permet d'éviter les problèmes de court-circuit lors de la programmation du module.
+Celui-ci montre notre WP1 dans son ensemble avec les différents modules. Commençons par notre partie principale qui est notre microcontrôleur.
+Celle-ci montre notre microcontrôleur avec toutes les pins utilisables. Nous ajoutons des pull-up sur les signaux I2C et des condensateurs
+de découplage pour éviter les problèmes de bruit et de stabilité du système. Une diode est rajoutée, car la pin VIN est aussi la pin de sortie
+de tension du câble de programmation, et cela nous permet d'éviter les problèmes de court-circuit lors de la programmation du module.
 \\ 
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Images/WP1_2/Tache_7/uc.png}
-    \caption{Schéma de la partie microcontroleur du système réalisé avec Kicad}
+    \caption{Schéma de la partie microcontrôleur du système réalisé avec Kicad}
 \end{figure}
 
 Dans un second cas nous prenons la partie capteur, nous avons au total 3 capteurs : le GPS, le module DHT22 ( température et humidité ) et le PIR.
 Nous avons décidé d'ajouter des connecteurs supplémentaires, comme un double connecteur pour notre module personnel mais aussi pour un autre module
-GPS que nous avions sélectionné à commander. L'ajout aussi d'un transistor MOSFET pour pouvoir controler l'alimentation de celui-ci.
+GPS que nous avions sélectionné à commander. Nous avons aussi ajouté un transistor MOSFET pour pouvoir contrôler son alimentation.
 \\
 
-Nous avons aussi rajouter une Led de DEBUG, qui nous permettra de faire du debug visuel de notre système, en indiquant par exemple l'état du système 
+Nous avons aussi rajouté une LED de DEBUG, qui nous permettra de faire du débogage visuel de notre système, en indiquant par exemple l'état du système 
 ou les différentes étapes de notre automate.
 \\
 
-Et enfin d'autre connecteur comme deux connecteurs Groove ( pour les modules I2C ) et un connecteur pour un autre capteur de température, humidité, et pression ( BME280 ) que nous avions sélectionné à commander.
-préssion et qualité de l'air, qui était dans la commande initiale, mais qui n'était pas arrivé à temps pour les tests, mais qui nous permettra d'avoir des données supplémentaires sur les conditions environnementales de la zone.
+Et enfin d'autres connecteurs comme deux connecteurs Grove ( pour les modules I2C ) et un connecteur pour un autre capteur de température, humidité et pression ( BME280 ) que nous avions sélectionné à commander.
+Ce capteur de pression et de qualité de l'air était dans la commande initiale, mais n'est pas arrivé à temps pour les tests. Il nous permettra d'avoir des données supplémentaires sur les conditions environnementales de la zone.
 \\
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{Images/WP1_2/Tache_7/Main-Sensors.pdf}
-    \caption{Schéma de la partie microcontroleur du système réalisé avec Kicad}
+    \caption{Schéma de la partie capteurs du système réalisé avec Kicad}
 \end{figure}
 
-Passons à la partie de la caméra, qui quand à lui possède un connecteur pour la caméra OV2640, mais aussi un connecteur pour la couronne de LED infrarouge, nous avons
-aussi rajouté d'un transistor MOSFET pour pouvoir controler l'alimentation de celle-la.
+Passons à la partie caméra, qui quant à elle possède un connecteur pour la caméra OV2640, mais aussi un connecteur pour la couronne de LED infrarouges. Nous avons
+aussi rajouté un transistor MOSFET pour pouvoir contrôler son alimentation.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{Images/WP1_2/Tache_7/Main-Cam.pdf}
-    \caption{Schéma de la partie microcontroleur du système réalisé avec Kicad}
+    \caption{Schéma de la partie caméra du système réalisé avec Kicad}
 \end{figure}
 
-Nous avons ensuire les connecteurs pour le module de carte SD ainsi que le future module de carte SIM pour une transmission en 4G :
+Nous avons ensuite les connecteurs pour le module de carte SD ainsi que le futur module de carte SIM pour une transmission en 4G :
 
 \begin{figure}[H]
     \centering
@@ -998,19 +998,19 @@ Nous avons ensuire les connecteurs pour le module de carte SD ainsi que le futur
         \includegraphics[width=\linewidth]{Images/WP1_2/Tache_7/SD.png}
         \par\small Connecteur pour le module de carte SD
     \end{minipage}
-    \caption{Autre section de notre architecure}
+    \caption{Autre section de notre architecture}
 \end{figure}
 
 Enfin pour finir nous avons la partie d'alimentation, celle-ci nous a donné un peu plus de réflexion étant donné que notre système fonctionnait 
-à 12V, mais que notre microcontroleur et les autres modules fonctionnaient à 5V, nous avons donc décidé d'utiliser un régulateur de tension pour abaisser la tension de 12V à 5V.
+à 12V, mais que notre microcontrôleur et les autres modules fonctionnaient à 5V, nous avons donc décidé d'utiliser un régulateur de tension pour abaisser la tension de 12V à 5V.
 \\
 
-De plus il a fallut réflechir à un moyen de pouvoir avoir une alimentation qui alimenter notre ESP32 et notre PIR tout le temps afin de detecter ou non, et une autre activable 
+De plus il a fallu réfléchir à un moyen de pouvoir avoir une alimentation qui alimente notre ESP32 et notre PIR tout le temps afin de détecter ou non, et une autre activable 
 seulement lors de la prise de photo pour alimenter la couronne de LED et la caméra, afin d'économiser de l'énergie, nous avons donc décidé d'utiliser un transistor MOSFET 
-pour pouvoir controler l'alimentation de ces éléments.
+pour pouvoir contrôler l'alimentation de ces éléments.
 \\
 
-Le montage suivant est réalisé à l'aide d'un transistor MOSFET P-Channel, qui agit comme un relai en reliant le 5V du régulateur avec les différents modules.
+Le montage suivant est réalisé à l'aide d'un transistor MOSFET P-Channel, qui agit comme un relais en reliant le 5V du régulateur avec les différents modules.
 \\
 
 \begin{figure}[H]
@@ -1019,7 +1019,7 @@ Le montage suivant est réalisé à l'aide d'un transistor MOSFET P-Channel, qui
     \caption{Schéma du montage de contrôle d'alimentation avec un transistor MOSFET P-Channel}
 \end{figure}
 
-Dans ce montage si une tension à la sortie du régulateur est présent, alors le transistor est éteint et ne laisse pas passer le courant, mais lorsque la pin de contrôle du transistor est mise à LOW, 
+Dans ce montage si une tension à la sortie du régulateur est présente, alors le transistor est éteint et ne laisse pas passer le courant, mais lorsque la pin de contrôle du transistor est mise à LOW, 
 alors le transistor s'active et laisse passer le courant, ce qui permet d'alimenter les modules connectés à la sortie du transistor. 
 
 \begin{figure}[H]
@@ -1038,7 +1038,7 @@ alors le transistor s'active et laisse passer le courant, ce qui permet d'alimen
     \caption{Simulation du fonctionnement du montage de contrôle d'alimentation avec un transistor MOSFET P-Channel}
 \end{figure}
 
-Nous avons aussi observé le delai d'activation entre nos deux tension qui est de 10us, ce qui est largement suffisant pour notre projet.
+Nous avons aussi observé le délai d'activation entre nos deux tensions qui est de 10us, ce qui est largement suffisant pour notre projet.
 \\
 
 Pour résumer notre schéma d'alimentation, voici un tableau récapitulatif de notre architecture d'alimentation :
@@ -1060,7 +1060,7 @@ Pour résumer notre schéma d'alimentation, voici un tableau récapitulatif de n
     \label{tab:architecture_alimentation}
 \end{table}
 
-Et voici le schéma d'alimentation de notre système complet, celui si possède un régulateur 12V vers 5V, de chez Microchip ( Demande du client ), avec le ssytème de power up / down, et le pont 
+Et voici le schéma d'alimentation de notre système complet, celui-ci possède un régulateur 12V vers 5V, de chez Microchip ( Demande du client ), avec le système de power up / down, et le pont 
 diviseur de notre système de mesure de la tension de la batterie :
 \\
 
@@ -1070,29 +1070,29 @@ diviseur de notre système de mesure de la tension de la batterie :
     \caption{Schéma d'alimentation complet du système réalisé avec Kicad}
 \end{figure}
 
-\subsubsection{Tache 8 : Création d'un PCB pour le module}
+\subsubsection{Tâche 8 : Création d'un PCB pour le module}
 
 \subsubsection*{Rappel des objectifs}
 
-Jusqu'a présent nous avons réalisé notre système sur une breadboard, ce qui est pratique pour les phases de test et de développement, mais qui n'est pas adapté pour une utilisation finale,
-car cela peut être fragile et peu fiable, de plus cela peut engendrer des problème d'interférence, notement sur la caméra qui pssède des signaux de synchronisation très sensible.
-De plus notre système jusqu'a présent était alimenté via une batterie externe classique, ce qui n'est pas la finalité de notre projet.
+Jusqu'à présent nous avons réalisé notre système sur une breadboard, ce qui est pratique pour les phases de test et de développement, mais qui n'est pas adapté pour une utilisation finale,
+car cela peut être fragile et peu fiable. De plus cela peut engendrer des problèmes d'interférence, notamment sur la caméra qui possède des signaux de synchronisation très sensibles.
+De plus notre système jusqu'à présent était alimenté via une batterie externe classique, ce qui n'est pas la finalité de notre projet.
 \\
 
-Pour allez plus loin dans notre projet, nous avons décidé de réaliser un PCB ( Printed Circuit Board ) pour notre système, ce qui nous permettra d'avoir un système plus compact, plus fiable, 
-et plus facile à utiliser, sans cable volant partout. Nous continuons à utiliser le logiciel Kicad qui permet la réalisation de PCB.
+Pour aller plus loin dans notre projet, nous avons décidé de réaliser un PCB ( Printed Circuit Board ) pour notre système, ce qui nous permettra d'avoir un système plus compact, plus fiable, 
+et plus facile à utiliser, sans câble volant partout. Nous continuons à utiliser le logiciel Kicad qui permet la réalisation de PCB.
 \\
 
 \subsubsection*{Solution envisagée}
 
-Pour la première partie de conception d'un circuit imprimé nous devons attribué une empreinte ( Footprint ) à chaque composant de notre schéma, cela permet de définir la forme et les dimensions 
-de chaque composant sur le PCB, ainsi que les points de soudure pour les connexions électriques. La plupart des composants basique comme les résistances,
-inductance ou condensateur possèdent des empreintes standard, mais pour les composants plus spécifique comme notre microcontroleur ou notre module de caméra, nous avons du créer nos propres empreintes, 
+Pour la première partie de conception d'un circuit imprimé nous devons attribuer une empreinte ( Footprint ) à chaque composant de notre schéma, cela permet de définir la forme et les dimensions 
+de chaque composant sur le PCB, ainsi que les points de soudure pour les connexions électriques. La plupart des composants basiques comme les résistances,
+inductances ou condensateurs possèdent des empreintes standard, mais pour les composants plus spécifiques comme notre microcontrôleur ou notre module de caméra, nous avons dû créer nos propres empreintes, 
 en respectant les dimensions et les caractéristiques de ces composants.
 \\
 
-Pour le cas du microcontroleur deux connecteur femelles pour les broches, et pour la caméra seulr un connecteur 2x9 broches, qui correspond à la nappe de la caméra OV2640.
-l'objectif étant de supprimé les cables, nous déssidons de connecter la caméra sur le PCB. : 
+Pour le cas du microcontrôleur, deux connecteurs femelles pour les broches, et pour la caméra un seul connecteur 2x9 broches, qui correspond à la nappe de la caméra OV2640.
+L'objectif étant de supprimer les câbles, nous avons décidé de connecter la caméra sur le PCB : 
 \\
 
 \begin{figure}[H]
@@ -1100,7 +1100,7 @@ l'objectif étant de supprimé les cables, nous déssidons de connecter la camé
     \begin{minipage}[t]{0.35\textwidth}
         \centering
         \includegraphics[width=\linewidth]{Images/WP1_2/Tache_8/FootPrint_ESP.png}
-        \par\small Empreinte du microcontroleur ESP32-WROVER
+        \par\small Empreinte du microcontrôleur ESP32-WROVER
     \end{minipage}
     \hfill
     \begin{minipage}[t]{0.35\textwidth}
@@ -1111,15 +1111,15 @@ l'objectif étant de supprimé les cables, nous déssidons de connecter la camé
     \caption{Empreintes des composants sur le PCB}
 \end{figure}
 
-Pour la caméra nous choissions d'ajouter 4 trous de fixation mécanique, deux pour la caméra, et deux autres pour la couronnes de LED qui viendra par dessus.
+Pour la caméra nous choisissons d'ajouter 4 trous de fixation mécanique, deux pour la caméra, et deux autres pour la couronne de LED qui viendra par-dessus.
 \\
 
-A la suite de ça nous avons réalisé le placement des composants, celui-ci en concertation avec le WP Boitier, qui s'occupe de la partie mécanique du projet,
-afin de pouvoir faire un placement optimal des composants sur le PCB, en prenant en compte les contraintes mécaniques et d'encombrement du boitier.
+À la suite de ça nous avons réalisé le placement des composants, celui-ci en concertation avec le WP Boîtier, qui s'occupe de la partie mécanique du projet,
+afin de pouvoir faire un placement optimal des composants sur le PCB, en prenant en compte les contraintes mécaniques et d'encombrement du boîtier.
 \\
 
-A la suite nous avons réalisé le routage de la carte, pour les règles de routage, quelque chose de basique à été réalisé, des pistes de 0.5mm pour l'alimentation 
-et des pistes de 0.3mm pour les signaux. Aucune puissance n'étant réellement élevée, nous n'avons pas besoin de faire des pistes plus large, 
+À la suite nous avons réalisé le routage de la carte. Pour les règles de routage, quelque chose de basique a été réalisé : des pistes de 0.5mm pour l'alimentation 
+et des pistes de 0.3mm pour les signaux. Aucune puissance n'étant réellement élevée, nous n'avons pas besoin de faire des pistes plus larges, 
 et cela nous permet de gagner de la place sur le PCB.
 \\
 
@@ -1162,26 +1162,26 @@ Voici le rendu final de notre PCB, celui-ci est réalisé en double couche, avec
     \caption{Rendu final 3D du PCB réalisé avec Kicad}
 \end{figure}
 
-Voici le rendu final en 3D de notre PCB, celui-ci nous permet de visualiser notre système dans son ensemble, et de vérifier que tout les composants sont correctement placés et connectés,
-ainsi que de vérifier les dimensions et l'encombrement du système, ce qui est essentiel pour la suite de notre projet, notamment pour la partie mécanique du boitier.
+Voici le rendu final en 3D de notre PCB, celui-ci nous permet de visualiser notre système dans son ensemble, et de vérifier que tous les composants sont correctement placés et connectés,
+ainsi que de vérifier les dimensions et l'encombrement du système, ce qui est essentiel pour la suite de notre projet, notamment pour la partie mécanique du boîtier.
 \\
 
 \subsubsection*{Tests et Validation}
 
-Après réception de notre PCB nous l'avons monté et soudé, avec le matériel que nous avion personnellement, et nous avons effectué des tests de tensio direction.
+Après réception de notre PCB nous l'avons monté et soudé, avec le matériel que nous avions personnellement, et nous avons effectué des tests de tension.
 
 \begin{figure}[H]
     \centering
     \begin{minipage}[t]{0.48\textwidth}
         \centering
         \includegraphics[width=\linewidth]{Images/WP1_2/Tache_8/PCB_TOP.png}
-        \par\small Vue du haut du PCB après reception
+        \par\small Vue du haut du PCB après réception
     \end{minipage}
     \hfill
     \begin{minipage}[t]{0.48\textwidth}
         \centering
         \includegraphics[width=\linewidth]{Images/WP1_2/Tache_8/PCB_BACK.png}
-        \par\small Vue du bas du PCB après reception
+        \par\small Vue du bas du PCB après réception
     \end{minipage}
     \caption{Rendu final PCB après réception}
 \end{figure}
@@ -1242,15 +1242,15 @@ fonctionnalités de notre système, ainsi que de tester les différentes solutio
 et de la consommation d'énergie.
 \\
 
-Nous avons aussi réalisé un schéma électrique de notre système, même la réalisation du PCB, ce qui était un objectif plus que final.
+Nous avons aussi réalisé un schéma électrique de notre système, ainsi que la réalisation du PCB, ce qui était un objectif majeur.
 \\
 
-Sur le plan personnel je me suis beaucoup épanoui dans ce WP, j'était au centre de work package, au début une sorte de mini préssion
-pour ne pas décevoir mon chef de projet, mais cela s'est plutot bien déroulé.
+Sur le plan personnel je me suis beaucoup épanoui dans ce WP, j'étais au centre du Work Package, avec au début une sorte de mini pression
+pour ne pas décevoir mon chef de projet, mais cela s'est plutôt bien déroulé.
 \\
 
-Le matériel à été le plus gros problème de ce WP, nous avons eu beaucoup de problèmes de commande, nous avons du tuiliser, ou meme commander 
-par nous meme le matériel nécessaire pour la réalisation de notre projet, ce qui a engendré des retards dans notre planning,
+Le matériel a été le plus gros problème de ce WP, nous avons eu beaucoup de problèmes de commande, nous avons dû utiliser, ou même commander 
+par nous-mêmes le matériel nécessaire pour la réalisation de notre projet, ce qui a engendré des retards dans notre planning,
 mais nous avons réussi à faire face à ces problèmes et à avancer dans notre projet malgré tout.
 \\
 
