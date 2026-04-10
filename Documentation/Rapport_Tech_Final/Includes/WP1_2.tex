@@ -857,12 +857,46 @@ Au départ pour notre système nous avions comme objectif de faire 10 photograph
 avec les métadatas de localisation et d'horodatage, ainsi que les données de température et d'humidité.
 \\
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{Images/WP1_2/Tache_6/Proto.png}
+    \caption{Prototype du système avec tous les modules intégrés}
+\end{figure}
 
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Images/WP1_2/Tache_6/Exterieur_telephone.jpeg}
+        \par\small Photograhie Téléphone
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Images/WP1_2/Tache_6/Exterieur.png}
+        \par\small Photographie Caméra
+    \end{minipage}
+    \caption{Différence entre la photographie de notre Caméra et de notre Téléphone}
+\end{figure}
 
-
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Images/WP1_2/Tache_6/Interieur.png}
+        \par\small Photograhie interieure
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Images/WP1_2/Tache_6/Humain.png}
+        \par\small Photographie Humain
+    \end{minipage}
+    \caption{Autre section de notre architecure}
+\end{figure}
 
 Cependant notre équipe à été assez performant, et à peine la réalisation de ce prototype terminé, nous avons pu faire des tests 
-avec la transmisssion et wifi et reception sur le serveur de stockage distant.
+avec la transmisssion et wifi et reception sur le serveur de stockage distant. 
 \\
 
 Un problème majeur est intervenue lors de nos phase de test, c'était tout simplement la résolution de nos photos. De base la biliothèque de 
@@ -880,7 +914,7 @@ ce qui nous a permis de stocker des images de haute résolution sans problème, 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{Images/WP1_2/Tache_6/ESP32-Block-Diagram.jpg}
+    \includegraphics[width=0.6\textwidth]{Images/WP1_2/Tache_6/ESP32-Block-Diagram.jpg}
     \caption{Schéma de l'architecture du système avec l'ESP32 et la PSRAM pour le stockage des images}
 \end{figure}
 
@@ -1134,14 +1168,89 @@ ainsi que de vérifier les dimensions et l'encombrement du système, ce qui est 
 
 \subsubsection*{Tests et Validation}
 
+Après réception de notre PCB nous l'avons monté et soudé, avec le matériel que nous avion personnellement, et nous avons effectué des tests de tensio direction.
 
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Images/WP1_2/Tache_8/PCB_TOP.png}
+        \par\small Vue du haut du PCB après reception
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Images/WP1_2/Tache_8/PCB_BACK.png}
+        \par\small Vue du bas du PCB après reception
+    \end{minipage}
+    \caption{Rendu final PCB après réception}
+\end{figure}
 
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Images/WP1_2/Tache_8/PCB_BACK_APSOUD.png}
+        \par\small Vue du bas du PCB après soudage
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Images/WP1_2/Tache_8/PCB_TOP_APSOUD.png}
+        \par\small Vue du haut du PCB après soudage
+    \end{minipage}
+    \caption{Rendu final}
+\end{figure}
 
+Après vérification de notre montage, nous avons remarqué deux problèmes majeurs, l'un étant plus grave que l'autre : 
+\\
 
+Le problème numéro 1 est que l'empreinte de la caméra était inversée. Il y a deux lignes de broches et, sur notre PCB, selon la manière dont nous voulions la positionner, elles étaient interchangées. Cela a eu pour conséquence qu'une fois la caméra soudée et le système mis sous tension, nous avons observé une chute de tension.
+La solution que nous avons mise en place a consisté à dessouder la caméra et à mettre des câbles volants. Le PCB avait pourtant été prévu pour cela... dommage.
+\\
 
+Le deuxième problème concerne l'alimentation du PIR. Dans le schéma, une erreur s'est glissée et le PIR est connecté au 5V POWERUP, ce qui est incorrect ;
+il devrait être connecté au 5V REGULATOR. Par conséquent, le PIR n'était pas alimenté et ne pouvait donc pas détecter les mouvements. 
+La solution temporaire a été de le connecter au connecteur d'alimentation prévu pour d'autres modules, au cas où. 
+\\
 
+Malgré ces deux erreurs, il ne s'agit que d'erreurs mineures, ce qui rend tout de même notre PCB fonctionnel. Nous avons ainsi pu réaliser les tests de tension 
+et de fonctionnement de notre système avec le PCB, ce qui constitue une grande réussite pour notre projet.
+\\
 
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Images/WP1_2/Tache_8/Proto_Final.png}
+        \par\small Prototype final avec le PCB soudé et fonctionnel
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Images/WP1_2/Tache_8/Result.png}
+        \par\small Vue du haut du PCB après soudage
+    \end{minipage}
+    \caption{Rendu final}
+\end{figure}
 
+\subsubsection{Synthèse du WP1.2}
 
+Dans ce WP1.2 nous avons réalisé la partie de développement du module, qui correspond à la partie électronique et logicielle 
+de notre projet. Nous avons réalisé un prototype fonctionnel de notre système, qui nous a permis de valider les différentes 
+fonctionnalités de notre système, ainsi que de tester les différentes solutions envisagées pour la gestion de l'alimentation 
+et de la consommation d'énergie.
+\\
 
+Nous avons aussi réalisé un schéma électrique de notre système, même la réalisation du PCB, ce qui était un objectif plus que final.
+\\
+
+Sur le plan personnel je me suis beaucoup épanoui dans ce WP, j'était au centre de work package, au début une sorte de mini préssion
+pour ne pas décevoir mon chef de projet, mais cela s'est plutot bien déroulé.
+\\
+
+Le matériel à été le plus gros problème de ce WP, nous avons eu beaucoup de problèmes de commande, nous avons du tuiliser, ou meme commander 
+par nous meme le matériel nécessaire pour la réalisation de notre projet, ce qui a engendré des retards dans notre planning,
+mais nous avons réussi à faire face à ces problèmes et à avancer dans notre projet malgré tout.
+\\
 

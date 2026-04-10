@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.9.25)  9 APR 2026 19:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.9.25)  10 APR 2026 10:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -831,7 +831,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 115--120
 
  []
 
-<Images/WP1_2/Tache_1/ModuleSD.jpg, id=246, 1505.625pt x 1505.625pt>
+<Images/WP1_2/Tache_1/ModuleSD.jpg, id=260, 1505.625pt x 1505.625pt>
 File: Images/WP1_2/Tache_1/ModuleSD.jpg Graphic file (type jpg)
 <use Images/WP1_2/Tache_1/ModuleSD.jpg>
 Package pdftex.def Info: Images/WP1_2/Tache_1/ModuleSD.jpg  used on input line 123.
@@ -844,7 +844,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 136--138
 
 
 [9 <./Images/WP1_2/Tache_1/ModuleSD.jpg>]
-<Images/WP1_2/Tache_1/SPI.png, id=255, 927.465pt x 386.94562pt>
+<Images/WP1_2/Tache_1/SPI.png, id=269, 927.465pt x 386.94562pt>
 File: Images/WP1_2/Tache_1/SPI.png Graphic file (type png)
 <use Images/WP1_2/Tache_1/SPI.png>
 Package pdftex.def Info: Images/WP1_2/Tache_1/SPI.png  used on input line 145.
@@ -870,7 +870,7 @@ LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
 
 
 [10 <./Images/WP1_2/Tache_1/SPI.png>]
-<Images/WP1_2/Tache_1/Result_SD.png, id=280, 633.86812pt x 279.29344pt>
+<Images/WP1_2/Tache_1/Result_SD.png, id=294, 633.86812pt x 279.29344pt>
 File: Images/WP1_2/Tache_1/Result_SD.png Graphic file (type png)
 <use Images/WP1_2/Tache_1/Result_SD.png>
 Package pdftex.def Info: Images/WP1_2/Tache_1/Result_SD.png  used on input line 188.
@@ -895,7 +895,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 217--221
 
  []
 
-<Images/WP1_2/Tache_2/ldr_sche.png, id=281, 462.72874pt x 544.0325pt>
+<Images/WP1_2/Tache_2/ldr_sche.png, id=295, 462.72874pt x 544.0325pt>
 File: Images/WP1_2/Tache_2/ldr_sche.png Graphic file (type png)
 <use Images/WP1_2/Tache_2/ldr_sche.png>
 Package pdftex.def Info: Images/WP1_2/Tache_2/ldr_sche.png  used on input line 224.
@@ -912,7 +912,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 238--241
 
  []
 
-<Images/WP1_2/Tache_2/CourbeLDR.png, id=292, 405.515pt x 291.0875pt>
+<Images/WP1_2/Tache_2/CourbeLDR.png, id=306, 405.515pt x 291.0875pt>
 File: Images/WP1_2/Tache_2/CourbeLDR.png Graphic file (type png)
 <use Images/WP1_2/Tache_2/CourbeLDR.png>
 Package pdftex.def Info: Images/WP1_2/Tache_2/CourbeLDR.png  used on input line 244.
@@ -951,12 +951,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 342--346
 
  []
 
-<Images/WP1_2/Tache_2/couronne_1.jpg, id=341, 1003.75pt x 827.09pt>
+<Images/WP1_2/Tache_2/couronne_1.jpg, id=355, 1003.75pt x 827.09pt>
 File: Images/WP1_2/Tache_2/couronne_1.jpg Graphic file (type jpg)
 <use Images/WP1_2/Tache_2/couronne_1.jpg>
 Package pdftex.def Info: Images/WP1_2/Tache_2/couronne_1.jpg  used on input line 351.
 (pdftex.def)             Requested size: 225.4804pt x 185.79695pt.
-<Images/WP1_2/Tache_2/couronne_2.jpg, id=342, 997.7275pt x 618.31pt>
+<Images/WP1_2/Tache_2/couronne_2.jpg, id=356, 997.7275pt x 618.31pt>
 File: Images/WP1_2/Tache_2/couronne_2.jpg Graphic file (type jpg)
 <use Images/WP1_2/Tache_2/couronne_2.jpg>
 Package pdftex.def Info: Images/WP1_2/Tache_2/couronne_2.jpg  used on input line 357.
@@ -978,7 +978,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 378--381
 
  []
 
-<Images/WP1_2/Tache_3/BN220.jpg, id=350, 973.6375pt x 602.25pt>
+<Images/WP1_2/Tache_3/BN220.jpg, id=364, 973.6375pt x 602.25pt>
 File: Images/WP1_2/Tache_3/BN220.jpg Graphic file (type jpg)
 <use Images/WP1_2/Tache_3/BN220.jpg>
 Package pdftex.def Info: Images/WP1_2/Tache_3/BN220.jpg  used on input line 384.
@@ -993,7 +993,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 395--397
 
  []
 
-<Images/WP1_2/Tache_3/tramenmea.png, id=351, 602.25pt x 244.66406pt>
+<Images/WP1_2/Tache_3/tramenmea.png, id=365, 602.25pt x 244.66406pt>
 File: Images/WP1_2/Tache_3/tramenmea.png Graphic file (type png)
 <use Images/WP1_2/Tache_3/tramenmea.png>
 Package pdftex.def Info: Images/WP1_2/Tache_3/tramenmea.png  used on input line 400.
@@ -1001,7 +1001,7 @@ Package pdftex.def Info: Images/WP1_2/Tache_3/tramenmea.png  used on input line 
 
 
 [15 <./Images/WP1_2/Tache_3/BN220.jpg>]
-<Images/WP1_2/Tache_3/GPRMC.png, id=358, 513.92pt x 103.38625pt>
+<Images/WP1_2/Tache_3/GPRMC.png, id=372, 513.92pt x 103.38625pt>
 File: Images/WP1_2/Tache_3/GPRMC.png Graphic file (type png)
 <use Images/WP1_2/Tache_3/GPRMC.png>
 Package pdftex.def Info: Images/WP1_2/Tache_3/GPRMC.png  used on input line 408.
@@ -1039,7 +1039,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 435--438
 
 
 [16 <./Images/WP1_2/Tache_3/tramenmea.png (PNG copy)> <./Images/WP1_2/Tache_3/GPRMC.png>]
-<Images/WP1_2/Tache_3/Schema_GPS.png, id=364, 626.34pt x 342.27875pt>
+<Images/WP1_2/Tache_3/Schema_GPS.png, id=378, 626.34pt x 342.27875pt>
 File: Images/WP1_2/Tache_3/Schema_GPS.png Graphic file (type png)
 <use Images/WP1_2/Tache_3/Schema_GPS.png>
 Package pdftex.def Info: Images/WP1_2/Tache_3/Schema_GPS.png  used on input line 441.
@@ -1078,7 +1078,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 621--623
 
  []
 
-<Images/WP1_2/Tache_4/Automate_N1.png, id=439, 218.8175pt x 490.83376pt>
+<Images/WP1_2/Tache_4/Automate_N1.png, id=453, 218.8175pt x 490.83376pt>
 File: Images/WP1_2/Tache_4/Automate_N1.png Graphic file (type png)
 <use Images/WP1_2/Tache_4/Automate_N1.png>
 Package pdftex.def Info: Images/WP1_2/Tache_4/Automate_N1.png  used on input line 626.
@@ -1095,7 +1095,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 635--639
 
  []
 
-<Images/WP1_2/Tache_4/MesureBAT.png, id=493, 673.51625pt x 373.395pt>
+<Images/WP1_2/Tache_4/MesureBAT.png, id=507, 673.51625pt x 373.395pt>
 File: Images/WP1_2/Tache_4/MesureBAT.png Graphic file (type png)
 <use Images/WP1_2/Tache_4/MesureBAT.png>
 Package pdftex.def Info: Images/WP1_2/Tache_4/MesureBAT.png  used on input line 642.
@@ -1112,7 +1112,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 655--658
 
  []
 
-<Images/WP1_2/Tache_4/automate_final.png, id=500, 725.71124pt x 732.7375pt>
+<Images/WP1_2/Tache_4/automate_final.png, id=514, 725.71124pt x 732.7375pt>
 File: Images/WP1_2/Tache_4/automate_final.png Graphic file (type png)
 <use Images/WP1_2/Tache_4/automate_final.png>
 Package pdftex.def Info: Images/WP1_2/Tache_4/automate_final.png  used on input line 663.
@@ -1152,7 +1152,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 726--730
 
 
 [22]
-<Images/WP1_2/Tache_5/Code_Vierge.png, id=515, 626.34pt x 217.81375pt>
+<Images/WP1_2/Tache_5/Code_Vierge.png, id=529, 626.34pt x 217.81375pt>
 File: Images/WP1_2/Tache_5/Code_Vierge.png Graphic file (type png)
 <use Images/WP1_2/Tache_5/Code_Vierge.png>
 Package pdftex.def Info: Images/WP1_2/Tache_5/Code_Vierge.png  used on input line 740.
@@ -1162,7 +1162,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 744--746
 
  []
 
-<Images/WP1_2/Tache_5/Frequence.png, id=516, 626.34pt x 217.81375pt>
+<Images/WP1_2/Tache_5/Frequence.png, id=530, 626.34pt x 217.81375pt>
 File: Images/WP1_2/Tache_5/Frequence.png Graphic file (type png)
 <use Images/WP1_2/Tache_5/Frequence.png>
 Package pdftex.def Info: Images/WP1_2/Tache_5/Frequence.png  used on input line 751.
@@ -1172,7 +1172,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 755--758
 
  []
 
-<Images/WP1_2/Tache_5/Deep.png, id=517, 626.34pt x 187.70125pt>
+<Images/WP1_2/Tache_5/Deep.png, id=531, 626.34pt x 187.70125pt>
 File: Images/WP1_2/Tache_5/Deep.png Graphic file (type png)
 <use Images/WP1_2/Tache_5/Deep.png>
 Package pdftex.def Info: Images/WP1_2/Tache_5/Deep.png  used on input line 763.
@@ -1184,7 +1184,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 767--769
 
  []
 
-<Images/WP1_2/Tache_5/Deep_PIR.png, id=525, 626.34pt x 260.975pt>
+<Images/WP1_2/Tache_5/Deep_PIR.png, id=539, 626.34pt x 260.975pt>
 File: Images/WP1_2/Tache_5/Deep_PIR.png Graphic file (type png)
 <use Images/WP1_2/Tache_5/Deep_PIR.png>
 Package pdftex.def Info: Images/WP1_2/Tache_5/Deep_PIR.png  used on input line 775.
@@ -1213,277 +1213,381 @@ Underfull \hbox (badness 10000) in paragraph at lines 856--859
 
  []
 
+<Images/WP1_2/Tache_6/Proto.png, id=592, 376.40625pt x 668.4975pt>
+File: Images/WP1_2/Tache_6/Proto.png Graphic file (type png)
+<use Images/WP1_2/Tache_6/Proto.png>
+Package pdftex.def Info: Images/WP1_2/Tache_6/Proto.png  used on input line 862.
+(pdftex.def)             Requested size: 187.89914pt x 333.7175pt.
+<Images/WP1_2/Tache_6/Exterieur_telephone.jpeg, id=593, 1130.2225pt x 2007.5pt>
+File: Images/WP1_2/Tache_6/Exterieur_telephone.jpeg Graphic file (type jpg)
+<use Images/WP1_2/Tache_6/Exterieur_telephone.jpeg>
+Package pdftex.def Info: Images/WP1_2/Tache_6/Exterieur_telephone.jpeg  used on input line 870.
+(pdftex.def)             Requested size: 211.38832pt x 375.45573pt.
+<Images/WP1_2/Tache_6/Exterieur.png, id=594, 1606.0pt x 1204.5pt>
+File: Images/WP1_2/Tache_6/Exterieur.png Graphic file (type png)
+<use Images/WP1_2/Tache_6/Exterieur.png>
+Package pdftex.def Info: Images/WP1_2/Tache_6/Exterieur.png  used on input line 876.
+(pdftex.def)             Requested size: 211.38832pt x 158.53868pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 864--867
+
+[26 <./Images/WP1_2/Tache_6/Proto.png>]
+<Images/WP1_2/Tache_6/Interieur.png, id=601, 1606.0pt x 1204.5pt>
+File: Images/WP1_2/Tache_6/Interieur.png Graphic file (type png)
+<use Images/WP1_2/Tache_6/Interieur.png>
+Package pdftex.def Info: Images/WP1_2/Tache_6/Interieur.png  used on input line 886.
+(pdftex.def)             Requested size: 211.38832pt x 158.53868pt.
+<Images/WP1_2/Tache_6/Humain.png, id=602, 1606.0pt x 1204.5pt>
+File: Images/WP1_2/Tache_6/Humain.png Graphic file (type png)
+<use Images/WP1_2/Tache_6/Humain.png>
+Package pdftex.def Info: Images/WP1_2/Tache_6/Humain.png  used on input line 892.
+(pdftex.def)             Requested size: 211.38832pt x 158.53868pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 898--901
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 868--874
+
+[27 <./Images/WP1_2/Tache_6/Exterieur_telephone.jpeg> <./Images/WP1_2/Tache_6/Exterieur.png (PNG copy)> <./Images/WP1_2/Tache_6/Interieur.png (PNG copy)> <./Images/WP1_2/Tache_6/Humain.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 902--908
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 875--880
+Underfull \hbox (badness 10000) in paragraph at lines 909--914
 
  []
 
-<Images/WP1_2/Tache_6/ESP32-Block-Diagram.jpg, id=578, 377.15906pt x 317.68687pt>
+<Images/WP1_2/Tache_6/ESP32-Block-Diagram.jpg, id=607, 377.15906pt x 317.68687pt>
 File: Images/WP1_2/Tache_6/ESP32-Block-Diagram.jpg Graphic file (type jpg)
 <use Images/WP1_2/Tache_6/ESP32-Block-Diagram.jpg>
-Package pdftex.def Info: Images/WP1_2/Tache_6/ESP32-Block-Diagram.jpg  used on input line 883.
-(pdftex.def)             Requested size: 375.80544pt x 316.5469pt.
+Package pdftex.def Info: Images/WP1_2/Tache_6/ESP32-Block-Diagram.jpg  used on input line 917.
+(pdftex.def)             Requested size: 281.85587pt x 237.41139pt.
 
-
-[26]
-Underfull \hbox (badness 10000) in paragraph at lines 887--890
+Underfull \hbox (badness 10000) in paragraph at lines 921--924
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 895--899
+Underfull \hbox (badness 10000) in paragraph at lines 929--933
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 902--905
+
+[28 <./Images/WP1_2/Tache_6/ESP32-Block-Diagram.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 936--939
 
  []
 
-<Images/WP1_2/Tache_7/Main.pdf, id=584, 845.0531pt x 597.52838pt>
+<Images/WP1_2/Tache_7/Main.pdf, id=612, 845.0531pt x 597.52838pt>
 File: Images/WP1_2/Tache_7/Main.pdf Graphic file (type pdf)
 <use Images/WP1_2/Tache_7/Main.pdf>
-Package pdftex.def Info: Images/WP1_2/Tache_7/Main.pdf  used on input line 908.
+Package pdftex.def Info: Images/WP1_2/Tache_7/Main.pdf  used on input line 942.
 (pdftex.def)             Requested size: 469.75502pt x 332.161pt.
 
-
-[27 <./Images/WP1_2/Tache_6/ESP32-Block-Diagram.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 912--917
+Underfull \hbox (badness 10000) in paragraph at lines 946--951
 
  []
 
-<Images/WP1_2/Tache_7/uc.png, id=591, 614.295pt x 409.53pt>
+
+
+[29 <./Images/WP1_2/Tache_7/Main.pdf>]
+<Images/WP1_2/Tache_7/uc.png, id=624, 614.295pt x 409.53pt>
 File: Images/WP1_2/Tache_7/uc.png Graphic file (type png)
 <use Images/WP1_2/Tache_7/uc.png>
-Package pdftex.def Info: Images/WP1_2/Tache_7/uc.png  used on input line 920.
+Package pdftex.def Info: Images/WP1_2/Tache_7/uc.png  used on input line 954.
 (pdftex.def)             Requested size: 375.80544pt x 250.5378pt.
 
-
-[28 <./Images/WP1_2/Tache_7/Main.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 924--928
+Underfull \hbox (badness 10000) in paragraph at lines 958--962
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 929--932
+Underfull \hbox (badness 10000) in paragraph at lines 963--966
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 933--936
+Underfull \hbox (badness 10000) in paragraph at lines 967--970
 
  []
 
-<Images/WP1_2/Tache_7/Main-Sensors.pdf, id=601, 845.0531pt x 597.52838pt>
+<Images/WP1_2/Tache_7/Main-Sensors.pdf, id=625, 845.0531pt x 597.52838pt>
 File: Images/WP1_2/Tache_7/Main-Sensors.pdf Graphic file (type pdf)
 <use Images/WP1_2/Tache_7/Main-Sensors.pdf>
-Package pdftex.def Info: Images/WP1_2/Tache_7/Main-Sensors.pdf  used on input line 939.
+Package pdftex.def Info: Images/WP1_2/Tache_7/Main-Sensors.pdf  used on input line 973.
 (pdftex.def)             Requested size: 469.75502pt x 332.161pt.
 
 
-[29 <./Images/WP1_2/Tache_7/uc.png>]
-<Images/WP1_2/Tache_7/Main-Cam.pdf, id=607, 845.0531pt x 597.52838pt>
+[30 <./Images/WP1_2/Tache_7/uc.png>]
+<Images/WP1_2/Tache_7/Main-Cam.pdf, id=632, 845.0531pt x 597.52838pt>
 File: Images/WP1_2/Tache_7/Main-Cam.pdf Graphic file (type pdf)
 <use Images/WP1_2/Tache_7/Main-Cam.pdf>
-Package pdftex.def Info: Images/WP1_2/Tache_7/Main-Cam.pdf  used on input line 948.
+Package pdftex.def Info: Images/WP1_2/Tache_7/Main-Cam.pdf  used on input line 982.
 (pdftex.def)             Requested size: 469.75502pt x 332.161pt.
 
 
-[30 <./Images/WP1_2/Tache_7/Main-Sensors.pdf>]
-<Images/WP1_2/Tache_7/4G.png, id=620, 509.905pt x 227.85126pt>
+[31 <./Images/WP1_2/Tache_7/Main-Sensors.pdf>]
+<Images/WP1_2/Tache_7/4G.png, id=644, 509.905pt x 227.85126pt>
 File: Images/WP1_2/Tache_7/4G.png Graphic file (type png)
 <use Images/WP1_2/Tache_7/4G.png>
-Package pdftex.def Info: Images/WP1_2/Tache_7/4G.png  used on input line 958.
+Package pdftex.def Info: Images/WP1_2/Tache_7/4G.png  used on input line 992.
 (pdftex.def)             Requested size: 225.4804pt x 100.75551pt.
-<Images/WP1_2/Tache_7/SD.png, id=621, 342.27875pt x 156.585pt>
+<Images/WP1_2/Tache_7/SD.png, id=645, 342.27875pt x 156.585pt>
 File: Images/WP1_2/Tache_7/SD.png Graphic file (type png)
 <use Images/WP1_2/Tache_7/SD.png>
-Package pdftex.def Info: Images/WP1_2/Tache_7/SD.png  used on input line 964.
+Package pdftex.def Info: Images/WP1_2/Tache_7/SD.png  used on input line 998.
 (pdftex.def)             Requested size: 225.4804pt x 103.15526pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 970--973
+Underfull \hbox (badness 10000) in paragraph at lines 1004--1007
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 974--978
+Underfull \hbox (badness 10000) in paragraph at lines 1008--1012
 
  []
 
 
 
-[31 <./Images/WP1_2/Tache_7/Main-Cam.pdf> <./Images/WP1_2/Tache_7/4G.png> <./Images/WP1_2/Tache_7/SD.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 979--981
+[32 <./Images/WP1_2/Tache_7/Main-Cam.pdf> <./Images/WP1_2/Tache_7/4G.png> <./Images/WP1_2/Tache_7/SD.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1013--1015
 
  []
 
-<Images/WP1_2/Tache_7/Montage_PowerUp.png, id=635, 696.6025pt x 361.35pt>
+<Images/WP1_2/Tache_7/Montage_PowerUp.png, id=659, 696.6025pt x 361.35pt>
 File: Images/WP1_2/Tache_7/Montage_PowerUp.png Graphic file (type png)
 <use Images/WP1_2/Tache_7/Montage_PowerUp.png>
-Package pdftex.def Info: Images/WP1_2/Tache_7/Montage_PowerUp.png  used on input line 984.
+Package pdftex.def Info: Images/WP1_2/Tache_7/Montage_PowerUp.png  used on input line 1018.
 (pdftex.def)             Requested size: 469.75502pt x 243.67467pt.
 
 
 pdfTeX warning: pdflatex (file ./Images/WP1_2/Tache_7/Power_Up.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Images/WP1_2/Tache_7/Power_Up.pdf, id=636, 845.07724pt x 597.55246pt>
+<Images/WP1_2/Tache_7/Power_Up.pdf, id=660, 845.07724pt x 597.55246pt>
 File: Images/WP1_2/Tache_7/Power_Up.pdf Graphic file (type pdf)
 <use Images/WP1_2/Tache_7/Power_Up.pdf>
-Package pdftex.def Info: Images/WP1_2/Tache_7/Power_Up.pdf  used on input line 995.
+Package pdftex.def Info: Images/WP1_2/Tache_7/Power_Up.pdf  used on input line 1029.
 (pdftex.def)             Requested size: 225.4804pt x 159.43567pt.
-<Images/WP1_2/Tache_7/delay_power_up.png, id=637, 632.3625pt x 455.45157pt>
+<Images/WP1_2/Tache_7/delay_power_up.png, id=661, 632.3625pt x 455.45157pt>
 File: Images/WP1_2/Tache_7/delay_power_up.png Graphic file (type png)
 <use Images/WP1_2/Tache_7/delay_power_up.png>
-Package pdftex.def Info: Images/WP1_2/Tache_7/delay_power_up.png  used on input line 1001.
+Package pdftex.def Info: Images/WP1_2/Tache_7/delay_power_up.png  used on input line 1035.
 (pdftex.def)             Requested size: 225.4804pt x 162.39877pt.
 
 
-[32 <./Images/WP1_2/Tache_7/Montage_PowerUp.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1007--1009
+[33 <./Images/WP1_2/Tache_7/Montage_PowerUp.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1041--1043
 
  []
 
 
-Overfull \hbox (33.41579pt too wide) in alignment at lines 1024--1024
+Overfull \hbox (33.41579pt too wide) in alignment at lines 1058--1058
  [] [] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1029--1032
+Underfull \hbox (badness 10000) in paragraph at lines 1063--1066
 
  []
 
-<Images/WP1_2/Tache_7/Main-Power.pdf, id=643, 845.0531pt x 597.52838pt>
+<Images/WP1_2/Tache_7/Main-Power.pdf, id=667, 845.0531pt x 597.52838pt>
 File: Images/WP1_2/Tache_7/Main-Power.pdf Graphic file (type pdf)
 <use Images/WP1_2/Tache_7/Main-Power.pdf>
-Package pdftex.def Info: Images/WP1_2/Tache_7/Main-Power.pdf  used on input line 1035.
+Package pdftex.def Info: Images/WP1_2/Tache_7/Main-Power.pdf  used on input line 1069.
 (pdftex.def)             Requested size: 469.75502pt x 332.161pt.
 
 
-[33 <./Images/WP1_2/Tache_7/Power_Up.pdf> <./Images/WP1_2/Tache_7/delay_power_up.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1043--1047
+[34 <./Images/WP1_2/Tache_7/Power_Up.pdf> <./Images/WP1_2/Tache_7/delay_power_up.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1077--1081
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1048--1051
+Underfull \hbox (badness 10000) in paragraph at lines 1082--1085
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1054--1059
+Underfull \hbox (badness 10000) in paragraph at lines 1088--1093
 
  []
 
 
 
-[34 <./Images/WP1_2/Tache_7/Main-Power.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 1060--1063
+[35 <./Images/WP1_2/Tache_7/Main-Power.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 1094--1097
 
  []
 
-<Images/WP1_2/Tache_8/FootPrint_ESP.png, id=673, 298.11375pt x 467.7475pt>
+<Images/WP1_2/Tache_8/FootPrint_ESP.png, id=697, 298.11375pt x 467.7475pt>
 File: Images/WP1_2/Tache_8/FootPrint_ESP.png Graphic file (type png)
 <use Images/WP1_2/Tache_8/FootPrint_ESP.png>
-Package pdftex.def Info: Images/WP1_2/Tache_8/FootPrint_ESP.png  used on input line 1068.
+Package pdftex.def Info: Images/WP1_2/Tache_8/FootPrint_ESP.png  used on input line 1102.
 (pdftex.def)             Requested size: 164.41711pt x 257.97563pt.
-<Images/WP1_2/Tache_8/FootPrint_CAM.png, id=674, 429.605pt x 586.19pt>
+<Images/WP1_2/Tache_8/FootPrint_CAM.png, id=698, 429.605pt x 586.19pt>
 File: Images/WP1_2/Tache_8/FootPrint_CAM.png Graphic file (type png)
 <use Images/WP1_2/Tache_8/FootPrint_CAM.png>
-Package pdftex.def Info: Images/WP1_2/Tache_8/FootPrint_CAM.png  used on input line 1074.
+Package pdftex.def Info: Images/WP1_2/Tache_8/FootPrint_CAM.png  used on input line 1108.
 (pdftex.def)             Requested size: 164.41711pt x 224.34663pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1080--1082
+Underfull \hbox (badness 10000) in paragraph at lines 1114--1116
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1083--1086
+Underfull \hbox (badness 10000) in paragraph at lines 1117--1120
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1087--1091
+Underfull \hbox (badness 10000) in paragraph at lines 1121--1125
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1092--1095
+Underfull \hbox (badness 10000) in paragraph at lines 1126--1129
 
  []
 
 
 
-[35 <./Images/WP1_2/Tache_8/FootPrint_ESP.png> <./Images/WP1_2/Tache_8/FootPrint_CAM.png>]
-<Images/WP1_2/Tache_8/TopPCB.png, id=681, 502.87875pt x 499.8675pt>
+[36 <./Images/WP1_2/Tache_8/FootPrint_ESP.png> <./Images/WP1_2/Tache_8/FootPrint_CAM.png>]
+<Images/WP1_2/Tache_8/TopPCB.png, id=706, 502.87875pt x 499.8675pt>
 File: Images/WP1_2/Tache_8/TopPCB.png Graphic file (type png)
 <use Images/WP1_2/Tache_8/TopPCB.png>
-Package pdftex.def Info: Images/WP1_2/Tache_8/TopPCB.png  used on input line 1100.
+Package pdftex.def Info: Images/WP1_2/Tache_8/TopPCB.png  used on input line 1134.
 (pdftex.def)             Requested size: 225.4804pt x 224.12979pt.
-<Images/WP1_2/Tache_8/BotPCB.png, id=682, 501.875pt x 500.87125pt>
+<Images/WP1_2/Tache_8/BotPCB.png, id=707, 501.875pt x 500.87125pt>
 File: Images/WP1_2/Tache_8/BotPCB.png Graphic file (type png)
 <use Images/WP1_2/Tache_8/BotPCB.png>
-Package pdftex.def Info: Images/WP1_2/Tache_8/BotPCB.png  used on input line 1106.
+Package pdftex.def Info: Images/WP1_2/Tache_8/BotPCB.png  used on input line 1140.
 (pdftex.def)             Requested size: 225.4804pt x 225.03076pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1112--1114
+Underfull \hbox (badness 10000) in paragraph at lines 1146--1148
 
  []
 
-<Images/WP1_2/Tache_8/3DPCB_TOP.png, id=683, 528.97626pt x 474.77374pt>
+<Images/WP1_2/Tache_8/3DPCB_TOP.png, id=708, 528.97626pt x 474.77374pt>
 File: Images/WP1_2/Tache_8/3DPCB_TOP.png Graphic file (type png)
 <use Images/WP1_2/Tache_8/3DPCB_TOP.png>
-Package pdftex.def Info: Images/WP1_2/Tache_8/3DPCB_TOP.png  used on input line 1119.
+Package pdftex.def Info: Images/WP1_2/Tache_8/3DPCB_TOP.png  used on input line 1153.
 (pdftex.def)             Requested size: 225.4804pt x 202.37384pt.
-<Images/WP1_2/Tache_8/3DPCB_BOT.png, id=684, 510.90875pt x 492.84125pt>
+<Images/WP1_2/Tache_8/3DPCB_BOT.png, id=709, 510.90875pt x 492.84125pt>
 File: Images/WP1_2/Tache_8/3DPCB_BOT.png Graphic file (type png)
 <use Images/WP1_2/Tache_8/3DPCB_BOT.png>
-Package pdftex.def Info: Images/WP1_2/Tache_8/3DPCB_BOT.png  used on input line 1125.
+Package pdftex.def Info: Images/WP1_2/Tache_8/3DPCB_BOT.png  used on input line 1159.
 (pdftex.def)             Requested size: 225.4804pt x 217.50507pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1131--1134
+Underfull \hbox (badness 10000) in paragraph at lines 1165--1168
 
  []
 
 
 
-[36 <./Images/WP1_2/Tache_8/TopPCB.png> <./Images/WP1_2/Tache_8/BotPCB.png> <./Images/WP1_2/Tache_8/3DPCB_TOP.png> <./Images/WP1_2/Tache_8/3DPCB_BOT.png>])
+[37 <./Images/WP1_2/Tache_8/TopPCB.png> <./Images/WP1_2/Tache_8/BotPCB.png> <./Images/WP1_2/Tache_8/3DPCB_TOP.png> <./Images/WP1_2/Tache_8/3DPCB_BOT.png>]
+<Images/WP1_2/Tache_8/PCB_TOP.png, id=718, 434.62375pt x 579.16376pt>
+File: Images/WP1_2/Tache_8/PCB_TOP.png Graphic file (type png)
+<use Images/WP1_2/Tache_8/PCB_TOP.png>
+Package pdftex.def Info: Images/WP1_2/Tache_8/PCB_TOP.png  used on input line 1177.
+(pdftex.def)             Requested size: 225.4804pt x 300.46873pt.
+<Images/WP1_2/Tache_8/PCB_BACK.png, id=719, 434.62375pt x 579.16376pt>
+File: Images/WP1_2/Tache_8/PCB_BACK.png Graphic file (type png)
+<use Images/WP1_2/Tache_8/PCB_BACK.png>
+Package pdftex.def Info: Images/WP1_2/Tache_8/PCB_BACK.png  used on input line 1183.
+(pdftex.def)             Requested size: 225.4804pt x 300.46873pt.
+<Images/WP1_2/Tache_8/PCB_BACK_APSOUD.png, id=720, 299.1175pt x 298.11375pt>
+File: Images/WP1_2/Tache_8/PCB_BACK_APSOUD.png Graphic file (type png)
+<use Images/WP1_2/Tache_8/PCB_BACK_APSOUD.png>
+Package pdftex.def Info: Images/WP1_2/Tache_8/PCB_BACK_APSOUD.png  used on input line 1193.
+(pdftex.def)             Requested size: 225.4804pt x 224.72652pt.
+<Images/WP1_2/Tache_8/PCB_TOP_APSOUD.png, id=721, 385.44pt x 373.395pt>
+File: Images/WP1_2/Tache_8/PCB_TOP_APSOUD.png Graphic file (type png)
+<use Images/WP1_2/Tache_8/PCB_TOP_APSOUD.png>
+Package pdftex.def Info: Images/WP1_2/Tache_8/PCB_TOP_APSOUD.png  used on input line 1199.
+(pdftex.def)             Requested size: 225.4804pt x 218.43234pt.
 
-[37]
 
-[38
+[38 <./Images/WP1_2/Tache_8/PCB_TOP.png> <./Images/WP1_2/Tache_8/PCB_BACK.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1205--1207
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1208--1211
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1212--1216
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1217--1220
+
+ []
+
+<Images/WP1_2/Tache_8/Proto_Final.png, id=729, 434.62375pt x 579.16376pt>
+File: Images/WP1_2/Tache_8/Proto_Final.png Graphic file (type png)
+<use Images/WP1_2/Tache_8/Proto_Final.png>
+Package pdftex.def Info: Images/WP1_2/Tache_8/Proto_Final.png  used on input line 1225.
+(pdftex.def)             Requested size: 225.4804pt x 300.46873pt.
+<Images/WP1_2/Tache_8/Result.png, id=730, 1606.0pt x 1204.5pt>
+File: Images/WP1_2/Tache_8/Result.png Graphic file (type png)
+<use Images/WP1_2/Tache_8/Result.png>
+Package pdftex.def Info: Images/WP1_2/Tache_8/Result.png  used on input line 1231.
+(pdftex.def)             Requested size: 225.4804pt x 169.1067pt.
+
+
+[39 <./Images/WP1_2/Tache_8/PCB_BACK_APSOUD.png> <./Images/WP1_2/Tache_8/PCB_TOP_APSOUD.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1239--1244
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1245--1247
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1248--1251
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1252--1256
+
+ []
+
+)
+
+[40 <./Images/WP1_2/Tache_8/Proto_Final.png> <./Images/WP1_2/Tache_8/Result.png (PNG copy)>]
+
+[41
 
 
 ]
 
-[39]
-<mesures_camera.png, id=708, 830.60312pt x 549.55313pt>
+[42]
+<mesures_camera.png, id=753, 830.60312pt x 549.55313pt>
 File: mesures_camera.png Graphic file (type png)
 <use mesures_camera.png>
 Package pdftex.def Info: mesures_camera.png  used on input line 271.
 (pdftex.def)             Requested size: 399.29463pt x 264.18501pt.
 
 
-[40 <./mesures_camera.png>]
+[43 <./mesures_camera.png>]
 
-[41]
+[44]
 
-[42]
+[45]
 
-[43
+[46
 
 ]
 
-[44
+[47
 
 ] (main.aux (Includes/WP1_2.aux))
  ***********
@@ -1500,17 +1604,17 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 26913 strings out of 468130
- 503897 string characters out of 5430633
+ 27002 strings out of 468130
+ 507232 string characters out of 5430633
  1219376 words of memory out of 5000000
- 54702 multiletter control sequences out of 15000+600000
+ 54780 multiletter control sequences out of 15000+600000
  647612 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  94i,16n,93p,1217b,2173s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\bnola\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\bnola\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\bnola\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0900.pk> <C:\Users\bnola\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx0900.pk> <C:\Users\bnola\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecit1000.pk> <C:\Users\bnola\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\bnola\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0600.pk> <C:\Users\bnola\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1095.pk> <C:\Users\bnola\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1095.pk> <C:\Users\bnola\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\bnola\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\bnola\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1095.pk> <C:\Users\bnola\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\bnola\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\bnola\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\bnola\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk> <C:\Users\bnola\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\bnola\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\bnola\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2986.pk><C:/Users/bnola/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/bnola/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/bnola/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/bnola/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/bnola/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (45 pages, 5923391 bytes).
+Output written on main.pdf (48 pages, 14769832 bytes).
 PDF statistics:
- 1751 PDF objects out of 2073 (max. 8388607)
- 365 named destinations out of 1000 (max. 500000)
- 659 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1804 PDF objects out of 2073 (max. 8388607)
+ 376 named destinations out of 1000 (max. 500000)
+ 722 words of extra memory for PDF output out of 10000 (max. 10000000)
 

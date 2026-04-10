@@ -16,17 +16,23 @@
 \contentsline {figure}{\numberline {15}{\ignorespaces Consommation de l'ESP32 en fonction de la fréquence du processeur}}{23}{figure.15}%
 \contentsline {figure}{\numberline {16}{\ignorespaces Consommation de l'ESP32 en fonction du mode de veille}}{24}{figure.16}%
 \contentsline {figure}{\numberline {17}{\ignorespaces Consommation de l'ESP32 en mode Deep Sleep avec réveil par signal GPIO (simulant le PIR)}}{24}{figure.17}%
-\contentsline {figure}{\numberline {18}{\ignorespaces Schéma de l'architecture du système avec l'ESP32 et la PSRAM pour le stockage des images}}{27}{figure.18}%
-\contentsline {figure}{\numberline {19}{\ignorespaces Schéma électrique global du système réalisé avec Kicad}}{28}{figure.19}%
-\contentsline {figure}{\numberline {20}{\ignorespaces Schéma de la partie microcontroleur du système réalisé avec Kicad}}{29}{figure.20}%
-\contentsline {figure}{\numberline {21}{\ignorespaces Schéma de la partie microcontroleur du système réalisé avec Kicad}}{30}{figure.21}%
-\contentsline {figure}{\numberline {22}{\ignorespaces Schéma de la partie microcontroleur du système réalisé avec Kicad}}{31}{figure.22}%
-\contentsline {figure}{\numberline {23}{\ignorespaces Autre section de notre architecure}}{31}{figure.23}%
-\contentsline {figure}{\numberline {24}{\ignorespaces Schéma du montage de contrôle d'alimentation avec un transistor MOSFET P-Channel}}{32}{figure.24}%
-\contentsline {figure}{\numberline {25}{\ignorespaces Simulation du fonctionnement du montage de contrôle d'alimentation avec un transistor MOSFET P-Channel}}{33}{figure.25}%
-\contentsline {figure}{\numberline {26}{\ignorespaces Schéma d'alimentation complet du système réalisé avec Kicad}}{34}{figure.26}%
-\contentsline {figure}{\numberline {27}{\ignorespaces Empreintes des composants sur le PCB}}{35}{figure.27}%
-\contentsline {figure}{\numberline {28}{\ignorespaces Rendu final du PCB réalisé avec Kicad}}{36}{figure.28}%
-\contentsline {figure}{\numberline {29}{\ignorespaces Rendu final 3D du PCB réalisé avec Kicad}}{36}{figure.29}%
-\contentsline {figure}{\numberline {30}{\ignorespaces Chaîne d’acquisition et de traitement des images du module caméra}}{39}{figure.30}%
-\contentsline {figure}{\numberline {31}{\ignorespaces Influence de la résolution sur la taille des images JPEG et le temps de capture}}{40}{figure.31}%
+\contentsline {figure}{\numberline {18}{\ignorespaces Prototype du système avec tous les modules intégrés}}{26}{figure.18}%
+\contentsline {figure}{\numberline {19}{\ignorespaces Différence entre la photographie de notre Caméra et de notre Téléphone}}{27}{figure.19}%
+\contentsline {figure}{\numberline {20}{\ignorespaces Autre section de notre architecure}}{27}{figure.20}%
+\contentsline {figure}{\numberline {21}{\ignorespaces Schéma de l'architecture du système avec l'ESP32 et la PSRAM pour le stockage des images}}{28}{figure.21}%
+\contentsline {figure}{\numberline {22}{\ignorespaces Schéma électrique global du système réalisé avec Kicad}}{29}{figure.22}%
+\contentsline {figure}{\numberline {23}{\ignorespaces Schéma de la partie microcontroleur du système réalisé avec Kicad}}{30}{figure.23}%
+\contentsline {figure}{\numberline {24}{\ignorespaces Schéma de la partie microcontroleur du système réalisé avec Kicad}}{31}{figure.24}%
+\contentsline {figure}{\numberline {25}{\ignorespaces Schéma de la partie microcontroleur du système réalisé avec Kicad}}{32}{figure.25}%
+\contentsline {figure}{\numberline {26}{\ignorespaces Autre section de notre architecure}}{32}{figure.26}%
+\contentsline {figure}{\numberline {27}{\ignorespaces Schéma du montage de contrôle d'alimentation avec un transistor MOSFET P-Channel}}{33}{figure.27}%
+\contentsline {figure}{\numberline {28}{\ignorespaces Simulation du fonctionnement du montage de contrôle d'alimentation avec un transistor MOSFET P-Channel}}{34}{figure.28}%
+\contentsline {figure}{\numberline {29}{\ignorespaces Schéma d'alimentation complet du système réalisé avec Kicad}}{35}{figure.29}%
+\contentsline {figure}{\numberline {30}{\ignorespaces Empreintes des composants sur le PCB}}{36}{figure.30}%
+\contentsline {figure}{\numberline {31}{\ignorespaces Rendu final du PCB réalisé avec Kicad}}{37}{figure.31}%
+\contentsline {figure}{\numberline {32}{\ignorespaces Rendu final 3D du PCB réalisé avec Kicad}}{37}{figure.32}%
+\contentsline {figure}{\numberline {33}{\ignorespaces Rendu final PCB après réception}}{38}{figure.33}%
+\contentsline {figure}{\numberline {34}{\ignorespaces Rendu final}}{39}{figure.34}%
+\contentsline {figure}{\numberline {35}{\ignorespaces Rendu final}}{40}{figure.35}%
+\contentsline {figure}{\numberline {36}{\ignorespaces Chaîne d’acquisition et de traitement des images du module caméra}}{42}{figure.36}%
+\contentsline {figure}{\numberline {37}{\ignorespaces Influence de la résolution sur la taille des images JPEG et le temps de capture}}{43}{figure.37}%
